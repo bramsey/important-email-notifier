@@ -1,0 +1,5 @@
+#subnav
+	.container
+		= toDo_block if Rails.env.development?
+		.flash
+			= render 'shared/flashes'

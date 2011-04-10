@@ -1,0 +1,56 @@
+// Here is where you can define your constants for your application and to configure the blueprint framework.
+// Feel free to delete these if you want keep the defaults:
+
+$blueprint-grid-columns: 24;
+$blueprint-container-size: 950px;
+$blueprint-grid-margin: 10px;
+
+// Use this to calculate the width based on the total width.
+// Or you can set $blueprint-grid-width to a fixed value and unset $blueprint-container-size -- it will be calculated for you.
+$blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin;
+
+// colors
+$border-color: #CCCCCC;
+$quiet-text-color: #999999;
+$std-text-color: #333333;
+$attention-color: #FF0000;
+$back-color: #FFFFFF;
+$marketing-color: $back-color;
+
+
+//@mixin shadow { text-shadow: 0px 0px 0px #222222; }
+@mixin shadow { text-shadow: 1px 1px 1px #222222; }
+
+@mixin top-round {
+	-moz-border-radius:10px 10px 0 0;
+	-webkit-border-radius:10px 10px 0 0;
+	-o-border-radius:10px 10px 0 0;
+	-ms-border-radius:10px 10px 0 0;
+	-khtml-border-radius:10px 10px 0 0;
+	border-radius:10px 10px 0 0;
+}
+
+
+//$main: lighten(#00FFFF, 25%); //Aqua
+//$main: #1E90FF; //DodgerBlue
+//$main: #FF3333; //Red
+//$main: #FF7519; //Orange
+//$main: #FFFF80; //Yellow - nope
+//$main: #33FF33; //Green
+//$main: #3333FF; //Blue
+//$main: #9366B4; //Indigo - nope
+//$main: #EE82EE; //Violet
+//$main: #00FFFF; //Cyan - nope
+//$main: #FF69B4; //Pink
+//$main: #FF00FF; //Magenta - nope
+//$main: #87CEFA; //LightSkyBlue
+$main: #98FB98; //PaleGreen
+
+$main-dark: darken($main, 25%);
+$main-light: lighten($main, 10%);
+$main-very-dark: darken($main-dark, 10%);
+
+// font
+$master-font: Menlo, 'Helvetica Neue',arial,helvetica,sans-serif;
+$marketing-font: 'Helvetica Neue',serif;
+$logo-font: Menlo, 'Helvetica Neue', arial, helvetica, sans-serif;
