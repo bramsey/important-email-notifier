@@ -103,7 +103,7 @@ div#bio {
 #nav_selected { background-color: $main; }
 
 #nav {
-	@include column(13, last);
+	@include column(18, last);
 	@include push(1);
 	@include shadow;
 	margin: 0;
@@ -133,6 +133,19 @@ div#bio {
 			}
 		}
 	} 
+}
+
+
+a.signup_button {
+
+  display: block;
+  text-align: center;
+  width: 190px;
+  color: #fff;
+  background: #FF7519;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 20px;
 }
 
 /* Round corners */
