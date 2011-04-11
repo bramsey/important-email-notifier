@@ -1,21 +1,19 @@
 Notifier::Application.routes.draw do
+
+  resources :users do
+    member do
+      get :recipients, :senders
+    end
+  end
   
-  get "relationships/create"
+  resources :sessions, :only => [:new, :create, :destroy]
+  resources :relationships, :only => [:create, :destroy]
 
-  get "relationships/destroy"
-
-  get "sessions/new"
-
-  get "sessions/create"
-
-  get "sessions/destroy"
-
-  get "users/new"
-
+  match '/signup', :to => 'users#new'
+  match '/signin', :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
   match '/contact', :to => 'pages#contact'
   match '/about', :to => 'pages#about'
-  match '/projects', :to => 'pages#projects'
-  match '/team', :to => 'pages#team'
 
   root :to => 'pages#home'
 
