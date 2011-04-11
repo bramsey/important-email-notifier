@@ -1707,7 +1707,7 @@ div#bio {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 510px;
+  width: 710px;
   display: inline;
   float: right;
   position: relative;
@@ -1748,8 +1748,20 @@ div#bio {
   background-color: #08d808;
 }
 
+/* line 139, ../../../app/stylesheets/screen.scss */
+a.signup_button {
+  display: block;
+  text-align: center;
+  width: 190px;
+  color: #fff;
+  background: #FF7519;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 20px;
+}
+
 /* Round corners */
-/* line 140, ../../../app/stylesheets/screen.scss */
+/* line 153, ../../../app/stylesheets/screen.scss */
 .round {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -1818,14 +1830,14 @@ form.bp textarea {
   height: 250px;
 }
 
-/* line 151, ../../../app/stylesheets/screen.scss */
+/* line 164, ../../../app/stylesheets/screen.scss */
 body.two-col #container {
   width: 950px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 153, ../../../app/stylesheets/screen.scss */
+/* line 166, ../../../app/stylesheets/screen.scss */
 body.two-col #header, body.two-col #footer {
   display: inline;
   float: left;
@@ -1836,7 +1848,7 @@ body.two-col #header, body.two-col #footer {
 * html body.two-col #header, * html body.two-col #footer {
   overflow-x: hidden;
 }
-/* line 155, ../../../app/stylesheets/screen.scss */
+/* line 168, ../../../app/stylesheets/screen.scss */
 body.two-col #sidebar {
   display: inline;
   float: left;
@@ -1847,7 +1859,7 @@ body.two-col #sidebar {
 * html body.two-col #sidebar {
   overflow-x: hidden;
 }
-/* line 159, ../../../app/stylesheets/screen.scss */
+/* line 172, ../../../app/stylesheets/screen.scss */
 body.two-col #content {
   display: inline;
   float: left;

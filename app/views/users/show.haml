@@ -1,10 +1,10 @@
 .profile
 	%h1
-		= gravatar_for @user %>
-		= @user.name %>
+		= gravatar_for @user
+		= @user.name
 .sidebar
 	%strong Name 
 	= @user.name
 	%br
-    %strong URL
+	%strong URL
 	= link_to user_path(@user), @user

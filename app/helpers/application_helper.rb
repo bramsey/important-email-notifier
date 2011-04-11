@@ -8,7 +8,15 @@ module ApplicationHelper
   def siteNav
     content_tag :ul do
       link("About") +
-      link("Contact")
+      link("Contact") +
+      if signed_in?
+        content_tag( :li ) { link_to "Users", users_path } +
+        content_tag( :li ) { link_to "Profile", current_user } +
+        content_tag( :li ) { link_to "Settings", edit_user_path(current_user) } +
+        content_tag( :li ) { link_to "Sign out", signout_path, :method => :delete }
+      else
+        content_tag( :li ) { link_to "Sign in", signin_path }
+      end
     end
   end
   
