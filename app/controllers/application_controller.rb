@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  include SessionsHelper
   
   def redirect_to(options = {}, response_status = {})
     if request.xhr?

@@ -1,5 +1,15 @@
 Notifier::Application.routes.draw do
   
+  get "relationships/create"
+
+  get "relationships/destroy"
+
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
   get "users/new"
 
   match '/contact', :to => 'pages#contact'
