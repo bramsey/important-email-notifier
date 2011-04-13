@@ -28,11 +28,9 @@ body.bp {
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
 }
 * { padding: 0; font-family: $master-font;}
-table { border: 1px solid $border-color; padding: 0; }
-td { vertical-align: top; border: 1px solid $border-color; margin: 0; }
 
 li { list-style-type: none;
- 	display: inline-block;
+
 	vertical-align: top;}
 
 //nav, body { 	@include showgrid; }
@@ -44,6 +42,11 @@ h1, h2, h3, h4, h5 { color: $main-very-dark; }
 a {
 	color: $std-text-color;
 	text-decoration: none; }
+	
+a:hover {
+  color: $main;
+  text-decoration: underline;
+}
 
 header, .marketing {
 	padding-top: 1.5em;
@@ -68,6 +71,11 @@ div#bio {
 .team {
 	padding: 0;
 	li { padding: 0 8px 0 0; } }
+
+.container { padding: 0;
+ 	margin-left: 1em;
+	margin-right: 1em;
+}
 
 .marketing {
 	background-color: $main;
@@ -98,11 +106,72 @@ div#bio {
 		color: $back-color;
 		//margin: 0;
 		font-family: $logo-font;
+		&:hover {
+			text-decoration: none;
+			color: $main-light;
+		}
 		//line-height: 1em;
 		//padding: 0; 
 		}
 	}
 
+.profile img.gravatar {
+  border: 1px solid #999;
+  margin-bottom: -15px;
+}
+
+section {
+  font-size: 120%;
+}
+
+.field_with_errors {
+  margin-top: 10px;
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+div.user_info img {
+  padding-right: 0.1em;
+}
+
+div.user_info a {
+  text-decoration: none;
+}
+
+div.user_info span.user_name {
+  position: absolute;
+}
 
 #nav_selected { background-color: $main; }
 
@@ -132,7 +201,7 @@ div#bio {
 				font-size: 200%;
 				color: $back-color;
 				&:hover { 
-					
+					text-decoration: none;
 					background-color: $main-very-dark;}
 			}
 		}

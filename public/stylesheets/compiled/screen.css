@@ -1561,68 +1561,60 @@ body.bp .removed {
   font-family: "Helvetica Neue", arial, helvetica, sans-serif;
 }
 
-/* line 31, ../../../app/stylesheets/screen.scss */
-table {
-  border: 1px solid #cccccc;
-  padding: 0;
-}
-
 /* line 32, ../../../app/stylesheets/screen.scss */
-td {
-  vertical-align: top;
-  border: 1px solid #cccccc;
-  margin: 0;
-}
-
-/* line 34, ../../../app/stylesheets/screen.scss */
 li {
   list-style-type: none;
-  display: inline-block;
   vertical-align: top;
 }
 
-/* line 40, ../../../app/stylesheets/screen.scss */
+/* line 38, ../../../app/stylesheets/screen.scss */
 h1, h2, h3, h4, h5 {
   color: #00366b;
 }
 
-/* line 42, ../../../app/stylesheets/screen.scss */
+/* line 40, ../../../app/stylesheets/screen.scss */
 * {
   color: #333333;
 }
 
-/* line 44, ../../../app/stylesheets/screen.scss */
+/* line 42, ../../../app/stylesheets/screen.scss */
 a {
   color: #333333;
   text-decoration: none;
 }
 
-/* line 48, ../../../app/stylesheets/screen.scss */
+/* line 46, ../../../app/stylesheets/screen.scss */
+a:hover {
+  color: #1e90ff;
+  text-decoration: underline;
+}
+
+/* line 51, ../../../app/stylesheets/screen.scss */
 header, .marketing {
   padding-top: 1.5em;
   background-color: #00509e;
 }
 
-/* line 52, ../../../app/stylesheets/screen.scss */
+/* line 55, ../../../app/stylesheets/screen.scss */
 header {
   border-top: 2px solid #00366b;
 }
 
-/* line 54, ../../../app/stylesheets/screen.scss */
+/* line 57, ../../../app/stylesheets/screen.scss */
 footer {
   margin-top: 1em;
 }
-/* line 56, ../../../app/stylesheets/screen.scss */
+/* line 59, ../../../app/stylesheets/screen.scss */
 footer * {
   color: #999999;
 }
 
-/* line 58, ../../../app/stylesheets/screen.scss */
+/* line 61, ../../../app/stylesheets/screen.scss */
 #content {
   margin-top: 1em;
 }
 
-/* line 62, ../../../app/stylesheets/screen.scss */
+/* line 65, ../../../app/stylesheets/screen.scss */
 div#avatar {
   display: inline;
   float: left;
@@ -1634,7 +1626,7 @@ div#avatar {
   overflow-x: hidden;
 }
 
-/* line 65, ../../../app/stylesheets/screen.scss */
+/* line 68, ../../../app/stylesheets/screen.scss */
 div#bio {
   display: inline;
   float: left;
@@ -1646,28 +1638,35 @@ div#bio {
   overflow-x: hidden;
 }
 
-/* line 68, ../../../app/stylesheets/screen.scss */
+/* line 71, ../../../app/stylesheets/screen.scss */
 .team {
   padding: 0;
 }
-/* line 70, ../../../app/stylesheets/screen.scss */
+/* line 73, ../../../app/stylesheets/screen.scss */
 .team li {
   padding: 0 8px 0 0;
 }
 
-/* line 72, ../../../app/stylesheets/screen.scss */
+/* line 75, ../../../app/stylesheets/screen.scss */
+.container {
+  padding: 0;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+/* line 80, ../../../app/stylesheets/screen.scss */
 .marketing {
   background-color: #1e90ff;
 }
-/* line 74, ../../../app/stylesheets/screen.scss */
+/* line 82, ../../../app/stylesheets/screen.scss */
 .marketing p {
   color: white;
 }
-/* line 75, ../../../app/stylesheets/screen.scss */
+/* line 83, ../../../app/stylesheets/screen.scss */
 .marketing .container {
   padding: 0;
 }
-/* line 76, ../../../app/stylesheets/screen.scss */
+/* line 84, ../../../app/stylesheets/screen.scss */
 .marketing h1 {
   text-shadow: 1px 1px 1px #222222;
   margin: 0;
@@ -1676,19 +1675,19 @@ div#bio {
   color: white;
 }
 
-/* line 83, ../../../app/stylesheets/screen.scss */
+/* line 91, ../../../app/stylesheets/screen.scss */
 .toDo {
   color: red;
 }
 
-/* line 86, ../../../app/stylesheets/screen.scss */
+/* line 94, ../../../app/stylesheets/screen.scss */
 #subnav {
   background-color: #b7dbff;
   padding-top: 6px;
   padding-bottom: 2px;
 }
 
-/* line 93, ../../../app/stylesheets/screen.scss */
+/* line 101, ../../../app/stylesheets/screen.scss */
 #logo {
   display: inline;
   float: left;
@@ -1700,19 +1699,92 @@ div#bio {
 * html #logo {
   overflow-x: hidden;
 }
-/* line 96, ../../../app/stylesheets/screen.scss */
+/* line 104, ../../../app/stylesheets/screen.scss */
 #logo a {
   font-size: 4em;
   color: white;
   font-family: Menlo, "Helvetica Neue", arial, helvetica, sans-serif;
 }
+/* line 109, ../../../app/stylesheets/screen.scss */
+#logo a:hover {
+  text-decoration: none;
+  color: #b7dbff;
+}
 
-/* line 107, ../../../app/stylesheets/screen.scss */
+/* line 118, ../../../app/stylesheets/screen.scss */
+.profile img.gravatar {
+  border: 1px solid #999;
+  margin-bottom: -15px;
+}
+
+/* line 123, ../../../app/stylesheets/screen.scss */
+section {
+  font-size: 120%;
+}
+
+/* line 127, ../../../app/stylesheets/screen.scss */
+.field_with_errors {
+  margin-top: 10px;
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 134, ../../../app/stylesheets/screen.scss */
+#error_explanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+/* line 143, ../../../app/stylesheets/screen.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+/* line 153, ../../../app/stylesheets/screen.scss */
+#error_explanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+/* line 159, ../../../app/stylesheets/screen.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 164, ../../../app/stylesheets/screen.scss */
+div.user_info img {
+  padding-right: 0.1em;
+}
+
+/* line 168, ../../../app/stylesheets/screen.scss */
+div.user_info a {
+  text-decoration: none;
+}
+
+/* line 172, ../../../app/stylesheets/screen.scss */
+div.user_info span.user_name {
+  position: absolute;
+}
+
+/* line 176, ../../../app/stylesheets/screen.scss */
 #nav_selected {
   background-color: #1e90ff;
 }
 
-/* line 109, ../../../app/stylesheets/screen.scss */
+/* line 178, ../../../app/stylesheets/screen.scss */
 #nav {
   display: inline;
   float: left;
@@ -1731,16 +1803,16 @@ div#bio {
 * html #nav {
   overflow-x: hidden;
 }
-/* line 120, ../../../app/stylesheets/screen.scss */
+/* line 189, ../../../app/stylesheets/screen.scss */
 #nav ul {
   margin: 0;
   padding: 0;
 }
-/* line 123, ../../../app/stylesheets/screen.scss */
+/* line 192, ../../../app/stylesheets/screen.scss */
 #nav ul li {
   display: inline-block;
 }
-/* line 127, ../../../app/stylesheets/screen.scss */
+/* line 196, ../../../app/stylesheets/screen.scss */
 #nav ul li a {
   padding: .5em .5em 1em .5em;
   -moz-border-radius: 10px 10px 0 0;
@@ -1753,12 +1825,13 @@ div#bio {
   font-size: 200%;
   color: white;
 }
-/* line 134, ../../../app/stylesheets/screen.scss */
+/* line 203, ../../../app/stylesheets/screen.scss */
 #nav ul li a:hover {
+  text-decoration: none;
   background-color: #00366b;
 }
 
-/* line 143, ../../../app/stylesheets/screen.scss */
+/* line 212, ../../../app/stylesheets/screen.scss */
 a.signup_button {
   display: block;
   text-align: center;
@@ -1771,7 +1844,7 @@ a.signup_button {
 }
 
 /* Round corners */
-/* line 157, ../../../app/stylesheets/screen.scss */
+/* line 226, ../../../app/stylesheets/screen.scss */
 .round {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -1840,14 +1913,14 @@ form.bp textarea {
   height: 250px;
 }
 
-/* line 168, ../../../app/stylesheets/screen.scss */
+/* line 237, ../../../app/stylesheets/screen.scss */
 body.two-col #container {
   width: 950px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 170, ../../../app/stylesheets/screen.scss */
+/* line 239, ../../../app/stylesheets/screen.scss */
 body.two-col #header, body.two-col #footer {
   display: inline;
   float: left;
@@ -1858,7 +1931,7 @@ body.two-col #header, body.two-col #footer {
 * html body.two-col #header, * html body.two-col #footer {
   overflow-x: hidden;
 }
-/* line 172, ../../../app/stylesheets/screen.scss */
+/* line 241, ../../../app/stylesheets/screen.scss */
 body.two-col #sidebar {
   display: inline;
   float: left;
@@ -1869,7 +1942,7 @@ body.two-col #sidebar {
 * html body.two-col #sidebar {
   overflow-x: hidden;
 }
-/* line 176, ../../../app/stylesheets/screen.scss */
+/* line 245, ../../../app/stylesheets/screen.scss */
 body.two-col #content {
   display: inline;
   float: left;
