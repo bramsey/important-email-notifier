@@ -10,7 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110411202830) do
+ActiveRecord::Schema.define(:version => 20110413195831) do
+
+  create_table "messages", :force => true do |t|
+    t.integer  "urgency"
+    t.boolean  "disagree"
+    t.string   "content"
+    t.integer  "relationship_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["relationship_id"], :name => "index_messages_on_relationship_id"
 
   create_table "relationships", :force => true do |t|
     t.integer  "sender_id"
@@ -18,6 +29,10 @@ ActiveRecord::Schema.define(:version => 20110411202830) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "relationships", ["recipient_id"], :name => "index_relationships_on_recipient_id"
+  add_index "relationships", ["sender_id", "recipient_id"], :name => "index_relationships_on_sender_id_and_recipient_id", :unique => true
+  add_index "relationships", ["sender_id"], :name => "index_relationships_on_sender_id"
 
   create_table "users", :force => true do |t|
     t.string   "alias"
@@ -29,5 +44,7 @@ ActiveRecord::Schema.define(:version => 20110411202830) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end
