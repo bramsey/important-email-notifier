@@ -19,7 +19,7 @@ describe RelationshipsController do
 
     before(:each) do
       @user = test_sign_in(Factory(:user))
-      @recipient= Factory(:user, :email => Factory.next(:email))
+      @recipient = Factory(:user, :alias => Factory.next(:alias), :email => Factory.next(:email))
     end
 
     it "should create a relationship" do

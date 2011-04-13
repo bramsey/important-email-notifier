@@ -1,5 +1,5 @@
 class Relationship < ActiveRecord::Base
-  attr_accessible :followed_id
+  attr_accessible :recipient_id
   
   belongs_to :sender, :class_name => "User"
   belongs_to :recipient, :class_name => "User"

@@ -26,7 +26,8 @@ describe UsersController do
 
         @users = [@user, second, third]
         30.times do
-          @users << Factory(:user, :email => Factory.next(:email))
+          @users << Factory(:user, :alias => Factory.next(:alias), 
+                                   :email => Factory.next(:email))
         end
       end
 
@@ -51,7 +52,8 @@ describe UsersController do
 
       describe "for admin users" do
         before(:each) do
-          admin = Factory(:user, :email => "admin@example.com", :admin => true)
+          admin = Factory(:user, :alias => "admn", 
+                                 :email => "admin@example.com", :admin => true)
           test_sign_in(admin)
         end
 
@@ -184,7 +186,7 @@ describe UsersController do
 
  			it "should have a welcome message" do
  			  post :create, :user => @attr
- 			  flash[:success].should =~ /welcome to the sample app/i
+ 			  flash[:success].should =~ /welcome to the Notifier/i
 		  end
 		end
   end
@@ -278,7 +280,7 @@ describe UsersController do
     describe "for signed-in users" do
 
       before(:each) do
-        wrong_user = Factory(:user, :email => "user@example.net")
+        wrong_user = Factory(:user, :alias => "wuser", :email => "user@example.net")
         test_sign_in(wrong_user)
       end
 
@@ -318,7 +320,8 @@ describe UsersController do
     describe "as an admin user" do
 
       before(:each) do
-        @admin = Factory(:user, :email => "admin@example.com", :admin => true)
+        @admin = Factory(:user, :alias => "auser", 
+                                :email => "admin@example.com", :admin => true)
         test_sign_in(@admin)
       end
 

@@ -4,7 +4,7 @@ describe Relationship do
 
   before(:each) do
     @sender = Factory(:user)
-    @recipient = Factory(:user, :email => Factory.next(:email))
+    @recipient = Factory(:user, :alias => "fuser", :email => Factory.next(:email))
 
     @relationship = @sender.relationships.build(:recipient_id => @recipient.id)
   end
