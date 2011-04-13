@@ -1,5 +1,11 @@
 Notifier::Application.routes.draw do
 
+  get "messages/create"
+
+  get "messages/destroy"
+
+  get "messages/index"
+
   resources :users do
     member do
       get :recipients, :senders

@@ -47,8 +47,37 @@ class User < ActiveRecord::Base
     relationships.find_by_recipient_id(recipient)
   end
 
-  def send!(recipient)
-    relationships.create!(:recipient_id => recipient.id)
+  def send!(recipient, content)
+    rel = sender?(recipient) || relationships.create!(:recipient_id => recipient.id)
+    rel.messages.create!(:urgency => 1, :content => content)
+  end
+  
+  def sent_messages
+    msgs = []
+    relationships.each do |relationship|
+      relationship.messages.each { |m| msgs << m }
+    end
+    msgs
+  end
+  
+  def received_messages
+    msgs = []
+    reverse_relationships.each do |relationship|
+      relationship.messages.each { |m| msgs << m }
+    end
+    msgs
+  end
+  
+  def messages_from(sender)
+    msgs = []
+    received_messages.each {|msg| msgs << msg if msg.relationship.sender == sender}
+    msgs
+  end
+  
+  def messages_to(recipient)
+    msgs = []
+    sent_messages.each {|msg| msgs << msg if msg.relationship.recipient == recipient}
+    msgs
   end
 
   #def feed
