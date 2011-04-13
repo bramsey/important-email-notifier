@@ -2,18 +2,38 @@ require 'spec_helper'
 
 describe RelationshipsController do
 
-  describe "GET 'create'" do
-    it "should be successful" do
-      get 'create'
-      response.should be_success
+  describe "access control" do
+
+    it "should require signin for create" do
+      post :create
+      response.should redirect_to(signin_path)
+    end
+
+    it "should require signin for destroy" do
+      delete :destroy, :id => 1
+      response.should redirect_to(signin_path)
     end
   end
 
-  describe "GET 'destroy'" do
-    it "should be successful" do
-      get 'destroy'
-      response.should be_success
+  describe "POST 'create'" do
+
+    before(:each) do
+      @user = test_sign_in(Factory(:user))
+      @recipient= Factory(:user, :email => Factory.next(:email))
+    end
+
+    it "should create a relationship" do
+      lambda do
+        post :create, :relationship => { :recipient_id => @recipient }
+        response.should be_redirect
+      end.should change(Relationship, :count).by(1)
+    end
+    
+    it "should create a relationship using Ajax" do
+      lambda do
+        xhr :post, :create, :relationship => { :recipient_id => @recipient }
+        response.should be_success
+      end.should change(Relationship, :count).by(1)
     end
   end
-
 end
