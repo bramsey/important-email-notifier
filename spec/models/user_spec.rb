@@ -195,12 +195,12 @@ describe User do
     end
 
     it "should send to another user" do
-      @user.send!(@recipient)
+      @user.send!(@recipient, "test")
       @user.should be_sender(@recipient)
     end
 
     it "should include the recipient user in the recipients array" do
-      @user.send!(@recipient)
+      @user.send!(@recipient, "test")
       @user.recipients.should include(@recipient)
     end
     
@@ -213,8 +213,84 @@ describe User do
     end
 
     it "should include the sender in the senders array" do
-      @user.send!(@recipient)
+      @user.send!(@recipient, "test")
       @recipient.senders.should include(@user)
+    end
+  end
+  
+  describe "messages" do
+    
+    before(:each) do
+      @user1 = User.create!(@attr)
+      @user2 = Factory(:user)
+      @user3 = Factory(:user, :alias => Factory.next(:alias), :email => Factory.next(:email))
+      
+      @first_msg = @user1.send!(@user2, "two message")
+      @second_msg = @user1.send!(@user3, "three message")
+      @third_msg = @user2.send!(@user1, "one message")
+      @fourth_msg = @user3.send!(@user1, "three one message")
+    end
+    
+    describe "sent_messages" do
+      
+      it "should have a sent_messages method" do
+        @user1.should respond_to(:sent_messages)
+      end
+      
+      it "should include all messages sent from the user" do
+        @user1.sent_messages.should include(@first_msg)
+        @user1.sent_messages.should include(@second_msg)
+      end
+      
+      it "should not include a message sent by another user" do
+        @user1.sent_messages.should_not include(@third_msg)
+      end
+    end
+    
+    describe "received_messages" do
+      
+      it "should have a received_messages method" do
+        @user1.should respond_to(:received_messages)
+      end
+      
+      it "should include all messages sent to the user" do
+        @user1.received_messages.should include(@third_msg)
+        @user1.received_messages.should include(@fourth_msg)
+      end
+      
+      it "should not include a message sent to another user" do
+        @user1.received_messages.should_not include(@first_msg)
+      end
+    end
+        
+    describe "messages_to" do
+      
+      it "should have a messages_to method" do
+        @user1.should respond_to(:messages_to)
+      end
+    
+      it "should include messages from the user to the specified user" do
+        @user1.messages_to(@user2).should include(@first_msg)
+      end
+      
+      it "should not include messages from the user to an incorrect user" do
+        @user1.messages_to(@user2).should_not include(@second_msg)
+      end
+    end
+    
+    describe "messages_from" do
+      
+      it "should have a messages_from method" do
+        @user1.should respond_to(:messages_from)
+      end
+      
+      it "should include messages to the user from the specified user" do
+        @user1.messages_from(@user2).should include(@third_msg)
+      end
+      
+      it "should not include messages to the user from an unspecified user" do
+        @user1.messages_from(@user2).should_not include(@fourth_msg)
+      end
     end
   end
 end
