@@ -1,3 +1,4 @@
 .marketing
-	.container
-		%h1= @slogan
+	- if @slogan
+		.container
+			%h1= @slogan

@@ -71,8 +71,12 @@ div#bio {
 
 .marketing {
 	background-color: $main;
+	p { color: $marketing-color; }
+	.container { padding: 0; }
 	h1 {
 		@include shadow;
+		margin: 0;
+		padding-bottom: .5em;
 		font-family: $marketing-font;
 		color: $marketing-color; } }
 
@@ -103,7 +107,7 @@ div#bio {
 #nav_selected { background-color: $main; }
 
 #nav {
-	@include column(18, last);
+	@include column(16, last);
 	@include push(1);
 	@include shadow;
 	margin: 0;
@@ -121,7 +125,7 @@ div#bio {
 			//padding-bottom: 2em;
 			
 			a{
-				padding: .5em 1em 1em 1em;
+				padding: .5em .5em 1em .5em;
 				@include top-round;
 				//font-weight: bold;
 				font-family: $marketing-font;

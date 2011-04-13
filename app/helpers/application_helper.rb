@@ -7,30 +7,30 @@ module ApplicationHelper
   
   def siteNav
     content_tag :ul do
-      link("About") +
-      link("Contact") +
+      link("About", about_path) +
+      link("Contact", contact_path) +
       if signed_in?
-        content_tag( :li ) { link_to "Users", users_path } +
-        content_tag( :li ) { link_to "Profile", current_user } +
-        content_tag( :li ) { link_to "Settings", edit_user_path(current_user) } +
+        link("Users", users_path) +
+        link("Profile", current_user) +
+        link("Settings", edit_user_path(current_user)) +
         content_tag( :li ) { link_to "Sign out", signout_path, :method => :delete }
       else
-        content_tag( :li ) { link_to "Sign in", signin_path }
+        link("Sign in", signin_path)
       end
     end
   end
   
-  def link(val)
-    if @title == val
-      content_tag( :li ) {link_to val, root_path + val.downcase, :id => "nav_selected" }
+  def link(label, path)
+    if @title == label
+      content_tag( :li ) { link_to label, path, :id => "nav_selected" }
     else
-      content_tag( :li ) { link_to val, root_path + val.downcase }
+      content_tag( :li ) { link_to label, path }
     end
   end
   
   def toDo_block
     if @toDo
-      content_tag(:strong, :class => "toDo") { "[ToDo: " + @toDo + "]" } 
+      content_tag(:h2, :class => "toDo") { "[ ToDo: " + @toDo + " ]" } 
     end
   end
   
@@ -46,5 +46,11 @@ module ApplicationHelper
     else
       "#{base_title} | #{@title}"
     end
+  end
+  
+  # put this in the body after a form to set the input focus to a specific control id
+  # at end of rhtml file: <%= set_focus_to_id 'form_field_label' %>
+  def set_focus_to_id(id)
+   javascript_tag("$('#{id}').focus()");
   end
 end

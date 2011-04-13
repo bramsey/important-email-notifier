@@ -5,22 +5,22 @@ class UsersController < ApplicationController
   before_filter :already_signed_in, :only => [:new, :create]
 
   def index
-    @title = "All users"
+    @title = "Users"
     @users = User.paginate(:page => params[:page])
-    @toDo = "filter so each user only sees the users they have communicated with"
+    @toDo = "filter so each user only sees the users they have communicated with."
   end
 
   def show
     @user = User.find(params[:id])
     #@microposts = @user.microposts.paginate(:page => params[:page])
-    @title = @user.name
-    @toDo = "show the notices waiting to be dealt with"
+    @title = "Profile"
+    @toDo = "show the notices waiting to be dealt with."
   end
 
   def new
     @title = "Sign up"
     @user = User.new
-    @toDo = "set up signup page"
+    @toDo = "Add check for existing alias."
   end
 
   def create
@@ -38,8 +38,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @title = "Edit user"
-    @toDo = "Verify edit user works"
+    @title = "Settings"
   end
 
   def update

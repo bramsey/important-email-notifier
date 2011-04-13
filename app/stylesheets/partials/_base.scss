@@ -32,7 +32,7 @@ $marketing-color: $back-color;
 
 
 //$main: lighten(#00FFFF, 25%); //Aqua
-//$main: #1E90FF; //DodgerBlue
+$main: #1E90FF; //DodgerBlue
 //$main: #FF3333; //Red
 //$main: #FF7519; //Orange
 //$main: #FFFF80; //Yellow - nope
@@ -44,13 +44,13 @@ $marketing-color: $back-color;
 //$main: #FF69B4; //Pink
 //$main: #FF00FF; //Magenta - nope
 //$main: #87CEFA; //LightSkyBlue
-$main: #98FB98; //PaleGreen
+//$main: #98FB98; //PaleGreen
 
 $main-dark: darken($main, 25%);
-$main-light: lighten($main, 10%);
+$main-light: lighten($main, 30%);
 $main-very-dark: darken($main-dark, 10%);
 
 // font
-$master-font: Menlo, 'Helvetica Neue',arial,helvetica,sans-serif;
-$marketing-font: 'Helvetica Neue',serif;
+$master-font: 'Helvetica Neue',arial,helvetica,sans-serif;
+$marketing-font: 'Geneva', 'Helvetica Neue',serif;
 $logo-font: Menlo, 'Helvetica Neue', arial, helvetica, sans-serif;
