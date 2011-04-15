@@ -47,9 +47,9 @@ class User < ActiveRecord::Base
     relationships.find_by_recipient_id(recipient)
   end
 
-  def send!(recipient, content)
+  def send!(recipient, urgency, content)
     rel = sender?(recipient) || relationships.create!(:recipient_id => recipient.id)
-    rel.messages.create!(:urgency => 1, :content => content)
+    rel.messages.create!(:urgency => urgency, :content => content)
   end
   
   def sent_messages
@@ -78,6 +78,10 @@ class User < ActiveRecord::Base
     msgs = []
     sent_messages.each {|msg| msgs << msg if msg.relationship.recipient == recipient}
     msgs
+  end
+  
+  def contacts
+    senders | recipients
   end
 
   #def feed

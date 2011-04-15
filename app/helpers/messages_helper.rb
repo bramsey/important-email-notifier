@@ -7,11 +7,11 @@ module MessagesHelper
   def display_urgency(message)
     case message.urgency
     when 1
-      "Immediate"
+      content_tag(:span, :class => "urgent1") { "Immediate" }
     when 2
-      "Today"
+      content_tag(:span, :class => "urgent2") { "Today" }
     when 3
-      "This week"
+      content_tag(:span, :class => "urgent3") { "This week" }
     else
       "Not urgent"
     end

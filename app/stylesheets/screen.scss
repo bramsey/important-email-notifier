@@ -48,19 +48,28 @@ a:hover {
   text-decoration: underline;
 }
 
-header, .marketing {
+.marketing {
 	padding-top: 1.5em;
-	background-color: $main-dark;}
+}
 
-header { border-top: 2px solid $main-very-dark; }
+header { border-top: 2px solid $main-very-dark;
+	background-color: $main-dark;
+ }
 
 footer { 
 	margin-top: 1em;
+	border-top: 1px solid $border-color;
+	background-color: $back-color;
 	* {color: $quiet-text-color;} }
 
 #content {
 	margin-top: 1em;
+	min-height: 350px;
  }
+
+#footer_info {
+	margin-top: 1em;
+}
 
 div#avatar {
 	@include column(5); }
@@ -72,9 +81,54 @@ div#bio {
 	padding: 0;
 	li { padding: 0 8px 0 0; } }
 
-.container { padding: 0;
- 	margin-left: 1em;
-	margin-right: 1em;
+.container { padding: 0 1.5em 0 1.5em;
+ 	margin: auto;
+}
+
+.avatar {
+	float: left;
+	margin-top: 3px;
+}
+
+.messages {
+	padding-left: 1em;
+}
+
+.message_content {
+	margin-left: 58px;
+}
+
+.disagree {
+	font-size: 12px;
+	a:hover {
+		color: #f00;
+	}
+}
+
+.message {
+	min-height: 100px;
+	border-bottom: 1px solid #EBEBEB;
+	padding-top: 10px;
+	width: 450px;
+}
+
+.urgent1 { color: #F00; }
+.urgent2 { color: #FF7519; }
+.urgent3 { color: #0F0; }
+
+.message_user_alias {
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.message_user_name {
+	font-size: 12px;
+	color: $quiet-text-color;
+}
+
+.message_timestamp {
+	font-size: 11px;
+	color: $quiet-text-color;
 }
 
 .marketing {
@@ -97,23 +151,6 @@ div#bio {
 	padding-bottom: 2px; }
 
 //body {margin-top: 40px; padding-top: 1em; }
-
-#logo { 
-	@include column(4);
-	@include shadow;
-	a {
-		font-size: 4em;
-		color: $back-color;
-		//margin: 0;
-		font-family: $logo-font;
-		&:hover {
-			text-decoration: none;
-			color: $main-light;
-		}
-		//line-height: 1em;
-		//padding: 0; 
-		}
-	}
 
 .profile img.gravatar {
   border: 1px solid #999;
@@ -173,10 +210,27 @@ div.user_info span.user_name {
   position: absolute;
 }
 
+#logo { 
+	@include column(6);
+	@include shadow;
+	a {
+		font-size: 4em;
+		color: $back-color;
+		//margin: 0;
+		font-family: $logo-font;
+		&:hover {
+			text-decoration: none;
+			color: $main-light;
+		}
+		//line-height: 1em;
+		//padding: 0; 
+	}
+}
+
 #nav_selected { background-color: $main; }
 
 #nav {
-	@include column(16, last);
+	@include column(12, last);
 	@include push(1);
 	@include shadow;
 	margin: 0;
@@ -194,7 +248,7 @@ div.user_info span.user_name {
 			//padding-bottom: 2em;
 			
 			a{
-				padding: .5em .5em 1em .5em;
+				padding: .5em 1em 1em 1em;
 				@include top-round;
 				//font-weight: bold;
 				font-family: $marketing-font;
@@ -208,6 +262,34 @@ div.user_info span.user_name {
 	} 
 }
 
+#sign_in {
+	@include column(10);
+	@include push(1);
+	#session_email, #session_password { width: 137px; }
+}
+
+#sign_out {
+	float: right;
+	a {
+		color: $main;
+		&:hover { color: $main-light; }
+	}
+}
+
+.current_avatar {
+	float: right;
+	img { border: 2px solid $main-light; }
+}
+
+#sidebar {
+	@include column(8, last);
+	@include push(1);
+	
+}
+
+.profile {
+	@include column(16);
+}
 
 a.signup_button {
 
@@ -219,6 +301,12 @@ a.signup_button {
   font-size: 150%;
   font-weight: bold;
   padding: 20px;
+
+	&:hover {
+		@include shadow;
+		background: #0F0;
+		text-decoration: none;
+	}
 }
 
 /* Round corners */

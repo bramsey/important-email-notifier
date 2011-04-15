@@ -5,16 +5,18 @@ class UsersController < ApplicationController
   before_filter :already_signed_in, :only => [:new, :create]
 
   def index
-    @title = "Users"
-    @users = User.paginate(:page => params[:page])
-    @toDo = "filter so each user only sees the users they have communicated with."
+    @title = "Contacts"
+    current_user.admin? ?
+      @users = User.paginate(:page => params[:page]) :
+      @users = current_user.contacts.paginate(:page => params[:page])
+    @toDo = "spifify user item styling and content"
   end
 
   def show
     @user = User.find(params[:id])
     #@microposts = @user.microposts.paginate(:page => params[:page])
     @title = "Profile"
-    @toDo = "show the notices waiting to be dealt with."
+    @toDo = "show the stats."
   end
 
   def new

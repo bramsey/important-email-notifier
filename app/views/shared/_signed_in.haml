@@ -1,4 +1,4 @@
 %h2 New Messages
 - unless current_user.received_messages.empty?
-	%ul.messages
+	.messages
 		= render current_user.received_messages

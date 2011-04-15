@@ -1,4 +1,5 @@
 .marketing
 	- if @slogan
-		.container
-			%h1= @slogan
+		- unless signed_in?
+			.container
+				%h1= @slogan

@@ -1,14 +1,26 @@
-%li.message
-	.sender
-		= "Sender: #{message.sender.name}"
-	.urgency
-		= display_urgency message
-	.content
-		=wrap(message.content)
-	.timestamp
-		= "Sent #{time_ago_in_words(message.created_at)} ago."
-	- recipient = message.recipient
-	- if current_user?(recipient)
-		= link_to "delete", message, :method => "delete",
-	                                 :confirm => "You sure?",
-                                     :title => message.content
+.message
+	.avatar
+		= gravatar_for message.sender
+	.message_content
+		.row
+			.sender
+				%span.message_user_alias
+					= link_to message.sender.alias, message.sender
+				%span.message_user_name
+					= message.sender.name
+		.row
+			.urgency
+				= display_urgency message
+				%span.disagree
+					= "-"
+					= link_to 'disagree', '#'
+		.row
+			.content
+				= wrap(message.content)
+		.row
+			.message_timestamp
+				= "#{time_ago_in_words(message.created_at)} ago."
+				-if current_user?(message.recipient)
+					= link_to "delete", message, :method => "delete",
+												 :confirm => "You sure?",
+												 :title => message.content

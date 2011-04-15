@@ -1,4 +1,4 @@
 - unless @user.received_messages.empty?
-	%ul.messages
+	.messages
 		= render @messages
 	= will_paginate @messages

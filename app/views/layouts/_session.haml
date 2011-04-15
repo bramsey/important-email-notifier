@@ -1,0 +1,10 @@
+- unless signed_in?
+	#sign_in
+		= form_for(:session, :url => sessions_path) do |f|
+			= f.text_field :email, :value => "Email"
+			= f.password_field :password, :value => "password"
+			= f.submit "Sign in"
+- else
+	#sign_out
+		%strong
+			= link_to 'Sign out: ' + current_user.alias, signout_path, :method => :delete
