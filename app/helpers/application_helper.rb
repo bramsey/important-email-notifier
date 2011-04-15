@@ -1,5 +1,5 @@
 module ApplicationHelper
-  
+
   def logo
     #image_tag("logo.png", :alt => "Vybly")
     "Notifier"
@@ -52,5 +52,9 @@ module ApplicationHelper
   # at end of rhtml file: <%= set_focus_to_id 'form_field_label' %>
   def set_focus_to_id(id)
    javascript_tag("$('#{id}').focus()");
+  end
+  
+  def notify(user, urgency)
+    
   end
 end

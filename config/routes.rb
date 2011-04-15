@@ -1,17 +1,13 @@
 Notifier::Application.routes.draw do
 
-  get "messages/create"
-
-  get "messages/destroy"
-
-  get "messages/index"
-
   resources :users do
+    resources :messages, :only => :index
     member do
       get :recipients, :senders
     end
   end
   
+  resources :messages, :only => [:create, :destroy]
   resources :sessions, :only => [:new, :create, :destroy]
   resources :relationships, :only => [:create, :destroy]
 

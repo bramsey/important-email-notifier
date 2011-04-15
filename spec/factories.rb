@@ -15,6 +15,17 @@ Factory.sequence :email do |n|
   "person-#{n}@example.com"
 end
 
+Factory.define :relationship do |relationship|
+  relationship.association :user
+end
+
+Factory.define :message do |message|
+  message.urgency "1"
+  message.content "foo bar"
+  message.association :relationship
+end
+  
+
 #Factory.define :micropost do |micropost|
 #  micropost.content "Foo bar"
 #  micropost.association :user

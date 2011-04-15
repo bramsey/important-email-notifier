@@ -3,12 +3,12 @@ class MessagesController < ApplicationController
   before_filter :authorized_user, :only => :destroy
 
   def create
-    @message  = current_user.send!(params[:message])
-    if @message.save
-      flash[:success] = "Messages created!"
+    @message  = current_user.send!(params[:recipient], params[:message])
+    if @message
+      flash[:success] = "Message created!"
       redirect_to root_path
     else
-      @feed_items = []
+      @feed_items
       render 'pages/home'
     end
   end
@@ -20,7 +20,7 @@ class MessagesController < ApplicationController
   
   def index
     @user = User.find(params[:user_id])
-    @messages = @user.microposts.paginate(:page => params[:page])
+    @messages = @user.received_messages.paginate(:page => params[:page])
   end
 
   private

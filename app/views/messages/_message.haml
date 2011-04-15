@@ -1,0 +1,14 @@
+%li.message
+	.sender
+		= "Sender: #{message.sender.name}"
+	.urgency
+		= display_urgency message
+	.content
+		=wrap(message.content)
+	.timestamp
+		= "Sent #{time_ago_in_words(message.created_at)} ago."
+	- recipient = message.recipient
+	- if current_user?(recipient)
+		= link_to "delete", message, :method => "delete",
+	                                 :confirm => "You sure?",
+                                     :title => message.content

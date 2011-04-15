@@ -108,6 +108,7 @@ DEPENDENCIES
   faker
   gravatar_image_tag
   haml
+  mail
   nokogiri
   rails
   rspec
