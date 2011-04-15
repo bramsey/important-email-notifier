@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 
   def home
     @title = "Home"
-    @slogan = "Ensure only the right messages get your attention."
+    @slogan = "Ensure only important messages get your attention."
     @content = "Welcome to Notifier!"
   end
 
