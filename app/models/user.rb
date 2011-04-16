@@ -83,6 +83,25 @@ class User < ActiveRecord::Base
   def contacts
     senders | recipients
   end
+  
+  def relationship_with(user)
+    relationships.find_by_recipient_id(user)
+  end
+  
+  def reverse_relationship_with(user)
+    reverse_relationships.find_by_sender_id(user)
+  end
+  
+  def reliable?
+    reliable_count = 0
+    
+    relationships.each {|rel| reliable_count += 1 if rel.reliable?}
+    reliable_count > ( relationships.count / 2 )
+  end
+  
+  def reliable_to(user)
+    relationship_with(user).reliable?
+  end
 
   #def feed
   #  Micropost.from_users_followed_by(self)

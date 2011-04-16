@@ -17,4 +17,9 @@ class Message < ActiveRecord::Base
   def recipient
     relationship.recipient
   end
+  
+  def disagree!
+    self.disagree = true
+    self.save
+  end
 end

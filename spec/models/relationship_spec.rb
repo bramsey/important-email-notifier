@@ -48,4 +48,38 @@ describe Relationship do
       @relationship.should_not be_valid
     end
   end
+  
+  describe "reliability" do
+    before(:each) do
+      15.times do
+        @sender.send!(@recipient, 1, "test")
+      end
+      @relationship = @sender.relationships.first
+      @msgs = @relationship.messages
+    end
+    
+    it "should have reliable? method" do
+      @relationship.should respond_to(:reliable?)
+    end
+    
+    it "should be reliable if fewer than 2 disagreements are present" do
+      @msgs.first.disagree!
+      @msgs.second.disagree!
+      @relationship.reliable?.should be_true
+    end
+    
+    it "should be unreliable if 3 disagreements are found before 10 agreements" do
+      @msgs.first.disagree!
+      @msgs.second.disagree!
+      @msgs[11].disagree!
+      @relationship.reliable?.should_not be_true
+    end
+    
+    it "should be reliable if 10 agreements occur in a row" do
+      @msgs.first.disagree!
+      @msgs.second.disagree!
+      @msgs[12].disagree!
+      @relationship.reliable?.should be_true
+    end
+  end
 end

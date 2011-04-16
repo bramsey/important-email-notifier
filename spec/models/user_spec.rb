@@ -195,12 +195,12 @@ describe User do
     end
 
     it "should send to another user" do
-      @user.send!(@recipient, "test")
+      @user.send!(@recipient, 1, "test")
       @user.should be_sender(@recipient)
     end
 
     it "should include the recipient user in the recipients array" do
-      @user.send!(@recipient, "test")
+      @user.send!(@recipient, 1, "test")
       @user.recipients.should include(@recipient)
     end
     
@@ -213,9 +213,35 @@ describe User do
     end
 
     it "should include the sender in the senders array" do
-      @user.send!(@recipient, "test")
+      @user.send!(@recipient, 1, "test")
       @recipient.senders.should include(@user)
     end
+    
+    describe "reliability" do
+      before(:each) do
+        @user2 = Factory(:user, :alias => Factory.next(:alias), :email => Factory.next(:email))
+        @user3 = Factory(:user, :alias => Factory.next(:alias), :email => Factory.next(:email))
+        @user4 = Factory(:user, :alias => Factory.next(:alias), :email => Factory.next(:email))
+        3.times { @user.send!(@user2, 1, "test") }
+        3.times { @user.send!(@user3, 2, "test") }
+        @user.send!(@user4, 3, "test")
+        @rels = @user.relationships
+      end
+      
+      it "should have a reliable? method" do
+        @user.should respond_to(:reliable?)
+      end
+      
+      it "should return false if most relationships are unreliable" do
+        @rels.first.messages.each {|msg| msg.disagree!}
+        @rels.second.messages.each {|msg| msg.disagree!}
+        @user.reliable?.should_not be_true
+      end
+      
+      it "should return true if most relationships are reliable" do
+        @user.reliable?.should be_true
+      end
+    end 
   end
   
   describe "messages" do
@@ -225,10 +251,10 @@ describe User do
       @user2 = Factory(:user)
       @user3 = Factory(:user, :alias => Factory.next(:alias), :email => Factory.next(:email))
       
-      @first_msg = @user1.send!(@user2, "two message")
-      @second_msg = @user1.send!(@user3, "three message")
-      @third_msg = @user2.send!(@user1, "one message")
-      @fourth_msg = @user3.send!(@user1, "three one message")
+      @first_msg = @user1.send!(@user2, 1, "two message")
+      @second_msg = @user1.send!(@user3, 1, "three message")
+      @third_msg = @user2.send!(@user1, 1, "one message")
+      @fourth_msg = @user3.send!(@user1, 1, "three one message")
     end
     
     describe "sent_messages" do

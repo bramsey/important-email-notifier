@@ -1,7 +1,11 @@
 .profile
-	%h1
-		= gravatar_for @user
-		= @user.name
+	.avatar
+		= gravatar_for @user, :size => 128
+	.profile_content
+		%span.profile_name= @user.name
+		%br
+		%span.profile_alias= @user.alias
+
 #sidebar
 	%strong Alias
 	= @user.alias
@@ -14,12 +18,13 @@
 	%br
 	%strong URL
 	= link_to user_path(@user), @user
-%hr
-- if @user == current_user
-	.messages
-		%h2 Received Messages
-		= render current_user.received_messages
-- else
-	%h2 Messages to you:
-	.messages
-		= render current_user.messages_from(@user)
+.profile_feed
+	%hr
+	- if @user == current_user
+		%h2 Received Messages:
+		.messages
+			= render current_user.received_messages
+	- else
+		%h2 Messages to you:
+		.messages
+			= render current_user.messages_from(@user)

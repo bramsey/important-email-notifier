@@ -1756,22 +1756,23 @@ div#bio {
 /* line 148, ../../../app/stylesheets/screen.scss */
 #subnav {
   background-color: #b7dbff;
+  border-bottom: 1px solid #cccccc;
   padding-top: 6px;
   padding-bottom: 2px;
 }
 
-/* line 155, ../../../app/stylesheets/screen.scss */
+/* line 156, ../../../app/stylesheets/screen.scss */
 .profile img.gravatar {
   border: 1px solid #999;
   margin-bottom: -15px;
 }
 
-/* line 160, ../../../app/stylesheets/screen.scss */
+/* line 161, ../../../app/stylesheets/screen.scss */
 section {
   font-size: 120%;
 }
 
-/* line 164, ../../../app/stylesheets/screen.scss */
+/* line 165, ../../../app/stylesheets/screen.scss */
 .field_with_errors {
   margin-top: 10px;
   padding: 2px;
@@ -1779,7 +1780,7 @@ section {
   display: table;
 }
 
-/* line 171, ../../../app/stylesheets/screen.scss */
+/* line 172, ../../../app/stylesheets/screen.scss */
 #error_explanation {
   width: 400px;
   border: 2px solid red;
@@ -1789,7 +1790,7 @@ section {
   background-color: #f0f0f0;
 }
 
-/* line 180, ../../../app/stylesheets/screen.scss */
+/* line 181, ../../../app/stylesheets/screen.scss */
 #error_explanation h2 {
   text-align: left;
   font-weight: bold;
@@ -1800,35 +1801,35 @@ section {
   color: #fff;
 }
 
-/* line 190, ../../../app/stylesheets/screen.scss */
+/* line 191, ../../../app/stylesheets/screen.scss */
 #error_explanation p {
   color: #333;
   margin-bottom: 0;
   padding: 5px;
 }
 
-/* line 196, ../../../app/stylesheets/screen.scss */
+/* line 197, ../../../app/stylesheets/screen.scss */
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
 }
 
-/* line 201, ../../../app/stylesheets/screen.scss */
+/* line 202, ../../../app/stylesheets/screen.scss */
 div.user_info img {
   padding-right: 0.1em;
 }
 
-/* line 205, ../../../app/stylesheets/screen.scss */
+/* line 206, ../../../app/stylesheets/screen.scss */
 div.user_info a {
   text-decoration: none;
 }
 
-/* line 209, ../../../app/stylesheets/screen.scss */
+/* line 210, ../../../app/stylesheets/screen.scss */
 div.user_info span.user_name {
   position: absolute;
 }
 
-/* line 213, ../../../app/stylesheets/screen.scss */
+/* line 214, ../../../app/stylesheets/screen.scss */
 #logo {
   display: inline;
   float: left;
@@ -1840,24 +1841,24 @@ div.user_info span.user_name {
 * html #logo {
   overflow-x: hidden;
 }
-/* line 216, ../../../app/stylesheets/screen.scss */
+/* line 217, ../../../app/stylesheets/screen.scss */
 #logo a {
   font-size: 4em;
   color: white;
   font-family: Menlo, "Helvetica Neue", arial, helvetica, sans-serif;
 }
-/* line 221, ../../../app/stylesheets/screen.scss */
+/* line 222, ../../../app/stylesheets/screen.scss */
 #logo a:hover {
   text-decoration: none;
   color: #b7dbff;
 }
 
-/* line 230, ../../../app/stylesheets/screen.scss */
+/* line 231, ../../../app/stylesheets/screen.scss */
 #nav_selected {
   background-color: #1e90ff;
 }
 
-/* line 232, ../../../app/stylesheets/screen.scss */
+/* line 233, ../../../app/stylesheets/screen.scss */
 #nav {
   display: inline;
   float: left;
@@ -1876,16 +1877,16 @@ div.user_info span.user_name {
 * html #nav {
   overflow-x: hidden;
 }
-/* line 243, ../../../app/stylesheets/screen.scss */
+/* line 244, ../../../app/stylesheets/screen.scss */
 #nav ul {
   margin: 0;
   padding: 0;
 }
-/* line 246, ../../../app/stylesheets/screen.scss */
+/* line 247, ../../../app/stylesheets/screen.scss */
 #nav ul li {
   display: inline-block;
 }
-/* line 250, ../../../app/stylesheets/screen.scss */
+/* line 251, ../../../app/stylesheets/screen.scss */
 #nav ul li a {
   padding: .5em 1em 1em 1em;
   -moz-border-radius: 10px 10px 0 0;
@@ -1898,13 +1899,13 @@ div.user_info span.user_name {
   font-size: 200%;
   color: white;
 }
-/* line 257, ../../../app/stylesheets/screen.scss */
+/* line 258, ../../../app/stylesheets/screen.scss */
 #nav ul li a:hover {
   text-decoration: none;
   background-color: #00366b;
 }
 
-/* line 265, ../../../app/stylesheets/screen.scss */
+/* line 266, ../../../app/stylesheets/screen.scss */
 #sign_in {
   display: inline;
   float: left;
@@ -1919,34 +1920,34 @@ div.user_info span.user_name {
 * html #sign_in {
   overflow-x: hidden;
 }
-/* line 268, ../../../app/stylesheets/screen.scss */
+/* line 269, ../../../app/stylesheets/screen.scss */
 #sign_in #session_email, #sign_in #session_password {
   width: 137px;
 }
 
-/* line 271, ../../../app/stylesheets/screen.scss */
+/* line 272, ../../../app/stylesheets/screen.scss */
 #sign_out {
   float: right;
 }
-/* line 273, ../../../app/stylesheets/screen.scss */
+/* line 274, ../../../app/stylesheets/screen.scss */
 #sign_out a {
   color: #1e90ff;
 }
-/* line 275, ../../../app/stylesheets/screen.scss */
+/* line 276, ../../../app/stylesheets/screen.scss */
 #sign_out a:hover {
   color: #b7dbff;
 }
 
-/* line 279, ../../../app/stylesheets/screen.scss */
+/* line 280, ../../../app/stylesheets/screen.scss */
 .current_avatar {
   float: right;
 }
-/* line 281, ../../../app/stylesheets/screen.scss */
+/* line 282, ../../../app/stylesheets/screen.scss */
 .current_avatar img {
   border: 2px solid #b7dbff;
 }
 
-/* line 284, ../../../app/stylesheets/screen.scss */
+/* line 285, ../../../app/stylesheets/screen.scss */
 #sidebar {
   display: inline;
   float: left;
@@ -1962,7 +1963,7 @@ div.user_info span.user_name {
   overflow-x: hidden;
 }
 
-/* line 290, ../../../app/stylesheets/screen.scss */
+/* line 291, ../../../app/stylesheets/screen.scss */
 .profile {
   display: inline;
   float: left;
@@ -1974,7 +1975,42 @@ div.user_info span.user_name {
   overflow-x: hidden;
 }
 
-/* line 294, ../../../app/stylesheets/screen.scss */
+/* line 295, ../../../app/stylesheets/screen.scss */
+.profile_content {
+  margin-left: 137px;
+}
+/* line 297, ../../../app/stylesheets/screen.scss */
+.profile_content h2 {
+  padding: 0;
+}
+
+/* line 300, ../../../app/stylesheets/screen.scss */
+.profile_name {
+  font-size: 2.5em;
+  color: #00509e;
+}
+
+/* line 305, ../../../app/stylesheets/screen.scss */
+.profile_alias {
+  padding-left: .5em;
+  color: #333333;
+  font-size: 1.5em;
+}
+
+/* line 311, ../../../app/stylesheets/screen.scss */
+.profile_feed {
+  display: inline;
+  float: left;
+  margin-right: 10px;
+  width: 390px;
+  padding-top: 1.5em;
+}
+/* line 138, ../../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html .profile_feed {
+  overflow-x: hidden;
+}
+
+/* line 316, ../../../app/stylesheets/screen.scss */
 a.signup_button {
   display: block;
   text-align: center;
@@ -1985,7 +2021,7 @@ a.signup_button {
   font-weight: bold;
   padding: 20px;
 }
-/* line 305, ../../../app/stylesheets/screen.scss */
+/* line 327, ../../../app/stylesheets/screen.scss */
 a.signup_button:hover {
   text-shadow: 1px 1px 1px #222222;
   background: #0F0;
@@ -1993,7 +2029,7 @@ a.signup_button:hover {
 }
 
 /* Round corners */
-/* line 314, ../../../app/stylesheets/screen.scss */
+/* line 336, ../../../app/stylesheets/screen.scss */
 .round {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -2062,14 +2098,14 @@ form.bp textarea {
   height: 250px;
 }
 
-/* line 325, ../../../app/stylesheets/screen.scss */
+/* line 347, ../../../app/stylesheets/screen.scss */
 body.two-col #container {
   width: 950px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 327, ../../../app/stylesheets/screen.scss */
+/* line 349, ../../../app/stylesheets/screen.scss */
 body.two-col #header, body.two-col #footer {
   display: inline;
   float: left;
@@ -2080,7 +2116,7 @@ body.two-col #header, body.two-col #footer {
 * html body.two-col #header, * html body.two-col #footer {
   overflow-x: hidden;
 }
-/* line 329, ../../../app/stylesheets/screen.scss */
+/* line 351, ../../../app/stylesheets/screen.scss */
 body.two-col #sidebar {
   display: inline;
   float: left;
@@ -2091,7 +2127,7 @@ body.two-col #sidebar {
 * html body.two-col #sidebar {
   overflow-x: hidden;
 }
-/* line 333, ../../../app/stylesheets/screen.scss */
+/* line 355, ../../../app/stylesheets/screen.scss */
 body.two-col #content {
   display: inline;
   float: left;
