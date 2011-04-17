@@ -14,7 +14,12 @@
 					= display_urgency message
 					%span.disagree
 						= "-"
-						= link_to 'disagree', message, :action => 'disagree'
+						- if message.disagree
+							= link_to 'agree', agree_message_path(message), 
+								:method => "post"
+						- else
+							= link_to 'disagree', disagree_message_path(message), 
+								:method => "post"
 			.row
 				.content
 					= wrap(message.content)

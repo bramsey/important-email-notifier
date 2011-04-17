@@ -8,7 +8,7 @@ class Message < ActiveRecord::Base
   validates :content, :presence => true, :length => { :maximum => 140 }
   validates :relationship_id, :presence => true
 
-  default_scope :order => 'messages.created_at DESC'
+  default_scope :order => 'messages.created_at ASC'
   
   def sender
     relationship.sender
@@ -20,6 +20,11 @@ class Message < ActiveRecord::Base
   
   def disagree!
     self.disagree = true
+    self.save
+  end
+  
+  def agree!
+    self.disagree = false
     self.save
   end
 end

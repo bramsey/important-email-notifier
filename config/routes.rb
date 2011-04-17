@@ -7,7 +7,12 @@ Notifier::Application.routes.draw do
     end
   end
   
-  resources :messages, :only => [:create, :destroy, :disagree]
+  resources :messages, :only => [:create, :destroy, :disagree, :agree] do
+    member do
+      post 'disagree'
+      post 'agree'
+    end
+  end
   resources :sessions, :only => [:new, :create, :destroy]
   resources :relationships, :only => [:create, :destroy]
 
