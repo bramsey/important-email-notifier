@@ -1,7 +1,7 @@
 Notifier::Application.routes.draw do
 
   resources :users do
-    resources :messages, :only => :index
+    resources :messages, :only => [:index, :show]
     member do
       get :recipients, :senders
     end

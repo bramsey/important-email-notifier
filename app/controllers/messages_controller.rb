@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
-  before_filter :authenticate, :only => [:create, :destroy]
-  before_filter :authorized_user, :only => [:destroy, :disagree]
+  before_filter :authenticate
+  before_filter :authorized_user, :except => [:create]
 
   def create
     @message  = current_user.send!(params[:recipient], params[:message])
@@ -43,11 +43,17 @@ class MessagesController < ApplicationController
     session[:return_to] ||= request.referer
     redirect_back_or root_path
   end
+  
+  def show
+    @message = Message.find(params[:id])
+    
+    render 'show'
+  end
 
   private
 
     def authorized_user
-      @message = Message.find(params[:id])
-      redirect_to root_path unless current_user?(@message.recipient)
+      @user = User.find(params[:user_id])
+      redirect_to root_path unless current_user?(@user)
     end
 end
