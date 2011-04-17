@@ -1693,7 +1693,7 @@ a.agree:hover {
 }
 
 /* line 109, ../../../app/stylesheets/screen.scss */
-.message {
+.message, div.urgent1, div.urgent2, div.urgent3 {
   min-height: 100px;
   border-bottom: 1px solid #ebebeb;
   padding-top: 10px;
@@ -1701,9 +1701,18 @@ a.agree:hover {
 }
 
 /* line 116, ../../../app/stylesheets/screen.scss */
-.important_message {
-  background-color: #99ff99;
-  width: 450px;
+div.urgent1 {
+  background-color: #ffb3b3;
+}
+
+/* line 117, ../../../app/stylesheets/screen.scss */
+div.urgent2 {
+  background-color: #ffe0cc;
+}
+
+/* line 118, ../../../app/stylesheets/screen.scss */
+div.urgent3 {
+  background-color: #b3ffb3;
 }
 
 /* line 121, ../../../app/stylesheets/screen.scss */
@@ -1715,17 +1724,17 @@ a.agree:hover {
 }
 
 /* line 128, ../../../app/stylesheets/screen.scss */
-.urgent1 {
+span.urgent1 {
   color: red;
 }
 
 /* line 129, ../../../app/stylesheets/screen.scss */
-.urgent2 {
+span.urgent2 {
   color: #ff7519;
 }
 
 /* line 130, ../../../app/stylesheets/screen.scss */
-.urgent3 {
+span.urgent3 {
   color: lime;
 }
 

@@ -1,2 +1,12 @@
-.important_message
+- case message.urgency
+- when 1
+	.urgent1
+		= render message
+- when 2
+	.urgent2
+		= render message
+- when 3
+	.urgent3
+		= render message
+- else
 	= render message

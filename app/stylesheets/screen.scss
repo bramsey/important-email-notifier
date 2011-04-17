@@ -106,17 +106,17 @@ div#bio {
 a.disagree:hover { color: $bad; }
 a.agree:hover { color: $good; }
 
-.message {
+.message, div.urgent1, div.urgent2, div.urgent3 {
 	min-height: 100px;
 	border-bottom: 1px solid $border-color;
 	padding-top: 10px;
 	width: 450px;
 }
 
-.important_message {
-	background-color: lighten($good, 30%);
-	width: 450px;
-}
+div.urgent1 { background-color: lighten($bad, 35%); }
+div.urgent2 { background-color: lighten($caution, 35%); }
+div.urgent3 { background-color: lighten($good, 35%); }
+
 
 .user {
 	min-height: 70px;
@@ -125,9 +125,9 @@ a.agree:hover { color: $good; }
 	width: 450px;
 }
 
-.urgent1 { color: $bad; }
-.urgent2 { color: $caution; }
-.urgent3 { color: $good; }
+span.urgent1 { color: $bad; }
+span.urgent2 { color: $caution; }
+span.urgent3 { color: $good; }
 
 .message_user_alias {
 	font-weight: bold;
