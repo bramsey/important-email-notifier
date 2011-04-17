@@ -52,7 +52,7 @@ describe Relationship do
   describe "reliability" do
     before(:each) do
       15.times do
-        @sender.send!(@recipient, 1, "test")
+        @sender.send!(@recipient, {:urgency => 1, :content => "test"})
       end
       @relationship = @sender.relationships.first
       @msgs = @relationship.messages
@@ -76,9 +76,10 @@ describe Relationship do
     end
     
     it "should be reliable if 10 agreements occur in a row" do
-      @msgs.first.disagree!
-      @msgs.second.disagree!
-      @msgs[12].disagree!
+      @msgs[0].disagree!
+      @msgs[1].disagree!
+      @msgs[2..12].each {|msg| msg.agree!}
+      @msgs[13].disagree!
       @relationship.reliable?.should be_true
     end
   end

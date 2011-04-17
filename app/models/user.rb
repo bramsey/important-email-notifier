@@ -47,9 +47,9 @@ class User < ActiveRecord::Base
     relationships.find_by_recipient_id(recipient)
   end
 
-  def send!(recipient, urgency, content)
+  def send!(recipient, msg = { :urgency => 4, :content => "" })
     rel = sender?(recipient) || relationships.create!(:recipient_id => recipient.id)
-    rel.messages.create!(:urgency => urgency, :content => content)
+    rel.messages.create!(msg)
   end
   
   def sent_messages

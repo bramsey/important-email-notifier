@@ -9,6 +9,8 @@ describe User do
         :password => "foobar",
         :password_confirmation => "foobar"
     }
+    
+    @msg = {:urgency => 1, :content => "content" }
 
   end
 
@@ -195,12 +197,12 @@ describe User do
     end
 
     it "should send to another user" do
-      @user.send!(@recipient, 1, "test")
+      @user.send!(@recipient,@msg)
       @user.should be_sender(@recipient)
     end
 
     it "should include the recipient user in the recipients array" do
-      @user.send!(@recipient, 1, "test")
+      @user.send!(@recipient, @msg)
       @user.recipients.should include(@recipient)
     end
     
@@ -213,7 +215,7 @@ describe User do
     end
 
     it "should include the sender in the senders array" do
-      @user.send!(@recipient, 1, "test")
+      @user.send!(@recipient, @msg)
       @recipient.senders.should include(@user)
     end
     
@@ -222,9 +224,9 @@ describe User do
         @user2 = Factory(:user, :alias => Factory.next(:alias), :email => Factory.next(:email))
         @user3 = Factory(:user, :alias => Factory.next(:alias), :email => Factory.next(:email))
         @user4 = Factory(:user, :alias => Factory.next(:alias), :email => Factory.next(:email))
-        3.times { @user.send!(@user2, 1, "test") }
-        3.times { @user.send!(@user3, 2, "test") }
-        @user.send!(@user4, 3, "test")
+        3.times { @user.send!(@user2, @msg) }
+        3.times { @user.send!(@user3, @msg) }
+        @user.send!(@user4, @msg)
         @rels = @user.relationships
       end
       
@@ -251,10 +253,10 @@ describe User do
       @user2 = Factory(:user)
       @user3 = Factory(:user, :alias => Factory.next(:alias), :email => Factory.next(:email))
       
-      @first_msg = @user1.send!(@user2, 1, "two message")
-      @second_msg = @user1.send!(@user3, 1, "three message")
-      @third_msg = @user2.send!(@user1, 1, "one message")
-      @fourth_msg = @user3.send!(@user1, 1, "three one message")
+      @first_msg = @user1.send!(@user2, @msg)
+      @second_msg = @user1.send!(@user3, @msg)
+      @third_msg = @user2.send!(@user1, @msg)
+      @fourth_msg = @user3.send!(@user1, @msg)
     end
     
     describe "sent_messages" do
