@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate,      :except => [:show, :new, :create]
+  before_filter :authenticate,      :except => [:new, :create]
   before_filter :correct_user,      :only => [:edit, :update]
   before_filter :admin_user,        :only => :destroy
   before_filter :already_signed_in, :only => [:new, :create]
@@ -9,14 +9,15 @@ class UsersController < ApplicationController
     current_user.admin? ?
       @users = User.paginate(:page => params[:page]) :
       @users = current_user.contacts.paginate(:page => params[:page])
-    @toDo = "spifify user item styling and content"
+    #@toDo = "spifify user item styling and content"
   end
 
   def show
     @user = User.find(params[:id])
     #@microposts = @user.microposts.paginate(:page => params[:page])
     @title = "Profile"
-    @toDo = "show the stats."
+    #@toDo = "Unfilter unreliable messages from profile."
+    @filter = true
   end
 
   def new

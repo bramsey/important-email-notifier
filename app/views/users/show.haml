@@ -30,7 +30,7 @@
 	- else
 		%h2= "#{current_user.messages_from(@user).count} Messages to you:"
 		.messages
-			- if @user.reliable_to current_user
+			- if @user.reliable_to( current_user ) || @filter
 				= render current_user.messages_from(@user)
 			- else
 				%span.unreliable Messages Hidden

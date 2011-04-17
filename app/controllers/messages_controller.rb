@@ -28,7 +28,9 @@ class MessagesController < ApplicationController
     @message.disagree? ? 
       flash[:success] = "Disagreement noted." : 
       flash[:failure] = "Disagreement failed."
-    redirect_to @message.sender
+    
+    session[:return_to] ||= request.referer
+    redirect_back_or root_path
   end
   
   def agree
@@ -37,7 +39,9 @@ class MessagesController < ApplicationController
     @message.disagree? ?
       flash[:failure] = "Agreement failed." : 
       flash[:success] = "Agreement noted."
-    redirect_to @message.sender
+
+    session[:return_to] ||= request.referer
+    redirect_back_or root_path
   end
 
   private

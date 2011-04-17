@@ -1,4 +1,6 @@
 %h2 New Messages
 - unless current_user.received_messages.empty?
 	.messages
-		= render current_user.received_messages
+		- current_user.received_messages.each do |message|
+			- if message.sender.reliable_to( current_user ) && message.disagree.nil?
+				= render message

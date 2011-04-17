@@ -82,6 +82,7 @@ div#bio {
 	li { padding: 0 8px 0 0; } }
 
 .container { padding: 0 1.5em 0 1.5em;
+	//@include showgrid();
  	margin: auto;
 }
 
@@ -235,14 +236,12 @@ div.user_info span.user_name {
 	}
 }
 
-#nav_selected { background-color: $main; }
-
 #nav {
 	@include column(12, last);
 	@include push(1);
 	@include shadow;
 	margin: 0;
-	padding-top: 1.5em;
+	padding-top: 2em;
 	//float: right;
 	//line-height: 4em;
 	
@@ -268,6 +267,11 @@ div.user_info span.user_name {
 			}
 		}
 	} 
+}
+
+ul li a#nav_selected { 
+	background-color: $main;
+	&:hover { background-color: $main; } 
 }
 
 #sign_in {
@@ -310,7 +314,7 @@ div.user_info span.user_name {
 }
 
 .profile_alias {
-	padding-left: 0;
+	padding-left: .1em;
 	color: $std-text-color;
 	font-size: 1.5em;
 }
@@ -320,7 +324,7 @@ div.user_info span.user_name {
 	padding-top: 1.5em;
 }
 
-.reliable, .unreliable, .untested, .unknown { padding-left: 0; font-size: 1.25em;}
+.reliable, .unreliable, .untested, .unknown { padding-left: .1em; font-size: 1.25em;}
 .reliable { color: $good; }
 .unreliable { color: $bad; }
 .untested { color: $caution; }

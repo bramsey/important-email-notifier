@@ -4,6 +4,7 @@ class PagesController < ApplicationController
     @title = "Home"
     @slogan = "Ensure only important messages get your attention."
     @content = "Welcome to Notifier!"
+    @toDo = "mark new messages as read when visited"
   end
 
   def contact

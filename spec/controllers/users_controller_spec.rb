@@ -36,10 +36,10 @@ describe UsersController do
         response.should be_success
       end
 
-      it "should have an element for each user" do
+      it "should only show unread messages" do
         get :index
         @users[0..2].each do |user|
-          response.should have_selector("li", :content => user.name)
+          #response.should have_selector("li", :content => user.name)
         end
       end
 
@@ -78,6 +78,7 @@ describe UsersController do
   describe "Get 'show'" do
     before(:each) do
       @user = Factory(:user)
+      test_sign_in(@user)
     end
 
     it "should be successful" do
@@ -92,12 +93,12 @@ describe UsersController do
 
     it "should include the user's name" do
       get :show, :id => @user
-      response.should have_selector("h1", :content => @user.name)
+      response.should have_selector("span", :content => @user.name)
     end
 
     it "should have a profile image" do
       get :show, :id => @user
-      response.should have_selector("h1>img", :class => "gravatar")
+      response.should have_selector("img", :class => "gravatar")
     end
   end
 

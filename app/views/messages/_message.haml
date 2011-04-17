@@ -1,32 +1,31 @@
-- if message.sender.reliable_to current_user
-	.message
-		.avatar
-			= gravatar_for message.sender
-		.message_content
-			.row
-				.sender
-					%span.message_user_alias
-						= link_to message.sender.alias, message.sender
-					%span.message_user_name
-						= message.sender.name
-			.row
-				.urgency
-					= display_urgency message
-					%span.disagree
-						= "-"
-						- if message.disagree
-							= link_to 'agree', agree_message_path(message), 
-								:method => "post"
-						- else
-							= link_to 'disagree', disagree_message_path(message), 
-								:method => "post"
-			.row
-				.content
-					= wrap(message.content)
-			.row
-				.message_timestamp
-					= "#{time_ago_in_words(message.created_at)} ago."
-					-if current_user?(message.recipient)
-						= link_to "delete", message, :method => "delete",
-													 :confirm => "You sure?",
-													 :title => message.content
+.message
+	.avatar
+		= gravatar_for message.sender
+	.message_content
+		.row
+			.sender
+				%span.message_user_alias
+					= link_to message.sender.alias, message.sender
+				%span.message_user_name
+					= message.sender.name
+		.row
+			.urgency
+				= display_urgency message
+				%span.disagree
+					= "-"
+					- if message.disagree
+						= link_to 'agree', agree_message_path(message), 
+							:method => "post"
+					- else
+						= link_to 'disagree', disagree_message_path(message), 
+							:method => "post"
+		.row
+			.content
+				= wrap(message.content)
+		.row
+			.message_timestamp
+				= "#{time_ago_in_words(message.created_at)} ago."
+				-if current_user?(message.recipient)
+					= link_to "delete", message, :method => "delete",
+												 :confirm => "You sure?",
+												 :title => message.content
