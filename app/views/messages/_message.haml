@@ -11,14 +11,16 @@
 		.row
 			.urgency
 				= display_urgency message
-				%span.disagree
+				%span.agreement
 					= "-"
-					- if message.disagree
-						= link_to 'agree', agree_message_path(message), 
-							:method => "post"
+					- if message.disagree.nil?
+						= agree_link message
+						|
+						= disagree_link message
+					- elsif message.disagree
+						= agree_link message
 					- else
-						= link_to 'disagree', disagree_message_path(message), 
-							:method => "post"
+						= disagree_link message
 		.row
 			.content
 				= wrap(message.content)

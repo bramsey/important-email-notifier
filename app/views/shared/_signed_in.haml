@@ -3,4 +3,8 @@
 	.messages
 		- current_user.received_messages.each do |message|
 			- if message.sender.reliable_to( current_user ) && message.disagree.nil?
-				= render message
+				- if message.sender.reliability_to( current_user ) == "Reliable"
+					= render :partial => 'messages/important_message', 
+							 :locals => {:message => message }
+				- else
+					= render message

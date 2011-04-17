@@ -16,7 +16,17 @@ module MessagesHelper
       "Not urgent"
     end
   end
-
+  
+  def agree_link( message )
+    link_to 'agree', agree_message_path(message), 
+			:method => "post", :class => "agree"
+	end
+	
+	def disagree_link( message )
+	  link_to 'disagree', disagree_message_path(message), 
+			:method => "post", :class => "disagree"
+	end
+	
   private
 
     def wrap_long_string(text, max_width = 30)

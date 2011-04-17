@@ -17,7 +17,7 @@ class Relationship < ActiveRecord::Base
       if msg.disagree?
         bad_count += 1 
         good_count = 0
-      else
+      elsif msg.disagree.nil? == false
         good_count += 1
       end
       if good_count == 10
@@ -31,7 +31,14 @@ class Relationship < ActiveRecord::Base
   
   def reliability
     #return "Insufficiently tested" if messages.count < 10 
-    reliable? ? messages.count < 10 ? "Insufficiently tested" : "Reliable" : "Unreliable"
+    reliable? ? read_messages.count < 10 ? "Insufficiently tested" : "Reliable" : "Unreliable"
   end
+
+  def read_messages
+    msgs = []
+    messages.each {|msg| msgs << msg unless msg.disagree.nil?}
+    msgs
+  end
+      
     
 end

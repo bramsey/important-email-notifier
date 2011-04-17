@@ -99,17 +99,22 @@ div#bio {
 	margin-left: 58px;
 }
 
-.disagree {
+.agreement {
 	font-size: 12px;
-	a:hover {
-		color: #f00;
-	}
 }
+
+a.disagree:hover { color: $bad; }
+a.agree:hover { color: $good; }
 
 .message {
 	min-height: 100px;
 	border-bottom: 1px solid $border-color;
 	padding-top: 10px;
+	width: 450px;
+}
+
+.important_message {
+	background-color: lighten($good, 30%);
 	width: 450px;
 }
 
