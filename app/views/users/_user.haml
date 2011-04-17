@@ -1,7 +1,15 @@
-%li
-	= gravatar_for user, :size => 30
-	= link_to user.name, user
-	- if current_user.admin?
-		| 
-		= link_to "delete", user, :method => :delete, :confirm => "You sure?", 
-							  :title => "Delete #{user.name}"
+.user
+	.avatar
+		= gravatar_for user
+	.user_information
+		.row
+			%span.message_user_alias
+				= link_to user.alias, user
+			%span.message_user_name
+				= user.name
+		.row
+			= show_reliability_for user
+			- if current_user.admin?
+				| 
+				= link_to "delete", user, :method => :delete, :confirm => "You sure?", 
+									  :title => "Delete #{user.name}"

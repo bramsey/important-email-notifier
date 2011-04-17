@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_filter :authenticate, :only => [:create, :destroy]
-  before_filter :authorized_user, :only => :destroy
+  before_filter :authorized_user, :only => [:destroy, :disagree]
 
   def create
     @message  = current_user.send!(params[:recipient], params[:message])
@@ -22,6 +22,13 @@ class MessagesController < ApplicationController
     @user = User.find(params[:user_id])
     @messages = @user.received_messages.paginate(:page => params[:page])
   end
+  
+  def disagree
+    @message.disagree!
+    @message.disagree? ? 
+      flash[:success] = "Disagreement noted." : 
+      flash[:failure] = "Disagreement failed."
+  end
 
   private
 
@@ -29,5 +36,4 @@ class MessagesController < ApplicationController
       @message = Message.find(params[:id])
       redirect_to root_path unless current_user?(@message.recipient)
     end
-
 end

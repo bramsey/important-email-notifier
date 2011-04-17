@@ -10,12 +10,15 @@ $blueprint-grid-margin: 10px;
 $blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin;
 
 // colors
-$border-color: #CCCCCC;
+$border-color: #EBEBEB;
 $quiet-text-color: #999999;
 $std-text-color: #333333;
 $attention-color: #FF0000;
 $back-color: #FFFFFF;
 $marketing-color: $back-color;
+$good: #0f0;
+$caution: #FF7519;
+$bad: #f00;
 
 
 //@mixin shadow { text-shadow: 0px 0px 0px #222222; }

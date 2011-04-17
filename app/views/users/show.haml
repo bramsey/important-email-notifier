@@ -5,6 +5,9 @@
 		%span.profile_name= @user.name
 		%br
 		%span.profile_alias= @user.alias
+		- unless @user == current_user
+			%br
+			= show_reliability_for @user
 
 #sidebar
 	%strong Alias
@@ -21,10 +24,14 @@
 .profile_feed
 	%hr
 	- if @user == current_user
-		%h2 Received Messages:
+		%h2= "#{current_user.received_messages.count} Received Messages:"
 		.messages
 			= render current_user.received_messages
 	- else
-		%h2 Messages to you:
+		%h2= "#{current_user.messages_from(@user).count} Messages to you:"
 		.messages
-			= render current_user.messages_from(@user)
+			- if @user.reliable_to current_user
+				= render current_user.messages_from(@user)
+			- else
+				%span.unreliable Messages Hidden
+				

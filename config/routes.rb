@@ -7,7 +7,7 @@ Notifier::Application.routes.draw do
     end
   end
   
-  resources :messages, :only => [:create, :destroy]
+  resources :messages, :only => [:create, :destroy, :disagree]
   resources :sessions, :only => [:new, :create, :destroy]
   resources :relationships, :only => [:create, :destroy]
 

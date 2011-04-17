@@ -28,4 +28,10 @@ class Relationship < ActiveRecord::Base
     end
     return true
   end
+  
+  def reliability
+    return "Insufficiently tested" if messages.count < 10 
+    reliable? ? "Reliable" : "Unreliable"
+  end
+    
 end

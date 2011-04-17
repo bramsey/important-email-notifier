@@ -90,11 +90,11 @@ div#bio {
 	margin-top: 3px;
 }
 
-.messages {
+.messages, .users {
 	padding-left: 1em;
 }
 
-.message_content {
+.message_content, .user_information {
 	margin-left: 58px;
 }
 
@@ -107,14 +107,21 @@ div#bio {
 
 .message {
 	min-height: 100px;
-	border-bottom: 1px solid #EBEBEB;
+	border-bottom: 1px solid $border-color;
 	padding-top: 10px;
 	width: 450px;
 }
 
-.urgent1 { color: #F00; }
-.urgent2 { color: #FF7519; }
-.urgent3 { color: #0F0; }
+.user {
+	min-height: 70px;
+	border-bottom: 1px solid $border-color;
+	padding-top: 10px;
+	width: 450px;
+}
+
+.urgent1 { color: $bad; }
+.urgent2 { color: $caution; }
+.urgent3 { color: $good; }
 
 .message_user_alias {
 	font-weight: bold;
@@ -165,13 +172,13 @@ section {
 .field_with_errors {
   margin-top: 10px;
   padding: 2px;
-  background-color: red;
+  background-color: $bad;
   display: table;
 }
 
 #error_explanation {
   width: 400px;
-  border: 2px solid red;
+  border: 2px solid $bad;
   padding: 7px;
   padding-bottom: 12px;
   margin-bottom: 20px;
@@ -303,7 +310,7 @@ div.user_info span.user_name {
 }
 
 .profile_alias {
-	padding-left: .5em;
+	padding-left: 0;
 	color: $std-text-color;
 	font-size: 1.5em;
 }
@@ -312,6 +319,12 @@ div.user_info span.user_name {
 	@include column(10);
 	padding-top: 1.5em;
 }
+
+.reliable, .unreliable, .untested, .unknown { padding-left: 0; font-size: 1.25em;}
+.reliable { color: $good; }
+.unreliable { color: $bad; }
+.untested { color: $caution; }
+.unknown { color: $quiet-text-color; }
 
 a.signup_button {
 

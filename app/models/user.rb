@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
     reverse_relationships.each do |relationship|
       relationship.messages.each { |m| msgs << m }
     end
-    msgs
+    msgs.sort_by {|msg| msg.created_at}.reverse
   end
   
   def messages_from(sender)
@@ -100,7 +100,11 @@ class User < ActiveRecord::Base
   end
   
   def reliable_to(user)
-    relationship_with(user).reliable?
+    relationship_with(user) ? relationship_with(user).reliable? : false
+  end
+  
+  def reliability_to(user)
+    relationship_with(user) ? relationship_with(user).reliability : "Untested"
   end
 
   #def feed
