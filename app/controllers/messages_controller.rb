@@ -49,7 +49,7 @@ class MessagesController < ApplicationController
     
     render 'show'
   end
-
+  
   private
 
     def authorized_user

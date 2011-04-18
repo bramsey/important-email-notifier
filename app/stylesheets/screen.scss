@@ -111,6 +111,7 @@ a.agree:hover { color: $good; }
 	border-bottom: 1px solid $border-color;
 	padding-top: 10px;
 	width: 450px;
+	&:hover { background-color: $main-light; }
 }
 
 div.urgent1 { background-color: lighten($bad, 35%); }
