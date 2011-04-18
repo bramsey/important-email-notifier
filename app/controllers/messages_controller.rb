@@ -1,16 +1,18 @@
 class MessagesController < ApplicationController
   before_filter :authenticate
   before_filter :authorized_user, :except => [:create]
+  
+  respond_to :html, :js
 
   def create
     @message  = current_user.send!(params[:recipient], params[:message])
     if @message
       flash[:success] = "Message created!"
-      redirect_to root_path
     else
-      @feed_items
-      render 'pages/home'
+      flash[:failure] = "Message not created"
     end
+    
+    respond_with current_user
   end
 
   def destroy

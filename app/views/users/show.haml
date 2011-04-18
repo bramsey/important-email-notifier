@@ -9,18 +9,6 @@
 			%br
 			= show_reliability_for @user
 
-#sidebar
-	%strong Alias
-	= @user.alias
-	%br
-	%strong Name 
-	= @user.name
-	%br
-	%strong Email
-	= @user.email
-	%br
-	%strong URL
-	= link_to user_path(@user), @user
 .profile_feed
 	%hr
 	- if @user == current_user
