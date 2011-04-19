@@ -6,7 +6,10 @@ class RelationshipsController < ApplicationController
 
   def create
     @user = User.find(params[:relationship][:recipient_id])
-    current_user.relationships.create!(:recipient_id => @user)
+    params[:relationship][:sender_id] ? 
+      @sender = params[:relationship][:sender_id] :
+      @sender = current_user
+    @sender.relationships.create!(:recipient_id => @user)
     respond_with @user
   end
 
