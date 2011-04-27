@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
   respond_to :html, :js
 
   def create
+    
     @message  = current_user.send!(params[:recipient], params[:message])
     if @message
       flash[:success] = "Message created!"

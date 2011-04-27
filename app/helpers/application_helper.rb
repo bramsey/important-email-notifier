@@ -56,5 +56,4 @@ module ApplicationHelper
   def notify(user, urgency)
     
   end
-  
 end

@@ -12,10 +12,8 @@ class User < ActiveRecord::Base
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  validates :name, :presence => true,
-                   :length => { :maximum => 50 }
-  validates :alias, :presence => true,
-                    :length => { :maximum => 50 },
+  validates :name, :length => { :maximum => 50 }
+  validates :alias, :length => { :maximum => 50 },
                     :uniqueness => { :case_sensitive => false }   
   validates :email, :presence => true,
                     :format => { :with => email_regex },
@@ -103,8 +101,17 @@ class User < ActiveRecord::Base
     relationship_with(user) ? relationship_with(user).reliable? : false
   end
   
+  def trusted_to(user)
+    relationship_with(user) ? relationship_with(user).trusted? : false
+  end
+  
   def reliability_to(user)
     relationship_with(user) ? relationship_with(user).reliability : "Untested"
+  end
+  
+  def new_token( msg )
+    #create a token attribute and assign the token to it.
+    token = ('a'..'z').to_a.shuffle[1..6].join
   end
 
   #def feed
