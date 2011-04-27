@@ -18,16 +18,6 @@ describe User do
     User.create!(@attr)
   end
 
-  it "should require a name" do
-    no_name_user = User.new(@attr.merge(:name => ""))
-    no_name_user.should_not be_valid
-  end
-  
-  it "should require an alias" do
-    no_alias_user = User.new(@attr.merge(:alias => ""))
-    no_alias_user.should_not be_valid
-  end
-
   it "should require an email address" do
     no_email_user = User.new(@attr.merge(:email => ""))
     no_email_user.should_not be_valid
@@ -87,6 +77,21 @@ describe User do
     User.create!(@attr.merge(:email => upcased_email))
     user_with_duplicate_email = User.new(@attr)
     user_with_duplicate_email.should_not be_valid
+  end
+  
+  describe "creation from email" do
+    before(:each) do
+      @new_user = User.find_or_create_by_email( "new@example.com" )
+    end
+    
+    it "should have a find_or_create_by_email method" do
+      User.should respond_to(:find_or_create_by_email)
+    end
+    
+    it "should save the new user" do
+      @new_user.new_record?.should be_false
+    end
+      
   end
 
   describe "password validations" do

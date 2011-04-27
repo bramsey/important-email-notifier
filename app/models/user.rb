@@ -13,8 +13,7 @@ class User < ActiveRecord::Base
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :name, :length => { :maximum => 50 }
-  validates :alias, :length => { :maximum => 50 },
-                    :uniqueness => { :case_sensitive => false }   
+  validates :alias, :length => { :maximum => 50 }  
   validates :email, :presence => true,
                     :format => { :with => email_regex },
                     :uniqueness => { :case_sensitive => false }
@@ -117,6 +116,20 @@ class User < ActiveRecord::Base
   #def feed
   #  Micropost.from_users_followed_by(self)
   #end
+  
+  def self.find_or_create_by_email( email )
+    new_user = User.find_by_email email
+    unless new_user
+      new_user = User.new
+      new_user.email = email
+      new_user.password = random_pass
+      new_user.password_confirmation = new_user.password
+      new_user.save
+    end
+    new_user
+  end
+      
+    
 
   private
 
@@ -131,6 +144,10 @@ class User < ActiveRecord::Base
 
     def make_salt
       secure_hash("#{Time.now.utc}--#{password}")
+    end
+    
+    def self.random_pass
+      ('a'..'z').to_a.shuffle[1..6].concat( (0..9).to_a.shuffle[1..3] ).shuffle.join
     end
 
     def secure_hash(string)

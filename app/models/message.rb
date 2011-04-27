@@ -29,16 +29,19 @@ class Message < ActiveRecord::Base
   end
   
   def self.initiate(sender_email, recipient_email)
-    @sender = User.find_or_create_by_email(sender_email)
-    @recipient = User.find_by_email(recipient_email)
-    @msg = @sender.send!(@recipient)
+    sender = User.find_or_create_by_email( sender_email )
+    recipient = User.find_by_email( recipient_email )
+    msg = sender.send!( recipient )
     
-    @sender.reliable? ? @response = build_response(@sender.new_token @msg) : @response = "Ignore"
+    sender.reliable? ? response = Message.build_response(sender.new_token msg) : response = "Ignore"
   end
   
-  def self.build_response( token )
-    root_url ||= "http://localhost:3000/"
-    update_message_path ||= "messages/update/"
-    link = root_url + new_message_path + "?token=" + token
-  end
+  
+  private
+  
+    def self.build_response( token )
+      root_url ||= "http://localhost:3000/"
+      update_message_path ||= "messages/update/"
+      link = root_url + update_message_path + "?token=" + token
+    end
 end
