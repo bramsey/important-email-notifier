@@ -14,7 +14,7 @@ module SessionsHelper
   end
   
   def current_alias
-    current_user.alias ? current_user.alias : current_user.email
+    alias_for current_user
   end
 
   def signed_in?

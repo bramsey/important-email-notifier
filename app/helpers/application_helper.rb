@@ -47,6 +47,10 @@ module ApplicationHelper
     end
   end
   
+  def alias_for( user )
+    user.alias ? user.alias : user.email
+  end
+  
   # put this in the body after a form to set the input focus to a specific control id
   # at end of rhtml file: <%= set_focus_to_id 'form_field_label' %>
   def set_focus_to_id(id)
