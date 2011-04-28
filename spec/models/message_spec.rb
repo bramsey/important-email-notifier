@@ -42,5 +42,18 @@ describe Message do
         Message.initiate( @sender.email, @recipient.email )
       end.should change( Message, :count )
     end
+    
+    describe "tokens" do
+      
+      it "should have a new_token method" do
+        msg = @sender.send!( @recipient )
+        msg.should respond_to(:new_token)
+      end
+    
+      it "should create a token for the new message" do
+        Message.initiate( @sender.email, @recipient.email )
+        Message.last.token.should_not be_nil
+      end
+    end
   end 
 end

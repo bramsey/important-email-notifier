@@ -39,6 +39,7 @@ class User < ActiveRecord::Base
     user = find_by_id(id)
     (user && user.salt == cookie_salt) ? user : nil
   end
+    
   
   def sender?(recipient)
     relationships.find_by_recipient_id(recipient)
@@ -106,11 +107,6 @@ class User < ActiveRecord::Base
   
   def reliability_to(user)
     relationship_with(user) ? relationship_with(user).reliability : "Untested"
-  end
-  
-  def new_token( msg )
-    #create a token attribute and assign the token to it.
-    token = ('a'..'z').to_a.shuffle[1..6].join
   end
 
   #def feed

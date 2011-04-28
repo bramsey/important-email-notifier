@@ -7,7 +7,7 @@ Notifier::Application.routes.draw do
     end
   end
   
-  resources :messages, :only => [:create, :destroy, :disagree, :agree] do
+  resources :messages, :only => [:create, :destroy, :disagree, :agree, :edit] do
     member do
       post 'disagree'
       post 'agree'
@@ -22,6 +22,7 @@ Notifier::Application.routes.draw do
   match '/signout', :to => 'sessions#destroy'
   match '/contact', :to => 'pages#contact'
   match '/about', :to => 'pages#about'
+  match '/prioritize', :to => 'messages#prioritize'
 
   root :to => 'pages#home'
 

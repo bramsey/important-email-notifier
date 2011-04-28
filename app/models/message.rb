@@ -33,7 +33,19 @@ class Message < ActiveRecord::Base
     recipient = User.find_by_email( recipient_email )
     msg = sender.send!( recipient )
     
-    sender.reliable? ? response = Message.build_response(sender.new_token msg) : response = "Ignore"
+    sender.reliable? ? response = Message.build_response(msg.new_token) : response = "Ignore"
+  end
+  
+  def new_token
+    #create a token attribute and assign the token to it.
+    self.token = ('a'..'z').to_a.shuffle[1..6].join
+    self.save
+    self.token
+  end
+  
+  def clear_token
+    self.token = nil
+    self.save
   end
   
   
@@ -41,7 +53,7 @@ class Message < ActiveRecord::Base
   
     def self.build_response( token )
       root_url ||= "http://localhost:3000/"
-      update_message_path ||= "messages/update/"
+      update_message_path ||= "messages/edit"
       link = root_url + update_message_path + "?token=" + token
     end
 end
