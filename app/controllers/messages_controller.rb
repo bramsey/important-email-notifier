@@ -57,9 +57,12 @@ class MessagesController < ApplicationController
   
   def prioritize
     
-    @message.clear_token
-    
-    redirect_to edit_message_path(@message)
+    if @message 
+      @message.clear_token
+      redirect_to edit_message_path(@message)
+    else
+      redirect_to root_path
+    end
   end
   
   def edit
@@ -80,7 +83,7 @@ class MessagesController < ApplicationController
       
     
     def authenticate_with_token
-      @message = Message.find_by_token( params[:token] )
-      @message ? sign_in( @message.sender ) : redirect_to root_path
+      @message = Message.find_by_token( params[:token] ) unless params[:token].nil?
+      @message ? sign_in( @message.sender ) : @message
     end
 end
