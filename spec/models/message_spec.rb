@@ -24,6 +24,16 @@ describe Message do
       
       it "should return the url for the client response" do
         response = Message.initiate( @sender.email, @recipient.email )
+        response.should include("http")
+      end
+      
+      it "should return Ignore flag if the sender is unreliable" do
+        11.times do
+          msg = @sender.send! @recipient
+          msg.disagree!
+        end
+        response = Message.initiate( @sender.email, @recipient.email )
+        response.should == "Ignore"
       end
     end
     
