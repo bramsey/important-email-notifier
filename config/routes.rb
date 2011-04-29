@@ -7,7 +7,7 @@ Notifier::Application.routes.draw do
     end
   end
   
-  resources :messages, :only => [:create, :destroy, :disagree, :agree, :edit] do
+  resources :messages, :only => [:create, :destroy, :disagree, :agree, :edit, :initialize] do
     member do
       post 'disagree'
       post 'agree'
@@ -23,6 +23,7 @@ Notifier::Application.routes.draw do
   match '/contact', :to => 'pages#contact'
   match '/about', :to => 'pages#about'
   match '/prioritize', :to => 'messages#prioritize'
+  match '/messages/init', :to => 'messages#init', :as => 'init'
 
   root :to => 'pages#home'
 

@@ -1,10 +1,10 @@
 class MessagesController < ApplicationController
-  before_filter :authenticate, :except => [:prioritize]
-  before_filter :authorized_user, :except => [:create, :edit, :prioritize]
+  before_filter :authenticate, :except => [:prioritize, :init]
+  before_filter :authorized_user, :except => [:create, :edit, :prioritize, :init]
   before_filter :authorized_sender, :only => [:edit]
   before_filter :authenticate_with_token, :only => [:prioritize]
   
-  respond_to :html, :js
+  respond_to :html, :js, :xml
 
   def create
     
@@ -63,6 +63,14 @@ class MessagesController < ApplicationController
     else
       redirect_to root_path
     end
+  end
+  
+  def init
+    sender = params[:sender]
+    recipient = params[:recipient]
+    @link = Message.initiate( sender, recipient )
+    
+    render 'init'
   end
   
   def edit
