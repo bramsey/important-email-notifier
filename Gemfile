@@ -10,6 +10,8 @@ gem 'gravatar_image_tag'
 gem 'will_paginate', '3.0.pre2'
 gem 'haml'
 gem 'compass'
+gem 'ruby-gmail'
+gem 'mime'
 
 group :development do
   gem 'rspec-rails'

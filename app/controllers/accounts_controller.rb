@@ -1,4 +1,7 @@
 class AccountsController < ApplicationController
+  
+  require 'gmail'
+  
   before_filter :authenticate
   before_filter :authorized_user, :only => :destroy
 
@@ -20,6 +23,24 @@ class AccountsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @accounts = @user.accounts
+  end
+  
+  def check
+    @user = User.find(params[:user_id])
+    @accounts = @user.accounts
+    #@messages = []
+    
+    @accounts.each do |account| 
+      Gmail.new( account.username, account.password ) do |gmail|
+
+        gmail.inbox.emails(:unread).each do |email|
+          #@messages << {:sender => email.from, :recipient => email.to }
+          @token = Message.initiate( email.from.first, email.to.first )
+        end
+      end
+    end
+    
+    render 'check'
   end
 
   private

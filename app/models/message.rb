@@ -55,7 +55,7 @@ class Message < ActiveRecord::Base
   
     def self.build_response( token )
       root_url ||= "http://localhost:3000/"
-      update_message_path ||= "messages/edit"
+      update_message_path ||= "prioritize"
       link = root_url + update_message_path + "?token=" + token
     end
 end
