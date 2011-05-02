@@ -6,6 +6,7 @@ Notifier::Application.routes.draw do
 
   resources :users do
     resources :messages, :only => [:index, :show]
+    resources :accounts, :only => [:index]
     member do
       get :recipients, :senders
     end
@@ -17,6 +18,7 @@ Notifier::Application.routes.draw do
       post 'agree'
     end
   end
+  resources :accounts, :only => [:create, :destroy]
   resources :sessions, :only => [:new, :create, :destroy]
   resources :relationships, :only => [:create, :destroy]
 
