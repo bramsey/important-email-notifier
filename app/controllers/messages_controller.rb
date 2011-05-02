@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  require 'gmail'
+  
   before_filter :authenticate, :except => [:prioritize, :init]
   before_filter :authorized_user, :except => [:create, :edit, :prioritize, :init, :update, :show]
   before_filter :authorized_sender, :only => [:edit, :update, :show]
@@ -83,6 +85,7 @@ class MessagesController < ApplicationController
       flash[:success] = "Message sent."
       @message.clear_token
       #ToDo: insert trigger for notification here.
+      notify( @message )
       redirect_to @message
     else
       @title = "Send message"
@@ -103,9 +106,25 @@ class MessagesController < ApplicationController
       redirect_to root_path unless current_user?(@message.sender)
     end
       
-    
     def authenticate_with_token
       @message = Message.find_by_token( params[:token] ) unless params[:token].nil?
       @message ? sign_in( @message.sender ) : @message
+    end
+    
+    def notify( msg )
+      user = msg.recipient
+      #trigger for preferred user notification goes here.
+      #emailing default account is only temporary for use in notification flow.
+      Gmail.new( user.accounts.first.username, user.accounts.first.password ) do |gmail|
+        url_path = message_url(msg)
+
+        gmail.deliver do
+          to user.email
+          subject "New message from #{msg.sender.email}!"
+          html_part do
+            body "<p>Message: #{msg.content}</p><p>Please rate the urgency for this message <a href=\"#{url_path}\">here</a>."
+          end
+        end
+      end
     end
 end
