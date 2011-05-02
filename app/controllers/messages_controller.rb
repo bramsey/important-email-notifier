@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   before_filter :authenticate, :except => [:prioritize, :init]
-  before_filter :authorized_user, :except => [:create, :edit, :prioritize, :init]
-  before_filter :authorized_sender, :only => [:edit]
+  before_filter :authorized_user, :except => [:create, :edit, :prioritize, :init, :update, :show]
+  before_filter :authorized_sender, :only => [:edit, :update, :show]
   before_filter :authenticate_with_token, :only => [:prioritize]
   
   respond_to :html, :js, :xml
@@ -58,7 +58,6 @@ class MessagesController < ApplicationController
   def prioritize
     
     if @message 
-      @message.clear_token
       redirect_to edit_message_path(@message)
     else
       redirect_to root_path
@@ -74,7 +73,22 @@ class MessagesController < ApplicationController
   end
   
   def edit
+    @message = Message.find(params[:id])
     render 'edit'
+  end
+  
+  def update
+    @message = Message.find(params[:id])
+    if @message.update_attributes(params[:message])
+      flash[:success] = "Message sent."
+      @message.clear_token
+      #ToDo: insert trigger for notification here.
+      redirect_to @message
+    else
+      @title = "Send message"
+      flash[:failure] = "Message not sent."
+      render 'edit'
+    end
   end
   
   private

@@ -7,7 +7,7 @@ Notifier::Application.routes.draw do
     end
   end
   
-  resources :messages, :only => [:create, :destroy, :disagree, :agree, :edit, :initialize] do
+  resources :messages, :except => [:index] do
     member do
       post 'disagree'
       post 'agree'

@@ -44,8 +44,10 @@ class Message < ActiveRecord::Base
   end
   
   def clear_token
-    self.token = nil
-    self.save
+    if self.token
+      self.token = nil
+      self.save
+    end
   end
   
   

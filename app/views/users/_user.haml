@@ -4,7 +4,7 @@
 	.user_information
 		.row
 			%span.message_user_alias
-				= link_to user.alias, user
+				= link_to alias_for(user), user
 			%span.message_user_name
 				= user.name
 		.row

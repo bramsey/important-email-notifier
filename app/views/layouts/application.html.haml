@@ -11,5 +11,7 @@
 	= render 'layouts/subnav'
 	.container
 		%section#content
+			.flash
+				= render 'shared/flashes'
 			= yield
 	= render 'layouts/footer'
