@@ -1,5 +1,9 @@
 Notifier::Application.routes.draw do
 
+  get "accounts/create"
+
+  get "accounts/destroy"
+
   resources :users do
     resources :messages, :only => [:index, :show]
     member do
