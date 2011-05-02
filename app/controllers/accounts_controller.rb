@@ -36,6 +36,7 @@ class AccountsController < ApplicationController
         gmail.inbox.emails(:unread).each do |email|
           #@messages << {:sender => email.from, :recipient => email.to }
           @token = Message.initiate( email.from.first, email.to.first )
+          send_response( account, email.from.first, email.subject, @token )
         end
       end
     end
@@ -48,6 +49,22 @@ class AccountsController < ApplicationController
     def authorized_user
       @account = account.find(params[:id])
       redirect_to root_path unless current_user?(@account.user)
+    end
+    
+    def send_response( account, sender, subj, token )
+      Gmail.new( account.username, account.password ) do |gmail|
+
+        gmail.deliver do
+          to sender
+          subject "Re: #{subj}"
+          text_part do
+            body "I'm currently in the middle of something and not checking email;" +
+              "if you feel it important for your message to reach me right away, please " +
+              "click the following link, but note that if I disagree, such notices may be" +
+              "less likely to get my attention in the future.  #{token}"
+          end
+        end
+      end
     end
 
 end
