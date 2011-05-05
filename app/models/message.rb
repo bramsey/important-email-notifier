@@ -30,7 +30,7 @@ class Message < ActiveRecord::Base
   
   def self.initiate(sender_email, recipient_email)
     sender = User.find_or_create_by_email( sender_email )
-    recipient = User.find_by_email( recipient_email )
+    recipient = User.find_or_create_by_email( recipient_email )
     msg = sender.send!( recipient )
     
     sender.reliable? ? response = Message.build_response(msg.new_token) : response = "Ignore"

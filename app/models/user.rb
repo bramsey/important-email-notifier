@@ -109,6 +109,15 @@ class User < ActiveRecord::Base
   def reliability_to(user)
     relationship_with(user) ? relationship_with(user).reliability : "Untested"
   end
+  
+  def has_account?( username )
+    accounts.collect {|account| account.username}.include? username
+    
+    #This might be an optimization.
+    #account = Account.find_by_username( username )
+    #account ? account.user == self : false
+    
+  end
 
   #def feed
   #  Micropost.from_users_followed_by(self)

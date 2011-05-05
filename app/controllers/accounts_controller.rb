@@ -41,8 +41,10 @@ class AccountsController < ApplicationController
 
         gmail.inbox.emails(:unread).each do |email|
           #@messages << {:sender => email.from, :recipient => email.to }
-          @token = Message.initiate( email.from.first, email.to.first )
-          send_response( account, email.from.first, email.subject, @token )
+          unless current_user.has_account?( email.from.first )
+            @token = Message.initiate( email.from.first, email.to.first )
+            send_response( account, email.from.first, email.subject, @token )
+          end
         end
       end
     end
@@ -68,7 +70,7 @@ class AccountsController < ApplicationController
           text_part do
             body "I'm currently in the middle of something and not checking email;" +
               "if you feel it important for your message to reach me right away, please " +
-              "click the following link, but note that if I disagree, such notices may be" +
+              "click the following link, but note that if I disagree, such notices may be " +
               "less likely to get my attention in the future.  #{token}"
           end
         end

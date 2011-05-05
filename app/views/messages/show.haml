@@ -4,7 +4,7 @@
 	.row
 		.sender
 			%span.message_user_alias
-				= link_to @message.sender.alias, @message.sender
+				= link_to ( alias_for @message.sender ), @message.sender
 			%span.message_user_name
 				= @message.sender.name
 	.row
