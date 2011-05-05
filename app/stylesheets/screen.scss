@@ -351,7 +351,7 @@ ul li a#nav_selected {
 .unknown { color: $quiet-text-color; }
 
 a.signup_button {
-
+	@include round;
   display: block;
   text-align: center;
   width: 190px;
