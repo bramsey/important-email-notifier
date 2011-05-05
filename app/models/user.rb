@@ -115,15 +115,20 @@ class User < ActiveRecord::Base
   #end
   
   def self.find_or_create_by_email( email )
-    new_user = User.find_by_email email
-    unless new_user
-      new_user = User.new
-      new_user.email = email
-      new_user.password = random_pass
-      new_user.password_confirmation = new_user.password
-      new_user.save
+    user = User.find_by_email email
+    unless user
+      account = Account.find_by_username( email )
+      if account
+        user = account.user
+      else
+        user = User.new
+        user.email = email
+        user.password = random_pass
+        user.password_confirmation = user.password
+        user.save
+      end
     end
-    new_user
+    user
   end
       
     
