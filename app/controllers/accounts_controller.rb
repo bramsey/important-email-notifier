@@ -3,7 +3,7 @@ class AccountsController < ApplicationController
   require 'gmail'
   
   before_filter :authenticate
-  before_filter :authorized_user, :only => :destroy
+  before_filter :authorized_user, :except => [:create]
 
   def create
     @account  = current_user.accounts.build(params[:account])
@@ -23,6 +23,10 @@ class AccountsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @accounts = @user.accounts
+  end
+  
+  def new
+    @account = Account.new
   end
   
   def check
@@ -47,8 +51,8 @@ class AccountsController < ApplicationController
   private
 
     def authorized_user
-      @account = account.find(params[:id])
-      redirect_to root_path unless current_user?(@account.user)
+      @user = User.find(params[:user_id])
+      redirect_to root_path unless current_user?(@user)
     end
     
     def send_response( account, sender, subj, token )

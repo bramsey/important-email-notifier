@@ -34,6 +34,12 @@ li { list-style-type: none;
 	vertical-align: top;}
 
 //nav, body { 	@include showgrid; }
+body { background-color: $main-light; }
+.main { 
+	.container { @include box-shadow; }
+	.container, #content { background-color: $back-color; } }
+	
+.main, footer { .container { @include round; @include box-shadow; } }
 
 h1, h2, h3, h4, h5 { color: $main-very-dark; }
 
@@ -52,14 +58,16 @@ a:hover {
 	padding-top: 1.5em;
 }
 
-header { border-top: 2px solid $main-very-dark;
+header { 
+	border-top: 2px solid $main-very-dark;
 	background-color: $main-dark;
  }
 
 footer { 
 	margin-top: 1em;
-	border-top: 1px solid $border-color;
-	background-color: $back-color;
+	margin-bottom: 1em;
+	//border-top: 1px solid $border-color;
+	.container{ background-color: #EEE; }
 	* {color: $quiet-text-color;} }
 
 #content {
@@ -161,9 +169,10 @@ span.urgent3 { color: $good; }
 
 #subnav {
 	background-color: $main-light;
-	border-bottom: 1px solid $border-color;
+	//border-bottom: 1px solid $border-color;
 	padding-top: 6px;
-	padding-bottom: 2px; }
+	padding-bottom: 2px;
+}
 
 //body {margin-top: 40px; padding-top: 1em; }
 
@@ -294,6 +303,12 @@ ul li a#nav_selected {
 	}
 }
 
+.account_information {
+	input[type=text] { width: 137px; }
+	input[type=password] { width: 90px; }
+}
+	
+
 .current_avatar {
 	float: right;
 	img { border: 2px solid $main-light; }
@@ -354,13 +369,6 @@ a.signup_button {
 	}
 }
 
-/* Round corners */
-
-.round {
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
 
 form.bp {
   @include blueprint-form; }

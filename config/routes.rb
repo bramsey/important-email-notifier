@@ -6,7 +6,7 @@ Notifier::Application.routes.draw do
 
   resources :users do
     resources :messages, :only => [:index, :show]
-    resources :accounts, :only => [:index, :check] do
+    resources :accounts, :only => [:index, :check, :new] do
       collection do
         get :check
       end

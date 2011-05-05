@@ -23,6 +23,12 @@ $bad: #f00;
 
 //@mixin shadow { text-shadow: 0px 0px 0px #222222; }
 @mixin shadow { text-shadow: 1px 1px 1px #222222; }
+@mixin box-shadow { 
+	box-shadow: 7px 7px 8px #818181;
+	-webkit-box-shadow: 0 1em 28px #818181;
+	-moz-box-shadow: 7px 7px 8px #818181;
+	filter: progid:DXImageTransform.Microsoft.dropShadow(color=#818181, offX=7, offY=7, positive=true);
+}
 
 @mixin top-round {
 	-moz-border-radius:10px 10px 0 0;
@@ -31,6 +37,11 @@ $bad: #f00;
 	-ms-border-radius:10px 10px 0 0;
 	-khtml-border-radius:10px 10px 0 0;
 	border-radius:10px 10px 0 0;
+}
+@mixin round {
+	-moz-border-radius: 10px;
+	 -webkit-border-radius: 10px;
+	 border-radius: 10px;
 }
 
 

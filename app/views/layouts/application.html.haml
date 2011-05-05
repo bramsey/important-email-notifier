@@ -9,9 +9,10 @@
 	= render 'layouts/header'
 	= render 'layouts/marketing'
 	= render 'layouts/subnav'
-	.container
-		%section#content
-			.flash
-				= render 'shared/flashes'
-			= yield
+	.main
+		.container
+			%section#content
+				.flash
+					= render 'shared/flashes'
+				= yield
 	= render 'layouts/footer'

@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
   
   before_filter :authenticate, :except => [:prioritize, :init]
   before_filter :authorized_user, :except => [:create, :edit, :prioritize, :init, :update, :show]
-  before_filter :authorized_sender, :only => [:edit, :update, :show]
+  before_filter :authorized_sender, :only => [:edit, :update]
   before_filter :authenticate_with_token, :only => [:prioritize]
   
   respond_to :html, :js, :xml
@@ -113,9 +113,11 @@ class MessagesController < ApplicationController
     
     def notify( msg )
       user = msg.recipient
+      account = user.accounts.first
+      account = Account.first if account.nil? 
       #trigger for preferred user notification goes here.
       #emailing default account is only temporary for use in notification flow.
-      Gmail.new( user.accounts.first.username, user.accounts.first.password ) do |gmail|
+      Gmail.new( account.username, account.password ) do |gmail|
         url_path = message_url(msg)
 
         gmail.deliver do
