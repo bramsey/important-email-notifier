@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     #@microposts = @user.microposts.paginate(:page => params[:page])
     @title = "Profile"
-    @toDo = "Add a message user modal form."
+    #@toDo = "Add a message user modal form."
     @filter = true
     @relationship = current_user.relationship_with(@user)
   end

@@ -1,5 +1,1 @@
-.account_information
-	= form_for(@account) do |f|
-		= f.text_field :username, :value => "Enter Email"
-		= f.password_field :password, :value => "password"
-		= f.submit "Update Info"
+= render :partial => 'new_account', :locals => { :account => @account }

@@ -1,0 +1,5 @@
+.account_information
+	= form_for(account) do |f|
+		= f.text_field :username, :value => "Enter Email"
+		= f.password_field :password, :value => "password"
+		= f.submit "Add Account"
