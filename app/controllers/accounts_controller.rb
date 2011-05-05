@@ -9,15 +9,17 @@ class AccountsController < ApplicationController
     @account  = current_user.accounts.build(params[:account])
     if @account.save
       flash[:success] = "account created!"
-      redirect_to root_path
+      redirect_to user_accounts_path( current_user )
     else
       render 'pages/home'
     end
   end
 
   def destroy
-    @account.destroy
-    redirect_back_or root_path
+    @account.destroy ?
+      flash[:success] = "Account deleted." :
+      flash[:failure] = "Error deleting account."
+    redirect_to user_accounts_path( current_user ) 
   end
   
   def index
@@ -51,7 +53,9 @@ class AccountsController < ApplicationController
   private
 
     def authorized_user
-      @user = User.find(params[:user_id])
+      params[:user_id].nil? ? 
+        @user = (@account = Account.find(params[:id])).user :
+        @user = User.find(params[:user_id])
       redirect_to root_path unless current_user?(@user)
     end
     

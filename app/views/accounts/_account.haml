@@ -7,3 +7,6 @@
 				= f.text_field :username, :value => account.username
 				= f.password_field :password, :value => account.password
 				= f.submit "Update Info"
+		.row
+			= link_to '( Delete )', account, :method => :delete, 
+				:class => "delete_item"

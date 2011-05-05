@@ -36,10 +36,9 @@ li { list-style-type: none;
 //nav, body { 	@include showgrid; }
 body { background-color: $main-light; }
 .main { 
-	.container { @include box-shadow; }
 	.container, #content { background-color: $back-color; } }
 	
-.main, footer { .container { @include round; @include box-shadow; } }
+//.main, footer { .container { @include round; @include box-shadow; } }
 
 h1, h2, h3, h4, h5 { color: $main-very-dark; }
 

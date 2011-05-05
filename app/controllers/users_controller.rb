@@ -43,6 +43,7 @@ class UsersController < ApplicationController
 
   def edit
     @title = "Settings"
+    @toDo = "add menu to subnav"
   end
 
   def update

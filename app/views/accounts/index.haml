@@ -1,3 +1,4 @@
 - unless @user.accounts.empty?
 	.accounts
 		= render @accounts
+		= link_to 'New Account', new_user_account_path( current_user )
