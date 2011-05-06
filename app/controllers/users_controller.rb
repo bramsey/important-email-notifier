@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate,      :except => [:new, :create]
+  before_filter :authenticate,      :except => [:new, :create, :recover, :reset_pass]
   before_filter :correct_user,      :only => [:edit, :update]
   before_filter :admin_user,        :only => :destroy
   before_filter :already_signed_in, :only => [:new, :create]
@@ -83,6 +83,25 @@ class UsersController < ApplicationController
     @users = @user.send(action).paginate(:page => params[:page])
     @toDo = "ensure right people are displayed"
     render 'show_relationship'
+  end
+  
+  def recover
+    @title = "Recover Account"
+  end
+  
+  def reset_pass
+    if params[:user]
+      @user = User.find_by_email(params[:user][:email])
+      if @user
+        #call token send logic here.
+        flash[:success] = "The email has been sent"
+        redirect_to root_path
+      else
+        flash[:error] = "No such email found, please ensure the correct address " +
+          "is entered."
+        redirect_to recover_users_path
+      end
+    end
   end
 
   private

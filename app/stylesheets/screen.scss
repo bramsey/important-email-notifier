@@ -124,7 +124,13 @@ a.agree:hover { color: $good; }
 div.urgent1 { background-color: lighten($bad, 35%); }
 div.urgent2 { background-color: lighten($caution, 35%); }
 div.urgent3 { background-color: lighten($good, 35%); }
-
+a.recover { 
+	@include circle; 
+	color: #fff;
+	background-color: $main; 
+	padding: .25em; 
+	&:hover { text-decoration: none; background-color: #0f0;}
+}
 
 .user {
 	min-height: 70px;

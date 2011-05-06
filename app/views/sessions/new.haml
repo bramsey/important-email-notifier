@@ -7,11 +7,12 @@
 		= f.text_field :email
 	.field
 		= f.label :password
+		= link_to '??', recover_users_path, :class => "recover"
 		%br
 		= f.password_field :password
 	.actions
 		= f.submit "Sign in"
 = set_focus_to_id 'session_email'
-%p 
+%div 
 	New user? 
 	= link_to "Sign up now!", signup_path

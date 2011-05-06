@@ -14,6 +14,10 @@ Notifier::Application.routes.draw do
     member do
       get :recipients, :senders
     end
+    collection do
+      post :reset_pass
+      get :recover
+    end
   end
   
   resources :messages, :except => [:index] do

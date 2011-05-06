@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
     if @message
       flash[:success] = "Message created!"
     else
-      flash[:failure] = "Message not created"
+      flash[:error] = "Message not created"
     end
     
     respond_with current_user
@@ -35,7 +35,7 @@ class MessagesController < ApplicationController
     @message.disagree!
     @message.disagree? ? 
       flash[:success] = "Disagreement noted." : 
-      flash[:failure] = "Disagreement failed."
+      flash[:error] = "Disagreement failed."
     
     session[:return_to] ||= request.referer
     redirect_back_or root_path
@@ -45,7 +45,7 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
     @message.agree!
     @message.disagree? ?
-      flash[:failure] = "Agreement failed." : 
+      flash[:error] = "Agreement failed." : 
       flash[:success] = "Agreement noted."
 
     session[:return_to] ||= request.referer
@@ -92,7 +92,7 @@ class MessagesController < ApplicationController
       redirect_to @message
     else
       @title = "Send message"
-      flash[:failure] = "Message not sent."
+      flash[:error] = "Message not sent."
       render 'edit'
     end
   end

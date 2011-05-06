@@ -43,6 +43,11 @@ $bad: #f00;
 	 -webkit-border-radius: 10px;
 	 border-radius: 10px;
 }
+@mixin circle {
+	-moz-border-radius: 30em;
+	 -webkit-border-radius: 30em;
+	 border-radius: 30em;
+}
 
 
 //$main: lighten(#00FFFF, 25%); //Aqua

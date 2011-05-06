@@ -18,7 +18,7 @@ class AccountsController < ApplicationController
   def destroy
     @account.destroy ?
       flash[:success] = "Account deleted." :
-      flash[:failure] = "Error deleting account."
+      flash[:error] = "Error deleting account."
     redirect_to user_accounts_path( current_user ) 
   end
   
@@ -26,7 +26,7 @@ class AccountsController < ApplicationController
     @account = Account.find(params[:id])
     @account.update_attributes(params[:account]) ?
       flash[:success] = "Account updated." :
-      flash[:failure] = "Error updating account."
+      flash[:error] = "Error updating account."
     redirect_to user_accounts_path( current_user )
   end
   
