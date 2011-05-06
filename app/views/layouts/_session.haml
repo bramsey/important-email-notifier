@@ -3,6 +3,7 @@
 		= form_for(:session, :url => sessions_path) do |f|
 			= f.text_field :email, :value => "Email"
 			= f.password_field :password, :value => "password"
+			= link_to '??', recover_users_path, :class => "recover"
 			= f.submit "Sign in"
 - else
 	#sign_out
