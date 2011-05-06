@@ -1,6 +1,7 @@
+%h1 Accounts Management
 - unless @user.accounts.empty?
-	%h1= link_to 'Check Accounts', check_user_accounts_path( current_user )
+	%h2= link_to 'Check Accounts', check_user_accounts_path( current_user )
 	.accounts
 		= render @accounts
 	%hr
-	= render :partial => 'new_account', :locals => { :account => Account.new }
+= render :partial => 'new_account', :locals => { :account => Account.new }

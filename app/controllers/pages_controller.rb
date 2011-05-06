@@ -5,6 +5,11 @@ class PagesController < ApplicationController
     @slogan = "Ensure only important messages get your attention."
     @content = "Welcome to Notifier!"
     #@toDo = "mark new messages as read when visited"
+    
+    if signed_in?
+      flash.now[:notice] = "Hi! You can get back here easily in the future if you " +
+        "set a password and alias on the settings page." unless current_user.alias
+    end
   end
 
   def contact

@@ -42,6 +42,9 @@ class AccountsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @accounts = @user.accounts
+    
+    flash.now[:notice] = "Please add an account to help you avoid " +
+      "unimportant interruptions." if @accounts.empty?
   end
   
   def new

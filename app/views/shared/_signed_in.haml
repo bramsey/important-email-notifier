@@ -1,5 +1,5 @@
-%h2 New Messages
 - unless current_user.received_messages.empty?
+	%h2 New Messages
 	.messages
 		- current_user.received_messages.each do |message|
 			- if message.sender.reliable_to( current_user ) && message.disagree.nil? && !message.urgency.nil?
@@ -8,3 +8,5 @@
 							 :locals => {:message => message }
 				- else
 					= render message
+- else
+	= render 'shared/empty_inbox'
