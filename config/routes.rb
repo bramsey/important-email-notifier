@@ -22,7 +22,11 @@ Notifier::Application.routes.draw do
       post 'agree'
     end
   end
-  resources :accounts, :only => [:create, :destroy]
+  resources :accounts, :only => [:create, :destroy, :update, :activate] do
+    member do
+      post 'activate'
+    end
+  end
   resources :sessions, :only => [:new, :create, :destroy]
   resources :relationships, :only => [:create, :destroy]
 

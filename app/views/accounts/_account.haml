@@ -8,5 +8,6 @@
 				= f.password_field :password, :value => account.password
 				= f.submit "Update Info"
 		.row
+			= activate_link account
 			= link_to '( Delete )', account, :method => :delete, 
 				:class => "delete_item"

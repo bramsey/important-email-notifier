@@ -1,4 +1,5 @@
 - unless @user.accounts.empty?
+	%h1= link_to 'Check Accounts', check_user_accounts_path( current_user )
 	.accounts
 		= render @accounts
 	%hr

@@ -22,6 +22,23 @@ class AccountsController < ApplicationController
     redirect_to user_accounts_path( current_user ) 
   end
   
+  def update
+    @account = Account.find(params[:id])
+    @account.update_attributes(params[:account]) ?
+      flash[:success] = "Account updated." :
+      flash[:failure] = "Error updating account."
+    redirect_to user_accounts_path( current_user )
+  end
+  
+  def activate
+    @account = Account.find(params[:id])
+    @account.active ? @account.active = false : @account.active = true
+    @account.save
+    
+    session[:return_to] ||= request.referer
+    redirect_back_or root_path
+  end
+  
   def index
     @user = User.find(params[:user_id])
     @accounts = @user.accounts
@@ -46,7 +63,7 @@ class AccountsController < ApplicationController
             send_response( account, email.from.first, email.subject, @token )
           end
         end
-      end
+      end if account.active
     end
     
     render 'check'
