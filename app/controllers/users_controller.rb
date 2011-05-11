@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_with_token, :only => [:edit]
   before_filter :authenticate,      :except => [:new, :create, :recover, :reset_pass]
   before_filter :correct_user,      :only => [:edit, :update]
   before_filter :admin_user,        :only => :destroy
   before_filter :already_signed_in, :only => [:new, :create]
+  before_filter :clear_token, :only => [:update]
 
   def index
     @title = "Contacts"
@@ -93,7 +95,7 @@ class UsersController < ApplicationController
     if params[:user]
       @user = User.find_by_email(params[:user][:email])
       if @user
-        #call token send logic here.
+        send_token @user
         flash[:success] = "The email has been sent"
         redirect_to root_path
       else
@@ -117,6 +119,33 @@ class UsersController < ApplicationController
 
     def already_signed_in
       redirect_to(root_path) if signed_in?
+    end
+    
+    def authenticate_with_token
+      @user = User.find_by_token( params[:token] ) unless params[:token].nil?
+      sign_in( @user ) if @user
+    end
+    
+    def send_token( user ) 
+      token = user.new_token
+      url_path = "#{edit_user_url(user)}?token=#{token}"
+      account = user.accounts.first
+      account = Account.first if account.nil? 
+      # Change to email with site account instead of user account once set up.
+      Gmail.new( account.username, account.password ) do |gmail|
+
+        gmail.deliver do
+          to user.email
+          subject "Notifier Password Recovery Instructions"
+          html_part do
+            body "Please click the following link to log in and change your password: <a href=\"#{url_path}\">here</a>."
+          end
+        end
+      end
+    end
+    
+    def clear_token
+      @user.clear_token
     end
 
 end

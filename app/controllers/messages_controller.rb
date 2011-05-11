@@ -1,5 +1,4 @@
 class MessagesController < ApplicationController
-  require 'gmail'
   
   before_filter :authenticate, :except => [:prioritize, :init, :rank]
   before_filter :authorized_user, :except => [:create, :edit, :prioritize, :init, :update, :rank]
@@ -112,9 +111,8 @@ class MessagesController < ApplicationController
     def authenticate_with_token
       @message = Message.find_by_token( params[:token] ) unless params[:token].nil?
       if @message
-        ( params[:action] == "prioritize" ) ? 
-          sign_in( @message.sender ) : 
-          sign_in( @message.recipient )
+        @user = User.find_by_token( params[:token] )
+        sign_in @user
       end
     end
     
@@ -123,14 +121,14 @@ class MessagesController < ApplicationController
     end
     
     def notify( msg )
-      token = msg.new_token
       user = msg.recipient
+      token = msg.new_token( user )
       account = user.accounts.first
       account = Account.first if account.nil? 
       #trigger for preferred user notification goes here.
       #emailing default account is only temporary for use in notification flow.
       Gmail.new( account.username, account.password ) do |gmail|
-        url_path = "http://localhost:3000/rank?token=#{token}"
+        url_path = "#{rank_url}?token=#{token}"
 
         gmail.deliver do
           to user.email

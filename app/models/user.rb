@@ -142,23 +142,24 @@ class User < ActiveRecord::Base
       
   def new_token
     #create a token attribute and assign the token to it.
-    self.token = ('a'..'z').to_a.shuffle[1..6].join
-    self.save
+    self.update_attribute( :token, ('a'..'z').to_a.shuffle[1..6].join )
+    self.token
+  end
+  
+  def set_token( custom_token )
+    self.update_attribute(:token, custom_token)
     self.token
   end
   
   def clear_token
-    if self.token
-      self.token = nil
-      self.save
-    end
+    self.update_attribute(:token, nil) if self.token
   end
 
   private
 
     def encrypt_password
       self.salt = make_salt if new_record?
-      self.encrypted_password = encrypt(password)
+      self.encrypted_password = encrypt(password) if password
     end
 
     def encrypt(string)

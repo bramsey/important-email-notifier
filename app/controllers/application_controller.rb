@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  
+  require 'gmail'
   include SessionsHelper
   
   def redirect_to(options = {}, response_status = {})

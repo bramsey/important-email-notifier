@@ -19,13 +19,11 @@ class Message < ActiveRecord::Base
   end
   
   def disagree!
-    self.disagree = true
-    self.save
+    self.update_attribute!(:disagree, true)
   end
   
   def agree!
-    self.disagree = false
-    self.save
+    self.update_attribute!(:disagree, false)
   end
   
   def self.initiate(sender_email, recipient_email)
@@ -36,17 +34,17 @@ class Message < ActiveRecord::Base
     sender.reliable? ? response = Message.build_response(msg.new_token) : response = "Ignore"
   end
   
-  def new_token
+  def new_token( user )
     #create a token attribute and assign the token to it.
-    self.token = ('a'..'z').to_a.shuffle[1..6].join
-    self.save
-    self.token
+    self.update_attribute( :token, ('a'..'z').to_a.shuffle[1..6].join )
+    user.set_token( self.token )
   end
   
   def clear_token
     if self.token
-      self.token = nil
-      self.save
+      user = User.find_by_token( token )
+      user.clear_token if user
+      self.update_attribute(:token, nil)
     end
   end
   

@@ -1,7 +1,5 @@
 class AccountsController < ApplicationController
   
-  require 'gmail'
-  
   before_filter :authenticate
   before_filter :authorized_user, :except => [:create]
 

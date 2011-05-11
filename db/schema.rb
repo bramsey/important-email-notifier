@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110511010210) do
+ActiveRecord::Schema.define(:version => 20110511013645) do
 
   create_table "accounts", :force => true do |t|
     t.string   "username"
@@ -30,9 +30,11 @@ ActiveRecord::Schema.define(:version => 20110511010210) do
     t.integer  "relationship_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "token"
   end
 
   add_index "messages", ["relationship_id"], :name => "index_messages_on_relationship_id"
+  add_index "messages", ["token"], :name => "index_messages_on_token", :unique => true
 
   create_table "relationships", :force => true do |t|
     t.integer  "sender_id"
