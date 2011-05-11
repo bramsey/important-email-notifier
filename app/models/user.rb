@@ -140,7 +140,19 @@ class User < ActiveRecord::Base
     user
   end
       
-    
+  def new_token
+    #create a token attribute and assign the token to it.
+    self.token = ('a'..'z').to_a.shuffle[1..6].join
+    self.save
+    self.token
+  end
+  
+  def clear_token
+    if self.token
+      self.token = nil
+      self.save
+    end
+  end
 
   private
 
