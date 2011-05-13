@@ -20,7 +20,7 @@ class PagesController < ApplicationController
 
   def about
     @title = "About"
-    @slogan = "What the dealyo?"
+    @slogan = "What's the deal?"
     @toDo = "Insert detailed about information."
   end
 
