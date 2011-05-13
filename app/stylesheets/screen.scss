@@ -295,7 +295,7 @@ ul li a#nav_selected {
 }
 
 #sign_in {
-	@include column(10.4);
+	@include column(10.4, last);
 	@include push(1);
 	#session_email, #session_password { width: 137px; }
 }
