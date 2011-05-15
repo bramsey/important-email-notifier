@@ -23,7 +23,7 @@ class Message < ActiveRecord::Base
   end
   
   def agree!
-    self.update_attribute!(:disagree, false)
+    self.update_attribute(:disagree, false)
   end
   
   def self.initiate(sender_email, recipient_email)
@@ -31,7 +31,7 @@ class Message < ActiveRecord::Base
     recipient = User.find_or_create_by_email( recipient_email )
     msg = sender.send!( recipient )
     
-    sender.reliable? ? response = Message.build_response(msg.new_token) : response = "Ignore"
+    sender.reliable? ? response = Message.build_response(msg.new_token( sender)) : response = "Ignore"
   end
   
   def new_token( user )
