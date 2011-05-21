@@ -1,10 +1,12 @@
 ENV['RAILS_ENV'] ||= 'development'
 require File.join(File.dirname(__FILE__), '..', 'config', 'environment')
 
-ACCOUNT = Account.first
 SERVER = 'imap.gmail.com'
-USERNAME = ACCOUNT.username
-PW = ACCOUNT.password
+ACCOUNT = Account.find( ARGV.first.to_i ) unless ARGV.first.nil?
+unless ACCOUNT.nil?
+  USERNAME = ACCOUNT.username
+  PW = ACCOUNT.password
+end
 
 require 'net/imap'
 require 'rubygems'
@@ -53,7 +55,7 @@ class MailReader
   end
 
   def process
-    puts 'checking server.'
+    puts "checking #{ACCOUNT.username}."
     msg_ids = @imap.search(["UNSEEN", 'HEADER', 'X-Priority', "1"])
     msg_ids ||= []
     puts "found #{msg_ids.length} messages"
@@ -142,4 +144,4 @@ if ACCOUNT.active
     puts 'bouncing...'
     r.bounce_idle
   end
-end
+end unless ACCOUNT.nil?
