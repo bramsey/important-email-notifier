@@ -2,16 +2,12 @@ require 'rubygems'
 require 'daemons'
 
 dir = File.dirname(__FILE__)
+script = File.basename(__FILE__, ".ctl.rb")
 
-daemon_options =  {
-  :multiple => true
+options = {
+  :ontop => false,
+  :backtrace => true
 }
 
-if ARGV.include?('--')
-  ARGV.slice! 0..ARGV.index('--')
-else
-  ARGV.clear
-end
-
-Daemons.run(dir + '/idle.rb', daemon_options)
-puts "running: #{ARGV.at(1)}"
+puts "running: #{script}<"
+Daemons.run(dir + '/' + script + '.job.rb', options)

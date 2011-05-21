@@ -2,7 +2,7 @@ ENV['RAILS_ENV'] ||= 'development'
 require File.join(File.dirname(__FILE__), '..', 'config', 'environment')
 
 SERVER = 'imap.gmail.com'
-ACCOUNT = Account.find( ARGV.first.to_i ) unless ARGV.first.nil?
+ACCOUNT = Account.find( File.basename(__FILE__, ".job.rb").to_i )
 unless ACCOUNT.nil?
   USERNAME = ACCOUNT.username
   PW = ACCOUNT.password
