@@ -2,11 +2,6 @@ ENV['RAILS_ENV'] ||= 'development'
 require File.join(File.dirname(__FILE__), '..', 'config', 'environment')
 
 SERVER = 'imap.gmail.com'
-ACCOUNT = Account.find( File.basename(__FILE__, ".job.rb").to_i )
-unless ACCOUNT.nil?
-  USERNAME = ACCOUNT.username
-  PW = ACCOUNT.password
-end
 
 require 'net/imap'
 require 'rubygems'
@@ -49,13 +44,14 @@ class MailReader
   attr_reader :imap
 
   public
-  def initialize
+  def initialize( account )
     @imap = nil
+    @account = account
     start_imap
   end
 
   def process
-    puts "checking #{ACCOUNT.username}."
+    puts "checking #{@account.username}."
     msg_ids = @imap.search(["UNSEEN", 'HEADER', 'X-Priority', "1"])
     msg_ids ||= []
     puts "found #{msg_ids.length} messages"
@@ -67,11 +63,11 @@ class MailReader
       #puts "To: #{mail.to.first}"
       #puts "Subject: #{mail.subject}"
 
-      puts "user: #{ACCOUNT.user.name}"
-      unless ACCOUNT.user.has_account?( mail.from.first )
+      puts "user: #{@account.user.name}"
+      unless @account.user.has_account?( mail.from.first )
         token = Message.initiate( mail.from.first, mail.to.first )
         puts "inited"
-        send_response( ACCOUNT, mail.from.first, mail.subject, token )
+        send_response( mail.from.first, mail.subject, token )
         puts "response sent"
       end
 
@@ -79,8 +75,8 @@ class MailReader
     end
   end
   
-  def send_response( account, sender, subj, token )
-    Gmail.new( account.username, account.password ) do |gmail|
+  def send_response( sender, subj, token )
+    Gmail.new( @account.username, @account.password ) do |gmail|
 
       gmail.deliver do
         to sender
@@ -112,7 +108,7 @@ class MailReader
   def start_imap
     @imap = Net::IMAP.new SERVER, ssl: true
 
-    @imap.login USERNAME, PW
+    @imap.login @account.username, @account.password
     @imap.select 'INBOX'
 
     # Add handler.
@@ -137,11 +133,16 @@ class MailReader
 end
 
 #Net::IMAP.debug = true
-if ACCOUNT.active
-  r = MailReader.new
-  loop do
-    sleep 10*60
-    puts 'bouncing...'
+readers = {}
+Account.active_accounts.each do |account|
+  readers.store( account.id, MailReader.new(account) )
+end
+
+loop do
+  sleep 10*60
+  puts 'bouncing...'
+  readers.each do |key, r|
+    puts "bouncing account #{key}"
     r.bounce_idle
   end
-end unless ACCOUNT.nil?
+end

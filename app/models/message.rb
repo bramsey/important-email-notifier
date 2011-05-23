@@ -19,7 +19,7 @@ class Message < ActiveRecord::Base
   end
   
   def disagree!
-    self.update_attribute!(:disagree, true)
+    self.update_attribute(:disagree, true)
   end
   
   def agree!
