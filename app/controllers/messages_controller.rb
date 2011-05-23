@@ -109,11 +109,9 @@ class MessagesController < ApplicationController
     end
       
     def authenticate_with_token
-      @message = Message.find_by_token( params[:token] ) unless params[:token].nil?
-      if @message
-        @user = User.find_by_token( params[:token] )
-        sign_in @user
-      end
+      token = Token.find_by_value( params[:token] ) unless params[:token].nil?
+      @message = token.message if token
+      sign_in token.user if @message
     end
     
     def clear_token

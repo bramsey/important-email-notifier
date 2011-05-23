@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
                                    :dependent => :destroy
   has_many :senders, :through => :reverse_relationships
   has_many :accounts, :dependent => :destroy
+  has_many :tokens, :dependent => :destroy
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -142,17 +143,13 @@ class User < ActiveRecord::Base
       
   def new_token
     #create a token attribute and assign the token to it.
-    self.update_attribute( :token, ('a'..'z').to_a.shuffle[1..6].join )
-    self.token
+    value = ('a'..'z').to_a.shuffle[1..8].join
+    tokens.create!(:value => value)
+    value
   end
   
-  def set_token( custom_token )
-    self.update_attribute(:token, custom_token)
-    self.token
-  end
-  
-  def clear_token
-    self.update_attribute(:token, nil) if self.token
+  def clear_tokens
+    tokens.each {|t| t.destroy unless t.message_id}
   end
 
   private

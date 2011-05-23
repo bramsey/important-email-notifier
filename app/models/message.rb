@@ -3,6 +3,8 @@ class Message < ActiveRecord::Base
 
   belongs_to :relationship
   belongs_to :reverse_relationship
+  
+  has_one :token, :dependent => :destroy
 
   #validates :urgency, :presence => true
   validates :content, :length => { :maximum => 140 }
@@ -36,16 +38,13 @@ class Message < ActiveRecord::Base
   
   def new_token( user )
     #create a token attribute and assign the token to it.
-    self.update_attribute( :token, ('a'..'z').to_a.shuffle[1..6].join )
-    user.set_token( self.token )
+    value = ('a'..'z').to_a.shuffle[1..8].join
+    Token.create!(:user_id => user.id, :message_id => self.id, :value => value)
+    value
   end
   
   def clear_token
-    if self.token
-      user = User.find_by_token( token )
-      user.clear_token if user
-      self.update_attribute(:token, nil)
-    end
+    token.destroy
   end
   
   

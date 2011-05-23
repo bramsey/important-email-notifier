@@ -122,8 +122,8 @@ class UsersController < ApplicationController
     end
     
     def authenticate_with_token
-      @user = User.find_by_token( params[:token] ) unless params[:token].nil?
-      sign_in( @user ) if @user
+      @token = Token.find_by_value( params[:token] ) unless params[:token].nil?
+      sign_in @token.user if @token
     end
     
     def send_token( user ) 
@@ -145,7 +145,7 @@ class UsersController < ApplicationController
     end
     
     def clear_token
-      @user.clear_token
+      @user.clear_tokens
     end
 
 end
