@@ -32,7 +32,11 @@ Notifier::Application.routes.draw do
     end
   end
   resources :sessions, :only => [:new, :create, :destroy]
-  resources :relationships, :only => [:create, :destroy]
+  resources :relationships, :only => [:create, :destroy, :toggle_allow] do
+    member do
+      post 'toggle_allow'
+    end
+  end
 
   match '/contacts', :to => 'users#index'
   match '/signup', :to => 'users#new'

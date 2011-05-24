@@ -31,9 +31,14 @@ class Message < ActiveRecord::Base
   def self.initiate(sender_email, recipient_email)
     sender = User.find_or_create_by_email( sender_email )
     recipient = User.find_or_create_by_email( recipient_email )
-    msg = sender.send!( recipient )
-    
-    sender.reliable? ? response = Message.build_response(msg.new_token( sender)) : response = "Ignore"
+    if sender.reliable_to(recipient) or sender.relationship_With(recipient).allow
+      # Build message if the sender is allowed to message the recipient.
+      msg = sender.send!( recipient )
+      response = Message.build_response(msg.new_token( sender)) if msg
+    else
+      # Ignore message.
+      response = "Ignore"
+    end
   end
   
   def new_token( user )
