@@ -137,6 +137,17 @@ a.recover {
 	border-bottom: 1px solid $border-color;
 	padding-top: 10px;
 	width: 450px;
+	position: relative;
+}
+
+.allow {
+	float: right;
+	vertical-align: top;
+	position: absolute;
+	top: 30px;
+	right: 0;
+	input { vertical-align: top;}
+	label { font-size: 80%; }
 }
 
 span.urgent1 { color: $bad; }

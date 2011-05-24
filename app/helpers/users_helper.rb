@@ -21,13 +21,13 @@ module UsersHelper
   
   def allow_box_for(user)
     relationship = user.relationship_with(current_user)
-    allow = relationship.allow if relationship
-    unless allow.nil?
-      check_box_tag "allow_#{user.id}", "allow_#{user.id}", allow, 
-        :onclick => remote_function(
-          :url => toggle_allow_relationship_path(relationship)
-        )
-      label_tag "allow_#{user.id}", "Always allow?"
+    if relationship
+      allow = relationship.allow
+      label_tag( "allow_#{user.id}", "Always allow?" ) + 
+      check_box_tag( "allow_#{user.id}", "allow_#{user.id}", allow, 
+         :onclick => remote_function(
+           :url => toggle_allow_relationship_path(relationship)
+         ))
     end
   end
 end

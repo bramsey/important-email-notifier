@@ -21,5 +21,6 @@ class RelationshipsController < ApplicationController
       @relationship.save ?
         flash.now[:success] = "Toggled allow" : flash.now[:error] = "Toggle failed"
     end
+    render :nothing => true
   end
 end
