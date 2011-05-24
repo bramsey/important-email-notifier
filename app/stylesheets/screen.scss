@@ -54,10 +54,12 @@ a:hover {
 }
 
 .marketing {
+	@include gradient($main);
 	padding-top: 1.5em;
 }
 
 header { 
+	@include rgradient($main-dark);
 	border-top: 2px solid $main-very-dark;
 	background-color: $main-dark;
  }
@@ -125,11 +127,12 @@ div.urgent1 { background-color: lighten($bad, 35%); }
 div.urgent2 { background-color: lighten($caution, 35%); }
 div.urgent3 { background-color: lighten($good, 35%); }
 a.recover { 
-	@include circle; 
+	@include circle;
+	@include gradient($main); 
 	color: #fff;
 	background-color: $main; 
 	padding: .25em; 
-	&:hover { text-decoration: none; background-color: #0f0;}
+	&:hover { text-decoration: none; background-color: #0f0; @include gradient(#0f0);}
 }
 
 .user {
@@ -184,6 +187,7 @@ span.urgent3 { color: $good; }
 
 
 #subnav {
+	@include rgradient($main-light);
 	background-color: $main-light;
 	//border-bottom: 1px solid $border-color;
 	padding-top: 6px;
@@ -301,6 +305,7 @@ div.user_info span.user_name {
 }
 
 ul li a#nav_selected { 
+	@include gradient($main);
 	background-color: $main;
 	&:hover { background-color: $main; } 
 }

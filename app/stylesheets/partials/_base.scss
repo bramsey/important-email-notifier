@@ -49,6 +49,40 @@ $bad: #f00;
 	 border-radius: 30em;
 }
 
+@mixin gradient($color) {
+   /* fallback/image non-cover color */
+   background-color: $color; 
+
+   /* Firefox 3.6+ */
+   background-image: -moz-linear-gradient($color, darken($color, 15%));
+
+   /* Safari 4+, Chrome 1+ */
+   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($color), to(darken($color, 15%)));
+
+   /* Safari 5.1+, Chrome 10+ */
+   background-image: -webkit-linear-gradient($color, darken($color, 15%)); 
+
+   /* Opera 11.10+ */
+   background-image: -o-linear-gradient($color, darken($color, 15%));
+}
+
+@mixin rgradient($color) {
+	/* fallback/image non-cover color */
+	   background-color: $color; 
+
+	   /* Firefox 3.6+ */
+	   background-image: -moz-linear-gradient(darken($color, 15%), $color);
+
+	   /* Safari 4+, Chrome 1+ */
+	   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(darken($color, 15%)), to($color));
+	
+	/* Safari 5.1+, Chrome 10+ */
+	   background-image: -webkit-linear-gradient(darken($color, 15%), $color);
+	
+	/* Opera 11.10+ */
+	   background-image: -o-linear-gradient(darken($color, 15%), $color);
+}
+
 
 //$main: lighten(#00FFFF, 25%); //Aqua
 $main: #1E90FF; //DodgerBlue
