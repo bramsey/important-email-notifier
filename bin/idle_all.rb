@@ -10,6 +10,8 @@ require 'time'
 require 'date'
 require 'gmail'
 
+LOGGER = RAILS_DEFAULT_LOGGER
+
 # Extend support for idle command. See online.
 # http://www.ruby-forum.com/topic/50828
 # but that was wrong. see /opt/ruby-1.9.1-p243/lib/net/imap.rb.
@@ -60,28 +62,42 @@ class MailReader
       mail = Mail.new(@imap.fetch(msg_id, 'RFC822').first.attr['RFC822'])
       @imap.store msg_id, '-FLAGS', [:Seen]
       
-      RAILS_DEFAULT_LOGGER.error("\n New mail from #{mail.from.first} \n")
       puts "New mail from #{mail.from.first}:"
-      #puts "To: #{mail.to.first}"
-      #puts "Subject: #{mail.subject}"
-
-      puts "user: #{@account.user.name}"
-      puts "first: #{mail.subject[0]}"
+      
+      # Flags will be true if desired condition is met.
+      toFlag = mail.to.include? @account.username
+      noReplyFlag = !(mail.from.collect {|e| e.include? "noreplys"}.include?(true))
+      selfFlag = !@account.user.has_account?(mail.from.first)
+      
+      processFlag = toFlag && noReplyFlag && selfFlag
+      
+      puts "toFlag: #{toFlag.to_s}"
+      puts "noReplyFlag: #{noReplyFlag.to_s}"
+      puts "selfFlag: #{selfFlag.to_s}"
+      puts "processFlag: #{processFlag.to_s}"
       
       priority = mail.header['X-Priority'].value if mail.header['X-Priority']
-      flag = mail.subject[0]
-      flagged = ((priority == 1) || (flag == "!"))
-      unless @account.user.has_account?( mail.from.first ) && !flagged
-        token = Message.initiate( mail.from.first, mail.to.first )
-        puts "initiated"
-        if token != "Ignore"
-          send_response( mail.from.first, mail.subject, token )
-          puts "response sent"
-          @imap.store msg_id, '+FLAGS', [:Seen]
-        end unless token.nil?
-      end
-
+      priorityFlag = (priority == 1)
+      subjFlag = (mail.subject[0] == "!")
+      directFlag = priorityFlag || subjFlag
       
+      puts "priorityFlag: #{priorityFlag.to_s}"
+      puts "subjFlag: #{subjFlag.to_s}"
+      puts "directFlag: #{directFlag.to_s}"
+      if processFlag
+        if directFlag
+          # Call direct notification of recipient without autoreply
+          puts "directFlag triggered"
+        else
+          # Do autoreply stuff
+          token = Message.initiate( mail.from.first, mail.to.first )
+          if token != "Ignore"
+            send_response( mail.from.first, mail.subject, token )
+            puts "response sent"
+          end unless token.nil?
+        end
+          @imap.store msg_id, '+FLAGS', [:Seen]
+      end  
     end
   end
   
