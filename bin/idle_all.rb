@@ -2,6 +2,7 @@ ENV['RAILS_ENV'] ||= 'development'
 require File.join(File.dirname(__FILE__), '..', 'config', 'environment')
 
 SERVER = 'imap.gmail.com'
+HOST_URL = 'http://localhost:3000'
 
 require 'net/imap'
 require 'rubygems'
@@ -9,6 +10,7 @@ require 'mail'
 require 'time'
 require 'date'
 require 'gmail'
+require 'net/http'
 
 LOGGER = RAILS_DEFAULT_LOGGER
 
@@ -87,16 +89,23 @@ class MailReader
       if processFlag
         if directFlag
           # Call direct notification of recipient without autoreply
-          puts "directFlag triggered"
+          response = send_init_with_priority( mail.from.first, 
+                                              mail.to.first,
+                                              priority,
+                                              mail.subject )
+          puts "direct response: #{response}"
+          @imap.store msg_id, '+FLAGS', [:Seen] unless response == "Ignore"
         else
           # Do autoreply stuff
-          token = Message.initiate( mail.from.first, mail.to.first )
+          token = send_init( mail.from.first, mail.to.first, mail.subject )
           if token != "Ignore"
             send_response( mail.from.first, mail.subject, token )
             puts "response sent"
+            @imap.store msg_id, '+FLAGS', [:Seen]
+          else
+            puts "ignoring"
           end unless token.nil?
         end
-          @imap.store msg_id, '+FLAGS', [:Seen]
       end  
     end
   end
@@ -115,6 +124,33 @@ class MailReader
         end
       end
     end
+  end
+  
+  def send_init( sender, recipient, subject)
+    url = URI.parse("#{HOST_URL}/messages/init")
+    subject ||= ""
+    post_args = { :sender => sender,
+                  :recipient => recipient,
+                  :subject => subject }
+    
+    response, data = Net::HTTP.post_form(url, post_args)
+    
+    response.code == "200" ?
+      data : "Ignore"
+  end
+  
+  def send_init_with_priority( sender, recipient, priority, subject)
+    url = URI.parse("#{HOST_URL}/messages/init")
+    subject ||= ""
+    post_args = { :sender => sender,
+                  :recipient => recipient,
+                  :priority => priority,
+                  :subject => subject }
+    
+    response, data = Net::HTTP.post_form(url, post_args)
+    
+    response.code == "200" ?
+      data : "Ignore"
   end
 
   def tidy

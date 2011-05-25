@@ -25,6 +25,9 @@ Notifier::Application.routes.draw do
       post 'disagree'
       post 'agree'
     end
+    collection do
+      post :init
+    end
   end
   resources :accounts, :only => [:create, :destroy, :update, :activate] do
     member do
@@ -46,7 +49,6 @@ Notifier::Application.routes.draw do
   match '/about', :to => 'pages#about'
   match '/prioritize', :to => 'messages#prioritize'
   match '/rank', :to => 'messages#rank'
-  match '/messages/init', :to => 'messages#init', :as => 'init'
 
   root :to => 'pages#home'
 

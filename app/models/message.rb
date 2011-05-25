@@ -45,6 +45,26 @@ class Message < ActiveRecord::Base
     end
   end
   
+  def self.initiate_with_priority(sender_email, recipient_email, priority, subject)
+    sender = User.find_or_create_by_email( sender_email )
+    recipient = User.find_or_create_by_email( recipient_email )
+    unless sender == recipient
+      rel = sender.relationship_with(recipient)
+      allow_flag = (!rel.nil? && rel.allow)
+      unless !sender.reliable_to(recipient) && !allow_flag
+        # Build message if the sender is allowed to message the recipient.
+        msg = sender.send!( recipient )
+        priority = 1 unless priority.to_i.between?(0,5)
+        msg.update_attributes( { :content => subject, :urgency => priority.to_i } )
+        response = msg
+      else
+        # Ignore message.
+        response = "Ignore"
+      end
+    end
+    response
+  end
+  
   def new_token( user )
     #create a token attribute and assign the token to it.
     value = ('a'..'z').to_a.shuffle[1..8].join
@@ -53,7 +73,7 @@ class Message < ActiveRecord::Base
   end
   
   def clear_token
-    token.destroy
+    token.destroy if token
   end
   
   

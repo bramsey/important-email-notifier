@@ -72,9 +72,22 @@ class MessagesController < ApplicationController
   def init
     sender = params[:sender]
     recipient = params[:recipient]
-    @link = Message.initiate( sender, recipient )
-    
-    render 'init'
+    priority = params[:priority]
+    unless (sender.nil? || recipient.nil?)
+      if priority
+        subject = params[:subject] || "no subject provided"
+        msg = Message.initiate_with_priority( sender, recipient, priority, subject)
+        notify msg unless msg == "Ignore" || msg.nil?
+        @link = "priority notification sent at #{Time.now}"
+        render :text => @link
+        #render :nothing => true #set this to a success response eventually
+      else
+        @link = Message.initiate( sender, recipient )
+        render :text => @link
+      end 
+    else
+      render :text => 'denied'
+    end
   end
   
   def edit
