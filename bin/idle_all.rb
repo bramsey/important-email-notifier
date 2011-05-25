@@ -52,11 +52,13 @@ class MailReader
 
   def process
     puts "checking #{@account.username}."
-    msg_ids = @imap.search(["UNSEEN", 'HEADER', 'X-Priority', "1"])
+    #msg_ids = @imap.search(["UNSEEN", 'HEADER', 'X-Priority', "1"])
+    msg_ids = @imap.search(["UNSEEN"])
     msg_ids ||= []
     puts "found #{msg_ids.length} messages"
     msg_ids.each do |msg_id|
       mail = Mail.new(@imap.fetch(msg_id, 'RFC822').first.attr['RFC822'])
+      @imap.store msg_id, '-FLAGS', [:Seen]
       
       RAILS_DEFAULT_LOGGER.error("\n New mail from #{mail.from.first} \n")
       puts "New mail from #{mail.from.first}:"
@@ -64,16 +66,22 @@ class MailReader
       #puts "Subject: #{mail.subject}"
 
       puts "user: #{@account.user.name}"
-      unless @account.user.has_account?( mail.from.first )
+      puts "first: #{mail.subject[0]}"
+      
+      priority = mail.header['X-Priority'].value if mail.header['X-Priority']
+      flag = mail.subject[0]
+      flagged = ((priority == 1) || (flag == "!"))
+      unless @account.user.has_account?( mail.from.first ) && !flagged
         token = Message.initiate( mail.from.first, mail.to.first )
         puts "initiated"
         if token != "Ignore"
           send_response( mail.from.first, mail.subject, token )
           puts "response sent"
-        end
+          @imap.store msg_id, '+FLAGS', [:Seen]
+        end unless token.nil?
       end
 
-      @imap.store msg_id, '+FLAGS', [:Seen]
+      
     end
   end
   

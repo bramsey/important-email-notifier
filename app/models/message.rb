@@ -31,13 +31,17 @@ class Message < ActiveRecord::Base
   def self.initiate(sender_email, recipient_email)
     sender = User.find_or_create_by_email( sender_email )
     recipient = User.find_or_create_by_email( recipient_email )
-    if sender.reliable_to(recipient) or sender.relationship_With(recipient).allow
-      # Build message if the sender is allowed to message the recipient.
-      msg = sender.send!( recipient )
-      response = Message.build_response(msg.new_token( sender)) if msg
-    else
-      # Ignore message.
-      response = "Ignore"
+    unless sender == recipient
+      rel = sender.relationship_with(recipient)
+      allow_flag = (!rel.nil? && rel.allow)
+      unless !sender.reliable_to(recipient) && !allow_flag
+        # Build message if the sender is allowed to message the recipient.
+        msg = sender.send!( recipient )
+        response = Message.build_response(msg.new_token( sender)) if msg
+      else
+        # Ignore message.
+        response = "Ignore"
+      end
     end
   end
   

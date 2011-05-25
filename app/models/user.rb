@@ -100,7 +100,7 @@ class User < ActiveRecord::Base
   end
   
   def reliable_to(user)
-    relationship_with(user) ? relationship_with(user).reliable? : false
+    relationship_with(user) ? relationship_with(user).reliable? : true
   end
   
   def trusted_to(user)
