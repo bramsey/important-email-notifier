@@ -60,6 +60,7 @@ class MailReader
     msg_ids = @imap.search(["UNSEEN"])
     msg_ids ||= []
     puts "found #{msg_ids.length} messages"
+    responded = false
     msg_ids.each do |msg_id|
       mail = Mail.new(@imap.fetch(msg_id, 'RFC822').first.attr['RFC822'])
       @imap.store msg_id, '-FLAGS', [:Seen]
@@ -70,8 +71,9 @@ class MailReader
       toFlag = mail.to.include? @account.username
       noReplyFlag = !(mail.from.collect {|e| e.include? "noreplys"}.include?(true))
       selfFlag = !@account.user.has_account?(mail.from.first)
+      listFlag = mail.header['List-Unsubscribe'].nil?
       
-      processFlag = toFlag && noReplyFlag && selfFlag
+      processFlag = toFlag && noReplyFlag && selfFlag && listFlag
       
       puts "toFlag: #{toFlag.to_s}"
       puts "noReplyFlag: #{noReplyFlag.to_s}"
@@ -86,6 +88,7 @@ class MailReader
       puts "priorityFlag: #{priorityFlag.to_s}"
       puts "subjFlag: #{subjFlag.to_s}"
       puts "directFlag: #{directFlag.to_s}"
+      
       if processFlag
         if directFlag
           # Call direct notification of recipient without autoreply
@@ -101,6 +104,7 @@ class MailReader
           if token != "Ignore"
             send_response( mail.from.first, mail.subject, token )
             puts "response sent"
+            responded = true
             @imap.store msg_id, '+FLAGS', [:Seen]
           else
             puts "ignoring"
@@ -108,6 +112,7 @@ class MailReader
         end
       end  
     end
+    trash_sent_messages if responded
   end
   
   def send_response( sender, subj, token )
@@ -124,6 +129,36 @@ class MailReader
         end
       end
     end
+  end
+  
+  def trash_sent_messages
+    @imap.select '[Gmail]/All Mail'
+    remove_ids = @imap.uid_search(["FROM", "#{@account.username}", "BODY", "prioritize?token="])
+    #remove_ids = @imap.uid_search(["DELETED"])
+    remove_ids.each do |rid|
+      #@imap.copy(rid, '[Gmail]/Trash')
+      #puts "flagging: #{rid.to_s}"
+      nmail = Mail.new(@imap.uid_fetch(rid, 'RFC822').first.attr['RFC822'])
+      
+      puts "#{rid} | from: #{nmail.from.first}, to: #{nmail.to.first}"
+      puts "subject: #{nmail.subject}"
+      
+      @imap.uid_store(rid, "+FLAGS", [:Deleted])
+      @imap.uid_copy(rid, '[Gmail]/Trash')
+    end unless remove_ids.empty?
+    @imap.expunge
+    
+    @imap.select '[Gmail]/Trash'
+    trash_ids = @imap.uid_search(["FROM", "#{@account.username}", "BODY", "prioritize?token="])
+    trash_ids.each do |tid|
+      puts "flag #{tid} delete"
+      @imap.uid_store(tid, "+FLAGS", [:Deleted])
+    end
+    @imap.expunge
+    #@imap.logout
+    puts "expunging."
+    
+    @imap.select 'Inbox'
   end
   
   def send_init( sender, recipient, subject)
