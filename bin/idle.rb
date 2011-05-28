@@ -1,7 +1,13 @@
-ENV['RAILS_ENV'] ||= 'development'
-require File.join(File.dirname(__FILE__), '..', 'config', 'environment')
+SERVER = 'imap.gmail.com' # parameterize when supporting other hosts)
+HOST_URL = 'http://localhost:3000'
+USERNAME = ARGV[0] unless ARGV[0].nil?
+PW = ARGV[1] unless ARGV[1].nil?
 
-SERVER = 'imap.gmail.com'
+if ARGV.length != 2
+  puts "usage: ruby <script> <username> <password>"
+  ARGV.each {|arg| puts "#{arg}<"}
+  exit
+end
 
 require 'net/imap'
 require 'rubygems'
@@ -9,6 +15,7 @@ require 'mail'
 require 'time'
 require 'date'
 require 'gmail'
+require 'net/http'
 
 # Extend support for idle command. See online.
 # http://www.ruby-forum.com/topic/50828
@@ -44,39 +51,72 @@ class MailReader
   attr_reader :imap
 
   public
-  def initialize( account )
+  def initialize
     @imap = nil
-    @account = account
     start_imap
   end
 
   def process
-    puts "checking #{@account.username}."
-    msg_ids = @imap.search(["UNSEEN", 'HEADER', 'X-Priority', "1"])
+    puts "checking #{USERNAME}."
+    #msg_ids = @imap.search(["UNSEEN", 'HEADER', 'X-Priority', "1"])
+    msg_ids = @imap.search(["UNSEEN"])
     msg_ids ||= []
     puts "found #{msg_ids.length} messages"
+    responded = false
     msg_ids.each do |msg_id|
       mail = Mail.new(@imap.fetch(msg_id, 'RFC822').first.attr['RFC822'])
+      @imap.store msg_id, '-FLAGS', [:Seen]
       
-      RAILS_DEFAULT_LOGGER.error("\n New mail from #{mail.from.first} \n")
       puts "New mail from #{mail.from.first}:"
-      #puts "To: #{mail.to.first}"
-      #puts "Subject: #{mail.subject}"
-
-      puts "user: #{@account.user.name}"
-      unless @account.user.has_account?( mail.from.first )
-        token = Message.initiate( mail.from.first, mail.to.first )
-        puts "inited"
-        send_response( mail.from.first, mail.subject, token )
-        puts "response sent"
-      end
-
-      @imap.store msg_id, '+FLAGS', [:Seen]
+      
+      # Flags will be true if desired condition is met.
+      toFlag = mail.to.include? USERNAME
+      noReplyFlag = !(mail.from.collect {|e| e.include? "noreplys"}.include?(true))
+      listFlag = mail.header['List-Unsubscribe'].nil?
+      
+      processFlag = toFlag && noReplyFlag && listFlag
+      
+      puts "toFlag: #{toFlag.to_s}"
+      puts "noReplyFlag: #{noReplyFlag.to_s}"
+      puts "processFlag: #{processFlag.to_s}"
+      
+      priority = mail.header['X-Priority'].value if mail.header['X-Priority']
+      priorityFlag = (priority == 1)
+      subjFlag = (mail.subject[0] == "!")
+      directFlag = priorityFlag || subjFlag
+      
+      puts "priorityFlag: #{priorityFlag.to_s}"
+      puts "subjFlag: #{subjFlag.to_s}"
+      puts "directFlag: #{directFlag.to_s}"
+      
+      if processFlag
+        if directFlag
+          # Call direct notification of recipient without autoreply
+          response = send_init_with_priority( mail.from.first, 
+                                              mail.to.first,
+                                              priority,
+                                              mail.subject )
+          puts "direct response: #{response}"
+          @imap.store msg_id, '+FLAGS', [:Seen] unless response == "Ignore"
+        else
+          # Do autoreply stuff
+          token = send_init( mail.from.first, mail.to.first, mail.subject )
+          if token != "Ignore"
+            send_response( mail.from.first, mail.subject, token )
+            puts "response sent"
+            responded = true
+            @imap.store msg_id, '+FLAGS', [:Seen]
+          else
+            puts "ignoring"
+          end unless (token.nil? || token == " ")
+        end
+      end  
     end
+    trash_sent_messages if responded
   end
   
   def send_response( sender, subj, token )
-    Gmail.new( @account.username, @account.password ) do |gmail|
+    Gmail.new( USERNAME, PW ) do |gmail|
 
       gmail.deliver do
         to sender
@@ -89,6 +129,61 @@ class MailReader
         end
       end
     end
+  end
+  
+  def trash_sent_messages
+    # Move sent token messages to trash:
+    @imap.select '[Gmail]/All Mail'
+    remove_ids = @imap.uid_search(["FROM", "#{USERNAME}", "BODY", "prioritize?token="])
+    remove_ids.each do |rid|
+      nmail = Mail.new(@imap.uid_fetch(rid, 'RFC822').first.attr['RFC822'])
+      
+      puts "#{rid} | from: #{nmail.from.first}, to: #{nmail.to.first}"
+      puts "subject: #{nmail.subject}"
+      
+      @imap.uid_store(rid, "+FLAGS", [:Deleted])
+      @imap.uid_copy(rid, '[Gmail]/Trash')
+    end unless remove_ids.empty?
+    @imap.expunge
+    
+    # Delete token messages from trash:
+    @imap.select '[Gmail]/Trash'
+    trash_ids = @imap.uid_search(["FROM", "#{USERNAME}", "BODY", "prioritize?token="])
+    trash_ids.each do |tid|
+      puts "flag #{tid} delete"
+      @imap.uid_store(tid, "+FLAGS", [:Deleted])
+    end
+    @imap.expunge
+    puts "expunging."
+    
+    @imap.select 'Inbox' # Set back to Inbox for idle checking.
+  end
+  
+  def send_init( sender, recipient, subject)
+    url = URI.parse("#{HOST_URL}/messages/init")
+    subject ||= ""
+    post_args = { :sender => sender,
+                  :recipient => recipient,
+                  :subject => subject }
+    
+    response, data = Net::HTTP.post_form(url, post_args)
+    
+    response.code == "200" ?
+      data : "Ignore"
+  end
+  
+  def send_init_with_priority( sender, recipient, priority, subject)
+    url = URI.parse("#{HOST_URL}/messages/init")
+    subject ||= ""
+    post_args = { :sender => sender,
+                  :recipient => recipient,
+                  :priority => priority,
+                  :subject => subject }
+    
+    response, data = Net::HTTP.post_form(url, post_args)
+    
+    response.code == "200" ?
+      data : "Ignore"
   end
 
   def tidy
@@ -108,7 +203,7 @@ class MailReader
   def start_imap
     @imap = Net::IMAP.new SERVER, ssl: true
 
-    @imap.login @account.username, @account.password
+    @imap.login USERNAME, PW
     @imap.select 'INBOX'
 
     # Add handler.
@@ -133,16 +228,11 @@ class MailReader
 end
 
 #Net::IMAP.debug = true
-readers = {}
-Account.active_accounts.each do |account|
-  readers.store( account.id, MailReader.new(account) )
-end
+
+reader = MailReader.new
 
 loop do
   sleep 10*60
-  puts 'bouncing...'
-  readers.each do |key, r|
-    puts "bouncing account #{key}"
-    r.bounce_idle
-  end
+  puts "bouncing account #{key}"
+  reader.bounce_idle
 end
