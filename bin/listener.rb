@@ -1,7 +1,9 @@
 ENV['RAILS_ENV'] ||= 'development'
 require File.join(File.dirname(__FILE__), '..', 'config', 'environment')
 
-RUBY = '/Users/spamram/.rvm/rubies/ruby-1.9.2-p180/bin/ruby'
+ENV['RAILS_ENV'] == 'development' ?
+  RUBY = '/Users/spamram/.rvm/rubies/ruby-1.9.2-p180/bin/ruby' : # Dev path
+  RUBY = '/home/bill/.rvm/rubies/ruby-1.9.2-p180/bin/ruby' # Production path
 
 # Possibly have the start/stop all functionality within rails and have the start
 # command to be parsed by the listener pass the account info to connect so this
