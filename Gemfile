@@ -12,6 +12,7 @@ gem 'haml'
 gem 'compass'
 gem 'ruby-gmail'
 gem 'mime'
+gem 'daemons'
 
 group :development do
   gem 'rspec-rails'
