@@ -40,12 +40,5 @@ module Notifier
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
     
-    starling = Starling.new('127.0.0.1:22122')
-
-    Account.all.each do |account|
-      account.active ?
-        starling.set('idler_queue', "start #{account.id} #{account.username} #{account.password}") :
-        starling.set('idler_queue', "stop #{account.id}")
-    end
   end
 end
