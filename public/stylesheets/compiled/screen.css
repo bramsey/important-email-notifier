@@ -1859,16 +1859,17 @@ span.urgent3 {
   text-shadow: 1px 1px 1px #222222;
   margin: 0;
   padding-bottom: .5em;
-  font-family: "Geneva", "Helvetica Neue", serif;
+  font-family: Verdana, "Geneva", "Helvetica Neue", serif;
+  font-weight: bold;
   color: white;
 }
 
-/* line 186, ../../../app/stylesheets/screen.scss */
+/* line 187, ../../../app/stylesheets/screen.scss */
 .toDo {
   color: red;
 }
 
-/* line 189, ../../../app/stylesheets/screen.scss */
+/* line 190, ../../../app/stylesheets/screen.scss */
 #subnav {
   /* fallback/image non-cover color */
   background-color: #b7dbff;
@@ -1885,18 +1886,18 @@ span.urgent3 {
   padding-bottom: 2px;
 }
 
-/* line 199, ../../../app/stylesheets/screen.scss */
+/* line 200, ../../../app/stylesheets/screen.scss */
 .profile img.gravatar {
   border: 1px solid #999;
   margin-bottom: -15px;
 }
 
-/* line 204, ../../../app/stylesheets/screen.scss */
+/* line 205, ../../../app/stylesheets/screen.scss */
 section {
   font-size: 120%;
 }
 
-/* line 208, ../../../app/stylesheets/screen.scss */
+/* line 209, ../../../app/stylesheets/screen.scss */
 .field_with_errors {
   margin-top: 10px;
   padding: 2px;
@@ -1904,7 +1905,7 @@ section {
   display: table;
 }
 
-/* line 215, ../../../app/stylesheets/screen.scss */
+/* line 216, ../../../app/stylesheets/screen.scss */
 #error_explanation {
   width: 400px;
   border: 2px solid red;
@@ -1914,7 +1915,7 @@ section {
   background-color: #f0f0f0;
 }
 
-/* line 224, ../../../app/stylesheets/screen.scss */
+/* line 225, ../../../app/stylesheets/screen.scss */
 #error_explanation h2 {
   text-align: left;
   font-weight: bold;
@@ -1925,35 +1926,35 @@ section {
   color: #fff;
 }
 
-/* line 234, ../../../app/stylesheets/screen.scss */
+/* line 235, ../../../app/stylesheets/screen.scss */
 #error_explanation p {
   color: #333;
   margin-bottom: 0;
   padding: 5px;
 }
 
-/* line 240, ../../../app/stylesheets/screen.scss */
+/* line 241, ../../../app/stylesheets/screen.scss */
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
 }
 
-/* line 245, ../../../app/stylesheets/screen.scss */
+/* line 246, ../../../app/stylesheets/screen.scss */
 div.user_info img {
   padding-right: 0.1em;
 }
 
-/* line 249, ../../../app/stylesheets/screen.scss */
+/* line 250, ../../../app/stylesheets/screen.scss */
 div.user_info a {
   text-decoration: none;
 }
 
-/* line 253, ../../../app/stylesheets/screen.scss */
+/* line 254, ../../../app/stylesheets/screen.scss */
 div.user_info span.user_name {
   position: absolute;
 }
 
-/* line 257, ../../../app/stylesheets/screen.scss */
+/* line 258, ../../../app/stylesheets/screen.scss */
 #logo {
   display: inline;
   float: left;
@@ -1965,19 +1966,19 @@ div.user_info span.user_name {
 * html #logo {
   overflow-x: hidden;
 }
-/* line 260, ../../../app/stylesheets/screen.scss */
+/* line 261, ../../../app/stylesheets/screen.scss */
 #logo a {
   font-size: 4em;
   color: white;
   font-family: Menlo, "Helvetica Neue", arial, helvetica, sans-serif;
 }
-/* line 265, ../../../app/stylesheets/screen.scss */
+/* line 266, ../../../app/stylesheets/screen.scss */
 #logo a:hover {
   text-decoration: none;
   color: #b7dbff;
 }
 
-/* line 274, ../../../app/stylesheets/screen.scss */
+/* line 275, ../../../app/stylesheets/screen.scss */
 #nav {
   display: inline;
   float: left;
@@ -1996,16 +1997,16 @@ div.user_info span.user_name {
 * html #nav {
   overflow-x: hidden;
 }
-/* line 285, ../../../app/stylesheets/screen.scss */
+/* line 286, ../../../app/stylesheets/screen.scss */
 #nav ul {
   margin: 0;
   padding: 0;
 }
-/* line 288, ../../../app/stylesheets/screen.scss */
+/* line 289, ../../../app/stylesheets/screen.scss */
 #nav ul li {
   display: inline-block;
 }
-/* line 292, ../../../app/stylesheets/screen.scss */
+/* line 293, ../../../app/stylesheets/screen.scss */
 #nav ul li a {
   padding: .5em 1em 1em 1em;
   -moz-border-radius: 10px 10px 0 0;
@@ -2014,17 +2015,17 @@ div.user_info span.user_name {
   -ms-border-radius: 10px 10px 0 0;
   -khtml-border-radius: 10px 10px 0 0;
   border-radius: 10px 10px 0 0;
-  font-family: "Geneva", "Helvetica Neue", serif;
+  font-family: Verdana, "Geneva", "Helvetica Neue", serif;
   font-size: 200%;
   color: white;
 }
-/* line 299, ../../../app/stylesheets/screen.scss */
+/* line 300, ../../../app/stylesheets/screen.scss */
 #nav ul li a:hover {
   text-decoration: none;
   background-color: #00366b;
 }
 
-/* line 307, ../../../app/stylesheets/screen.scss */
+/* line 308, ../../../app/stylesheets/screen.scss */
 ul li a#nav_selected {
   /* fallback/image non-cover color */
   background-color: #1e90ff;
@@ -2038,12 +2039,12 @@ ul li a#nav_selected {
   background-image: -o-linear-gradient(#1e90ff, #006ad1);
   background-color: #1e90ff;
 }
-/* line 310, ../../../app/stylesheets/screen.scss */
+/* line 311, ../../../app/stylesheets/screen.scss */
 ul li a#nav_selected:hover {
   background-color: #1e90ff;
 }
 
-/* line 313, ../../../app/stylesheets/screen.scss */
+/* line 314, ../../../app/stylesheets/screen.scss */
 #sign_in {
   display: inline;
   float: left;
@@ -2058,43 +2059,43 @@ ul li a#nav_selected:hover {
 * html #sign_in {
   overflow-x: hidden;
 }
-/* line 316, ../../../app/stylesheets/screen.scss */
+/* line 317, ../../../app/stylesheets/screen.scss */
 #sign_in #session_email, #sign_in #session_password {
   width: 137px;
 }
 
-/* line 319, ../../../app/stylesheets/screen.scss */
+/* line 320, ../../../app/stylesheets/screen.scss */
 #sign_out {
   float: right;
 }
-/* line 321, ../../../app/stylesheets/screen.scss */
+/* line 322, ../../../app/stylesheets/screen.scss */
 #sign_out a {
   color: #1e90ff;
 }
-/* line 323, ../../../app/stylesheets/screen.scss */
+/* line 324, ../../../app/stylesheets/screen.scss */
 #sign_out a:hover {
   color: #b7dbff;
 }
 
-/* line 328, ../../../app/stylesheets/screen.scss */
+/* line 329, ../../../app/stylesheets/screen.scss */
 .account_information input[type=text] {
   width: 137px;
 }
-/* line 329, ../../../app/stylesheets/screen.scss */
+/* line 330, ../../../app/stylesheets/screen.scss */
 .account_information input[type=password] {
   width: 90px;
 }
 
-/* line 333, ../../../app/stylesheets/screen.scss */
+/* line 334, ../../../app/stylesheets/screen.scss */
 .current_avatar {
   float: right;
 }
-/* line 335, ../../../app/stylesheets/screen.scss */
+/* line 336, ../../../app/stylesheets/screen.scss */
 .current_avatar img {
   border: 2px solid #b7dbff;
 }
 
-/* line 338, ../../../app/stylesheets/screen.scss */
+/* line 339, ../../../app/stylesheets/screen.scss */
 #sidebar {
   display: inline;
   float: left;
@@ -2110,7 +2111,7 @@ ul li a#nav_selected:hover {
   overflow-x: hidden;
 }
 
-/* line 344, ../../../app/stylesheets/screen.scss */
+/* line 345, ../../../app/stylesheets/screen.scss */
 .profile {
   display: inline;
   float: left;
@@ -2122,29 +2123,29 @@ ul li a#nav_selected:hover {
   overflow-x: hidden;
 }
 
-/* line 348, ../../../app/stylesheets/screen.scss */
+/* line 349, ../../../app/stylesheets/screen.scss */
 .profile_content {
   margin-left: 137px;
 }
-/* line 350, ../../../app/stylesheets/screen.scss */
+/* line 351, ../../../app/stylesheets/screen.scss */
 .profile_content h2 {
   padding: 0;
 }
 
-/* line 353, ../../../app/stylesheets/screen.scss */
+/* line 354, ../../../app/stylesheets/screen.scss */
 .profile_name {
   font-size: 2.5em;
   color: #00509e;
 }
 
-/* line 358, ../../../app/stylesheets/screen.scss */
+/* line 359, ../../../app/stylesheets/screen.scss */
 .profile_alias {
   padding-left: .1em;
   color: #333333;
   font-size: 1.5em;
 }
 
-/* line 364, ../../../app/stylesheets/screen.scss */
+/* line 365, ../../../app/stylesheets/screen.scss */
 .profile_feed {
   display: inline;
   float: left;
@@ -2157,33 +2158,33 @@ ul li a#nav_selected:hover {
   overflow-x: hidden;
 }
 
-/* line 369, ../../../app/stylesheets/screen.scss */
+/* line 370, ../../../app/stylesheets/screen.scss */
 .reliable, .unreliable, .untested, .unknown {
   padding-left: .1em;
   font-size: 1.25em;
 }
 
-/* line 370, ../../../app/stylesheets/screen.scss */
+/* line 371, ../../../app/stylesheets/screen.scss */
 .reliable {
   color: lime;
 }
 
-/* line 371, ../../../app/stylesheets/screen.scss */
+/* line 372, ../../../app/stylesheets/screen.scss */
 .unreliable {
   color: red;
 }
 
-/* line 372, ../../../app/stylesheets/screen.scss */
+/* line 373, ../../../app/stylesheets/screen.scss */
 .untested {
   color: #ff7519;
 }
 
-/* line 373, ../../../app/stylesheets/screen.scss */
+/* line 374, ../../../app/stylesheets/screen.scss */
 .unknown {
   color: #999999;
 }
 
-/* line 375, ../../../app/stylesheets/screen.scss */
+/* line 376, ../../../app/stylesheets/screen.scss */
 a.signup_button {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -2197,14 +2198,14 @@ a.signup_button {
   font-weight: bold;
   padding: 20px;
 }
-/* line 386, ../../../app/stylesheets/screen.scss */
+/* line 387, ../../../app/stylesheets/screen.scss */
 a.signup_button:hover {
   text-shadow: 1px 1px 1px #222222;
   background: #0F0;
   text-decoration: none;
 }
 
-/* line 394, ../../../app/stylesheets/screen.scss */
+/* line 395, ../../../app/stylesheets/screen.scss */
 .cupid-green {
   background: #7fbf4d;
   background: -moz-linear-gradient(top, #7fbf4d 0%, #63a62f 100%);
@@ -2228,7 +2229,7 @@ a.signup_button:hover {
   width: 150px;
 }
 
-/* line 417, ../../../app/stylesheets/screen.scss */
+/* line 418, ../../../app/stylesheets/screen.scss */
 .cupid-green:hover {
   background: #76b347;
   background: -moz-linear-gradient(top, #76b347 0%, #5e9e2e 100%);
@@ -2239,7 +2240,7 @@ a.signup_button:hover {
   cursor: pointer;
 }
 
-/* line 427, ../../../app/stylesheets/screen.scss */
+/* line 428, ../../../app/stylesheets/screen.scss */
 .cupid-green:active {
   border: 1px solid #5b992b;
   border-bottom: 1px solid #538c27;
@@ -2310,14 +2311,14 @@ form.bp textarea {
   height: 250px;
 }
 
-/* line 440, ../../../app/stylesheets/screen.scss */
+/* line 441, ../../../app/stylesheets/screen.scss */
 body.two-col #container {
   width: 950px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 442, ../../../app/stylesheets/screen.scss */
+/* line 443, ../../../app/stylesheets/screen.scss */
 body.two-col #header, body.two-col #footer {
   display: inline;
   float: left;
@@ -2328,7 +2329,7 @@ body.two-col #header, body.two-col #footer {
 * html body.two-col #header, * html body.two-col #footer {
   overflow-x: hidden;
 }
-/* line 444, ../../../app/stylesheets/screen.scss */
+/* line 445, ../../../app/stylesheets/screen.scss */
 body.two-col #sidebar {
   display: inline;
   float: left;
@@ -2339,7 +2340,7 @@ body.two-col #sidebar {
 * html body.two-col #sidebar {
   overflow-x: hidden;
 }
-/* line 448, ../../../app/stylesheets/screen.scss */
+/* line 449, ../../../app/stylesheets/screen.scss */
 body.two-col #content {
   display: inline;
   float: left;

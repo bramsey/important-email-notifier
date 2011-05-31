@@ -23,6 +23,7 @@ $bad: #f00;
 
 //@mixin shadow { text-shadow: 0px 0px 0px #222222; }
 @mixin shadow { text-shadow: 1px 1px 1px #222222; }
+@mixin inner-shadow { text-shadow: 1px 1px white, -1px -1px #222; }
 @mixin box-shadow { 
 	box-shadow: 7px 7px 8px #818181;
 	-webkit-box-shadow: 0 1em 28px #818181;
@@ -106,5 +107,5 @@ $footer: #EEE;
 
 // font
 $master-font: 'Helvetica Neue',arial,helvetica,sans-serif;
-$marketing-font: 'Geneva', 'Helvetica Neue',serif;
+$marketing-font: Verdana, 'Geneva', 'Helvetica Neue',serif;
 $logo-font: Menlo, 'Helvetica Neue', arial, helvetica, sans-serif;
