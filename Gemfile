@@ -13,6 +13,7 @@ gem 'compass'
 gem 'ruby-gmail'
 gem 'mime'
 gem 'daemons'
+gem 'starling'
 
 group :development do
   gem 'rspec-rails'
