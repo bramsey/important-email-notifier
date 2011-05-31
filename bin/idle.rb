@@ -1,5 +1,5 @@
 SERVER = 'imap.gmail.com' # parameterize when supporting other hosts)
-HOST_URL = 'http://localhost:3000'
+HOST_URL = 'http://dev.vybly.com'
 USERNAME = ARGV[0] unless ARGV[0].nil?
 PW = ARGV[1] unless ARGV[1].nil?
 
