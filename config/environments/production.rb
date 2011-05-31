@@ -1,4 +1,4 @@
-require 'idle_init'
+require './config/initializers/idle_init.rb'
 
 Notifier::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
