@@ -3,6 +3,7 @@ require File.join(File.dirname(__FILE__), '..', 'config', 'environment')
 
 require 'starling'
 RUBY = '/home/bill/.rvm/rubies/ruby-1.9.2-p180/bin/ruby' # Production path
+DIR = File.dirname(__FILE__)
 
 
 def init
@@ -16,11 +17,11 @@ def init
 end
 
 def start( account, username, password )
-  %x[#{RUBY} idle_ctl.rb start #{account} -- #{username} #{password}]
+  %x[#{RUBY} #{DIR}/idle_ctl.rb start #{account} -- #{username} #{password}]
 end
 
 def stop( account )
-  %x[#{RUBY} idle_ctl.rb stop #{account}]
+  %x[#{RUBY} #{DIR}/idle_ctl.rb stop #{account}]
 end
 
 starling = Starling.new('127.0.0.1:22122')
