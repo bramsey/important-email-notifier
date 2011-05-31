@@ -38,6 +38,7 @@ starling = Starling.new('127.0.0.1:22122')
 
 loop do
   command = starling.get('idler_queue')
+  puts command unless command.nil?
   action = command.split[0]
   account = command.split[1]
   
@@ -50,7 +51,7 @@ loop do
     puts "invalid command"
   end
   
-  sleep 5
+  sleep 1
   #listen for new commands on the queue.
   
   
