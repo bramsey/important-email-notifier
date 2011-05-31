@@ -1,6 +1,18 @@
+require File.join(File.dirname(__FILE__), '..', 'config', 'environment')
+
 require 'starling'
 RUBY = '/home/bill/.rvm/rubies/ruby-1.9.2-p180/bin/ruby' # Production path
 
+
+def init
+  Account.all.each do |account|
+    if account.active
+      start( account.id, account.username, account.password)
+    else
+      stop( account.id )
+    end
+  end
+end
 
 def start( account, username, password )
   %x[#{RUBY} idle_ctl.rb start #{account} -- #{username} #{password}]
@@ -12,6 +24,7 @@ end
 
 starling = Starling.new('127.0.0.1:22122')
 
+init
 
 loop do
   command = starling.get('idler_queue')

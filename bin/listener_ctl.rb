@@ -1,7 +1,9 @@
 require 'rubygems'
-require 'daemons'
+
 
 dir = File.dirname(__FILE__)
+
+require 'daemons'
 
 options = {
   :ontop => false,
