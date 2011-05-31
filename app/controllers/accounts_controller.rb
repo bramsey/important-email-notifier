@@ -1,4 +1,5 @@
 class AccountsController < ApplicationController
+  require 'starling'
   
   before_filter :authenticate
   before_filter :authorized_user, :except => [:create]
@@ -30,7 +31,15 @@ class AccountsController < ApplicationController
   
   def activate
     @account = Account.find(params[:id])
-    @account.active ? @account.active = false : @account.active = true
+    starling = Starling.new('localhost:22122')
+    if @account.active 
+      @account.active = false 
+      starling.set('idler_queue', "stop #{@account.id}")
+    else
+      @account.active = true
+      starling.set('idler_queue', "start #{@account.id}")
+    end
+      
     @account.save
     
     session[:return_to] ||= request.referer
