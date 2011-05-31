@@ -1,3 +1,4 @@
+ENV['RAILS_ENV'] ||= 'production'
 require File.join(File.dirname(__FILE__), '..', 'config', 'environment')
 
 require 'starling'
