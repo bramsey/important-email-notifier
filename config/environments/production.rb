@@ -46,4 +46,14 @@ Notifier::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  require 'starling'
+  
+  starling = Starling.new('127.0.0.1:22122')
+  
+  Account.all.each do |account|
+    account.active ?
+      starling.set('idler_queue', "start #{account.id} #{account.username} #{account.password}") :
+      starling.set('idler_queue', "stop #{account.id}")
+  end
 end
