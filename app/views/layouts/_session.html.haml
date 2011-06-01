@@ -8,4 +8,6 @@
 - else
 	#sign_out
 		%strong
+			= busy_link
+			= '--'
 			= link_to 'Sign out: ' + current_alias, signout_path, :method => :delete

@@ -34,10 +34,11 @@ class AccountsController < ApplicationController
     starling = Starling.new('localhost:22122')
     if @account.active 
       @account.active = false 
-      starling.set('idler_queue', "stop #{@account.id}")
+      starling.set('idler_queue', "stop #{@account.id}") if @account.user.busy
     else
       @account.active = true
-      starling.set('idler_queue', "start #{@account.id} #{@account.username} #{@account.password}")
+      starling.set('idler_queue', 
+        "start #{@account.id} #{@account.username} #{@account.password}") if @account.user.busy
     end
       
     @account.save

@@ -56,4 +56,15 @@ module ApplicationHelper
   def set_focus_to_id(id)
    javascript_tag("$('#{id}').focus()");
   end
+  
+  # Link to change user availability status.
+  def busy_link
+    if current_user.busy
+      link_to 'Set Available', busy_user_path(current_user), 
+  			:method => "post", :class => "available"
+		else
+  		link_to 'Set Busy', busy_user_path(current_user),
+  		  :method => "post", :class => "busy"
+		end
+	end
 end

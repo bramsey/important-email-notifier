@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  require 'starling'
+  
   before_filter :authenticate_with_token, :only => [:edit]
   before_filter :authenticate,      :except => [:new, :create, :recover, :reset_pass]
   before_filter :correct_user,      :only => [:edit, :update]
@@ -59,6 +61,30 @@ class UsersController < ApplicationController
       @title = "Edit user"
       render 'edit'
     end
+  end
+  
+  def busy
+    @user = User.find(params[:id])
+    #starling = Starling.new('localhost:22122')
+    
+    # Flip busy status and queue start/stop of account checkers.
+    if @user.busy 
+      @user.update_attribute(:busy, false)
+      flash.now[:notice] = "You won't receive notices now."
+      #@user.accounts.each {|account| starling.set('idler_queue', "stop #{@account.id}")}
+    else
+      @user.update_attribute(:busy, true)
+      flash.now[:notice] = "You will receive notices of important messages now."
+      #@user.accounts.each do |account|
+      #  if account.active
+      #    starling.set('idler_queue', 
+      #                 "start #{account.id} #{account.username} #{account.password}")
+      #  end
+      #end
+    end
+    
+    session[:return_to] ||= request.referer
+    redirect_back_or root_path
   end
 
   def destroy

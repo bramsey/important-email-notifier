@@ -126,9 +126,6 @@ div#bio {
 	font-size: 12px;
 }
 
-a.disagree:hover { color: $bad; }
-a.agree:hover { color: $good; }
-
 .message, div.urgent1, div.urgent2, div.urgent3 {
 	min-height: 100px;
 	border-bottom: 1px solid $border-color;
@@ -335,6 +332,8 @@ ul li a#nav_selected {
 		color: $main;
 		&:hover { color: $main-light; }
 	}
+	a.available:hover { color: $good; }
+	a.busy:hover { color: $bad; }
 }
 
 .account_information {
@@ -402,6 +401,8 @@ a.signup_button {
 		text-decoration: none;
 	}
 }
+
+
 
 // Button green
 .cupid-green {

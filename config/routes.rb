@@ -13,6 +13,7 @@ Notifier::Application.routes.draw do
     end
     member do
       get :recipients, :senders
+      post 'busy'
     end
     collection do
       post :reset_pass
