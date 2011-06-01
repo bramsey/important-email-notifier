@@ -9,8 +9,10 @@ DIR = File.dirname(__FILE__)
 def init
   Account.all.each do |account|
     if account.active && account.user.busy
+      puts "starting #{account.id}"
       start( account.id, account.username, account.password)
     else
+      puts "stopping #{account.id}"
       stop( account.id )
     end
   end
