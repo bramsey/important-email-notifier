@@ -80,8 +80,8 @@ class Message < ActiveRecord::Base
   private
   
     def self.build_response( token )
-      root_url ||= "http://localhost:3000/"
+      ROOT_URL ||= "http://dev.vybly.com/"
       update_message_path ||= "prioritize"
-      link = root_url + update_message_path + "?token=" + token
+      link = ROOT_URL + update_message_path + "?token=" + token
     end
 end
