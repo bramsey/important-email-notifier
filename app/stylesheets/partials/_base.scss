@@ -22,7 +22,7 @@ $bad: #f00;
 
 
 //@mixin shadow { text-shadow: 0px 0px 0px #222222; }
-@mixin shadow { text-shadow: 1px 1px 1px #222222; }
+@mixin shadow { text-shadow: 2px 2px 2px #222222; }
 @mixin inner-shadow { text-shadow: 1px 1px white, -1px -1px #222; }
 @mixin box-shadow { 
 	box-shadow: 7px 7px 8px #818181;
@@ -89,6 +89,7 @@ $bad: #f00;
 $main: #1E90FF; //DodgerBlue
 //$main: #FF3333; //Red
 //$main: lighten(#FF7519, 15%); //Orange
+//$main: #F60; //YC Orange
 //$main: #FFFF80; //Yellow - nope
 //$main: #33FF33; //Green
 //$main: #3333FF; //Blue
@@ -108,5 +109,5 @@ $footer: #EEE;
 
 // font
 $master-font: 'Helvetica Neue',arial,helvetica,sans-serif;
-$marketing-font: Verdana, 'Geneva', 'Helvetica Neue',serif;
+$marketing-font: Helvetica, 'Geneva', 'Helvetica Neue',serif;
 $logo-font: Menlo, 'Helvetica Neue', arial, helvetica, sans-serif;

@@ -54,7 +54,7 @@ a:hover {
 }
 
 .marketing {
-	@include gradient($main);
+	//@include gradient($main);
 	padding-top: 1.5em;
 }
 
@@ -63,6 +63,20 @@ header {
 	border-top: 2px solid $main-very-dark;
 	background-color: $main-dark;
  }
+
+.marketing {
+	background-color: $main;
+	p { color: $marketing-color; }
+	.container { padding: 0; }
+	h1 {
+		@include shadow;
+		margin: 0;
+		padding-bottom: .5em;
+		font-family: $marketing-font;
+		font-size: 800%;
+		font-weight: bold;
+		color: $marketing-color; } 
+}
 
 footer { 
 	margin-top: 1em;
@@ -153,6 +167,16 @@ a.recover {
 	label { font-size: 80%; }
 }
 
+.signup {
+	float: right;
+	vertical-align: top;
+	position: absolute;
+	top: 405px;
+	right: 20px;
+	input { vertical-align: top;}
+	label { font-size: 80%; }
+}
+
 span.urgent1 { color: $bad; }
 span.urgent2 { color: $caution; }
 span.urgent3 { color: $good; }
@@ -171,17 +195,6 @@ span.urgent3 { color: $good; }
 	font-size: 11px;
 	color: $quiet-text-color;
 }
-
-.marketing {
-	background-color: $main;
-	p { color: $marketing-color; }
-	.container { padding: 0; }
-	h1 {
-		@include shadow;
-		margin: 0;
-		padding-bottom: .5em;
-		font-family: $marketing-font;
-		color: $marketing-color; } }
 
 .toDo { color: $attention-color; }
 
