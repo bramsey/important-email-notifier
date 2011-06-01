@@ -145,7 +145,7 @@ class MessagesController < ApplicationController
           to user.email
           subject "New message from #{msg.sender.email}!"
           html_part do
-            body "<p>Message: #{msg.content}</p><p>Please rate the urgency for this message <a href=\"#{url_path}\">here</a>."
+            body "Message: #{msg.content} | Please rate the urgency for this message here: #{url_path}"
           end
         end
       end
