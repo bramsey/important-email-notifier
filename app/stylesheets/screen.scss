@@ -54,7 +54,7 @@ a:hover {
 }
 
 .marketing {
-	//@include gradient($main);
+	@include gradient($main);
 	padding-top: 1.5em;
 }
 

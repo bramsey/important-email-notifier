@@ -1601,6 +1601,16 @@ a:hover {
 
 /* line 56, ../../../app/stylesheets/screen.scss */
 .marketing {
+  /* fallback/image non-cover color */
+  background-color: #1e90ff;
+  /* Firefox 3.6+ */
+  background-image: -moz-linear-gradient(#1e90ff, #006ad1);
+  /* Safari 4+, Chrome 1+ */
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1e90ff), to(#006ad1));
+  /* Safari 5.1+, Chrome 10+ */
+  background-image: -webkit-linear-gradient(#1e90ff, #006ad1);
+  /* Opera 11.10+ */
+  background-image: -o-linear-gradient(#1e90ff, #006ad1);
   padding-top: 1.5em;
 }
 
