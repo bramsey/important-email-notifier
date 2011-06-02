@@ -36,9 +36,10 @@ Notifier::Application.routes.draw do
     end
   end
   resources :sessions, :only => [:new, :create, :destroy]
-  resources :relationships, :only => [:create, :destroy, :toggle_allow] do
+  resources :relationships, :only => [:create, :destroy, :toggle_allow, :toggle_blocked] do
     member do
       post 'toggle_allow'
+      post 'toggle_blocked'
     end
   end
 

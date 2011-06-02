@@ -30,4 +30,16 @@ module UsersHelper
          ))
     end
   end
+  
+  def block_box_for(user)
+    relationship = user.relationship_with(current_user)
+    if relationship
+      blocked = relationship.blocked
+      label_tag( "block_#{user.id}", "Block?" ) + 
+      check_box_tag( "block_#{user.id}", "block_#{user.id}", blocked, 
+         :onclick => remote_function(
+           :url => toggle_blocked_relationship_path(relationship)
+         ))
+    end
+  end
 end

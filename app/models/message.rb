@@ -33,7 +33,7 @@ class Message < ActiveRecord::Base
     recipient = User.find_or_create_by_email( recipient_email )
     unless sender == recipient
       rel = sender.relationship_with(recipient)
-      allow_flag = (!rel.nil? && rel.allow)
+      allow_flag = (!rel.nil? && rel.allow || rel.blocked)
       unless !sender.reliable_to(recipient) && !allow_flag
         # Build message if the sender is allowed to message the recipient.
         msg = sender.send!( recipient )
@@ -50,7 +50,7 @@ class Message < ActiveRecord::Base
     recipient = User.find_or_create_by_email( recipient_email )
     unless sender == recipient
       rel = sender.relationship_with(recipient)
-      allow_flag = (!rel.nil? && rel.allow)
+      allow_flag = (!rel.nil? && rel.allow || rel.blocked)
       unless !sender.reliable_to(recipient) && !allow_flag
         # Build message if the sender is allowed to message the recipient.
         msg = sender.send!( recipient )

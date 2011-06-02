@@ -23,4 +23,14 @@ class RelationshipsController < ApplicationController
     end
     render :nothing => true
   end
+  
+  def toggle_blocked
+    @relationship = Relationship.find(params[:id])
+    if @relationship
+      @relationship.blocked ?
+        @relationship.blocked = false : @relationship.blocked = true
+      @relationship.save
+    end
+    render :nothing => true
+  end
 end
