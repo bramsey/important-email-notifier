@@ -1821,8 +1821,33 @@ a.recover:hover {
 .allow label {
   font-size: 80%;
 }
+/* line 165, ../../../app/stylesheets/screen.scss */
+.allow label:hover, .allow checkbox:hover + label {
+  background: lime;
+}
 
-/* line 167, ../../../app/stylesheets/screen.scss */
+/* line 170, ../../../app/stylesheets/screen.scss */
+.block {
+  float: right;
+  vertical-align: top;
+  position: absolute;
+  top: 50px;
+  right: 0;
+}
+/* line 176, ../../../app/stylesheets/screen.scss */
+.block input {
+  vertical-align: top;
+}
+/* line 177, ../../../app/stylesheets/screen.scss */
+.block label {
+  font-size: 80%;
+}
+/* line 178, ../../../app/stylesheets/screen.scss */
+.block label:hover, .block label:active, .block input:hover + label, .block input:active + label {
+  background: red;
+}
+
+/* line 183, ../../../app/stylesheets/screen.scss */
 .signup {
   float: right;
   vertical-align: top;
@@ -1830,54 +1855,54 @@ a.recover:hover {
   top: 405px;
   right: 20px;
 }
-/* line 173, ../../../app/stylesheets/screen.scss */
+/* line 189, ../../../app/stylesheets/screen.scss */
 .signup input {
   vertical-align: top;
 }
-/* line 174, ../../../app/stylesheets/screen.scss */
+/* line 190, ../../../app/stylesheets/screen.scss */
 .signup label {
   font-size: 80%;
 }
 
-/* line 177, ../../../app/stylesheets/screen.scss */
+/* line 193, ../../../app/stylesheets/screen.scss */
 span.urgent1 {
   color: red;
 }
 
-/* line 178, ../../../app/stylesheets/screen.scss */
+/* line 194, ../../../app/stylesheets/screen.scss */
 span.urgent2 {
   color: #ff7519;
 }
 
-/* line 179, ../../../app/stylesheets/screen.scss */
+/* line 195, ../../../app/stylesheets/screen.scss */
 span.urgent3 {
   color: lime;
 }
 
-/* line 181, ../../../app/stylesheets/screen.scss */
+/* line 197, ../../../app/stylesheets/screen.scss */
 .message_user_alias {
   font-weight: bold;
   font-size: 15px;
 }
 
-/* line 186, ../../../app/stylesheets/screen.scss */
+/* line 202, ../../../app/stylesheets/screen.scss */
 .message_user_name {
   font-size: 12px;
   color: #999999;
 }
 
-/* line 191, ../../../app/stylesheets/screen.scss */
+/* line 207, ../../../app/stylesheets/screen.scss */
 .message_timestamp {
   font-size: 11px;
   color: #999999;
 }
 
-/* line 196, ../../../app/stylesheets/screen.scss */
+/* line 212, ../../../app/stylesheets/screen.scss */
 .toDo {
   color: red;
 }
 
-/* line 199, ../../../app/stylesheets/screen.scss */
+/* line 215, ../../../app/stylesheets/screen.scss */
 #subnav {
   /* fallback/image non-cover color */
   background-color: #b7dbff;
@@ -1894,18 +1919,18 @@ span.urgent3 {
   padding-bottom: 2px;
 }
 
-/* line 209, ../../../app/stylesheets/screen.scss */
+/* line 225, ../../../app/stylesheets/screen.scss */
 .profile img.gravatar {
   border: 1px solid #999;
   margin-bottom: -15px;
 }
 
-/* line 214, ../../../app/stylesheets/screen.scss */
+/* line 230, ../../../app/stylesheets/screen.scss */
 section {
   font-size: 120%;
 }
 
-/* line 218, ../../../app/stylesheets/screen.scss */
+/* line 234, ../../../app/stylesheets/screen.scss */
 .field_with_errors {
   margin-top: 10px;
   padding: 2px;
@@ -1913,7 +1938,7 @@ section {
   display: table;
 }
 
-/* line 225, ../../../app/stylesheets/screen.scss */
+/* line 241, ../../../app/stylesheets/screen.scss */
 #error_explanation {
   width: 400px;
   border: 2px solid red;
@@ -1923,7 +1948,7 @@ section {
   background-color: #f0f0f0;
 }
 
-/* line 234, ../../../app/stylesheets/screen.scss */
+/* line 250, ../../../app/stylesheets/screen.scss */
 #error_explanation h2 {
   text-align: left;
   font-weight: bold;
@@ -1934,35 +1959,35 @@ section {
   color: #fff;
 }
 
-/* line 244, ../../../app/stylesheets/screen.scss */
+/* line 260, ../../../app/stylesheets/screen.scss */
 #error_explanation p {
   color: #333;
   margin-bottom: 0;
   padding: 5px;
 }
 
-/* line 250, ../../../app/stylesheets/screen.scss */
+/* line 266, ../../../app/stylesheets/screen.scss */
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
 }
 
-/* line 255, ../../../app/stylesheets/screen.scss */
+/* line 271, ../../../app/stylesheets/screen.scss */
 div.user_info img {
   padding-right: 0.1em;
 }
 
-/* line 259, ../../../app/stylesheets/screen.scss */
+/* line 275, ../../../app/stylesheets/screen.scss */
 div.user_info a {
   text-decoration: none;
 }
 
-/* line 263, ../../../app/stylesheets/screen.scss */
+/* line 279, ../../../app/stylesheets/screen.scss */
 div.user_info span.user_name {
   position: absolute;
 }
 
-/* line 267, ../../../app/stylesheets/screen.scss */
+/* line 283, ../../../app/stylesheets/screen.scss */
 #logo {
   display: inline;
   float: left;
@@ -1974,19 +1999,19 @@ div.user_info span.user_name {
 * html #logo {
   overflow-x: hidden;
 }
-/* line 270, ../../../app/stylesheets/screen.scss */
+/* line 286, ../../../app/stylesheets/screen.scss */
 #logo a {
   font-size: 4em;
   color: white;
   font-family: Menlo, "Helvetica Neue", arial, helvetica, sans-serif;
 }
-/* line 275, ../../../app/stylesheets/screen.scss */
+/* line 291, ../../../app/stylesheets/screen.scss */
 #logo a:hover {
   text-decoration: none;
   color: #b7dbff;
 }
 
-/* line 284, ../../../app/stylesheets/screen.scss */
+/* line 300, ../../../app/stylesheets/screen.scss */
 #nav {
   display: inline;
   float: left;
@@ -2005,16 +2030,16 @@ div.user_info span.user_name {
 * html #nav {
   overflow-x: hidden;
 }
-/* line 295, ../../../app/stylesheets/screen.scss */
+/* line 311, ../../../app/stylesheets/screen.scss */
 #nav ul {
   margin: 0;
   padding: 0;
 }
-/* line 298, ../../../app/stylesheets/screen.scss */
+/* line 314, ../../../app/stylesheets/screen.scss */
 #nav ul li {
   display: inline-block;
 }
-/* line 302, ../../../app/stylesheets/screen.scss */
+/* line 318, ../../../app/stylesheets/screen.scss */
 #nav ul li a {
   padding: .5em 1em 1em 1em;
   -moz-border-radius: 10px 10px 0 0;
@@ -2027,13 +2052,13 @@ div.user_info span.user_name {
   font-size: 200%;
   color: white;
 }
-/* line 309, ../../../app/stylesheets/screen.scss */
+/* line 325, ../../../app/stylesheets/screen.scss */
 #nav ul li a:hover {
   text-decoration: none;
   background-color: #00366b;
 }
 
-/* line 317, ../../../app/stylesheets/screen.scss */
+/* line 333, ../../../app/stylesheets/screen.scss */
 ul li a#nav_selected {
   /* fallback/image non-cover color */
   background-color: #1e90ff;
@@ -2047,12 +2072,12 @@ ul li a#nav_selected {
   background-image: -o-linear-gradient(#1e90ff, #006ad1);
   background-color: #1e90ff;
 }
-/* line 320, ../../../app/stylesheets/screen.scss */
+/* line 336, ../../../app/stylesheets/screen.scss */
 ul li a#nav_selected:hover {
   background-color: #1e90ff;
 }
 
-/* line 323, ../../../app/stylesheets/screen.scss */
+/* line 339, ../../../app/stylesheets/screen.scss */
 #sign_in {
   display: inline;
   float: left;
@@ -2067,51 +2092,51 @@ ul li a#nav_selected:hover {
 * html #sign_in {
   overflow-x: hidden;
 }
-/* line 326, ../../../app/stylesheets/screen.scss */
+/* line 342, ../../../app/stylesheets/screen.scss */
 #sign_in #session_email, #sign_in #session_password {
   width: 137px;
 }
 
-/* line 329, ../../../app/stylesheets/screen.scss */
+/* line 345, ../../../app/stylesheets/screen.scss */
 #sign_out {
   float: right;
 }
-/* line 331, ../../../app/stylesheets/screen.scss */
+/* line 347, ../../../app/stylesheets/screen.scss */
 #sign_out a {
   color: #1e90ff;
 }
-/* line 333, ../../../app/stylesheets/screen.scss */
+/* line 349, ../../../app/stylesheets/screen.scss */
 #sign_out a:hover {
   color: #b7dbff;
 }
-/* line 335, ../../../app/stylesheets/screen.scss */
+/* line 351, ../../../app/stylesheets/screen.scss */
 #sign_out a.available:hover {
   color: lime;
 }
-/* line 336, ../../../app/stylesheets/screen.scss */
+/* line 352, ../../../app/stylesheets/screen.scss */
 #sign_out a.busy:hover {
   color: red;
 }
 
-/* line 340, ../../../app/stylesheets/screen.scss */
+/* line 356, ../../../app/stylesheets/screen.scss */
 .account_information input[type=text] {
   width: 137px;
 }
-/* line 341, ../../../app/stylesheets/screen.scss */
+/* line 357, ../../../app/stylesheets/screen.scss */
 .account_information input[type=password] {
   width: 90px;
 }
 
-/* line 345, ../../../app/stylesheets/screen.scss */
+/* line 361, ../../../app/stylesheets/screen.scss */
 .current_avatar {
   float: right;
 }
-/* line 347, ../../../app/stylesheets/screen.scss */
+/* line 363, ../../../app/stylesheets/screen.scss */
 .current_avatar img {
   border: 2px solid #b7dbff;
 }
 
-/* line 350, ../../../app/stylesheets/screen.scss */
+/* line 366, ../../../app/stylesheets/screen.scss */
 #sidebar {
   display: inline;
   float: left;
@@ -2127,7 +2152,7 @@ ul li a#nav_selected:hover {
   overflow-x: hidden;
 }
 
-/* line 356, ../../../app/stylesheets/screen.scss */
+/* line 372, ../../../app/stylesheets/screen.scss */
 .profile {
   display: inline;
   float: left;
@@ -2139,29 +2164,29 @@ ul li a#nav_selected:hover {
   overflow-x: hidden;
 }
 
-/* line 360, ../../../app/stylesheets/screen.scss */
+/* line 376, ../../../app/stylesheets/screen.scss */
 .profile_content {
   margin-left: 137px;
 }
-/* line 362, ../../../app/stylesheets/screen.scss */
+/* line 378, ../../../app/stylesheets/screen.scss */
 .profile_content h2 {
   padding: 0;
 }
 
-/* line 365, ../../../app/stylesheets/screen.scss */
+/* line 381, ../../../app/stylesheets/screen.scss */
 .profile_name {
   font-size: 2.5em;
   color: #00509e;
 }
 
-/* line 370, ../../../app/stylesheets/screen.scss */
+/* line 386, ../../../app/stylesheets/screen.scss */
 .profile_alias {
   padding-left: .1em;
   color: #333333;
   font-size: 1.5em;
 }
 
-/* line 376, ../../../app/stylesheets/screen.scss */
+/* line 392, ../../../app/stylesheets/screen.scss */
 .profile_feed {
   display: inline;
   float: left;
@@ -2174,33 +2199,33 @@ ul li a#nav_selected:hover {
   overflow-x: hidden;
 }
 
-/* line 381, ../../../app/stylesheets/screen.scss */
+/* line 397, ../../../app/stylesheets/screen.scss */
 .reliable, .unreliable, .untested, .unknown {
   padding-left: .1em;
   font-size: 1.25em;
 }
 
-/* line 382, ../../../app/stylesheets/screen.scss */
+/* line 398, ../../../app/stylesheets/screen.scss */
 .reliable {
   color: lime;
 }
 
-/* line 383, ../../../app/stylesheets/screen.scss */
+/* line 399, ../../../app/stylesheets/screen.scss */
 .unreliable {
   color: red;
 }
 
-/* line 384, ../../../app/stylesheets/screen.scss */
+/* line 400, ../../../app/stylesheets/screen.scss */
 .untested {
   color: #ff7519;
 }
 
-/* line 385, ../../../app/stylesheets/screen.scss */
+/* line 401, ../../../app/stylesheets/screen.scss */
 .unknown {
   color: #999999;
 }
 
-/* line 387, ../../../app/stylesheets/screen.scss */
+/* line 403, ../../../app/stylesheets/screen.scss */
 a.signup_button {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -2214,14 +2239,14 @@ a.signup_button {
   font-weight: bold;
   padding: 20px;
 }
-/* line 398, ../../../app/stylesheets/screen.scss */
+/* line 414, ../../../app/stylesheets/screen.scss */
 a.signup_button:hover {
   text-shadow: 2px 2px 2px #222222;
   background: #0F0;
   text-decoration: none;
 }
 
-/* line 408, ../../../app/stylesheets/screen.scss */
+/* line 424, ../../../app/stylesheets/screen.scss */
 .cupid-green {
   background: #7fbf4d;
   background: -moz-linear-gradient(top, #7fbf4d 0%, #63a62f 100%);
@@ -2245,7 +2270,7 @@ a.signup_button:hover {
   width: 150px;
 }
 
-/* line 431, ../../../app/stylesheets/screen.scss */
+/* line 447, ../../../app/stylesheets/screen.scss */
 .cupid-green:hover {
   background: #76b347;
   background: -moz-linear-gradient(top, #76b347 0%, #5e9e2e 100%);
@@ -2256,7 +2281,7 @@ a.signup_button:hover {
   cursor: pointer;
 }
 
-/* line 441, ../../../app/stylesheets/screen.scss */
+/* line 457, ../../../app/stylesheets/screen.scss */
 .cupid-green:active {
   border: 1px solid #5b992b;
   border-bottom: 1px solid #538c27;
@@ -2327,14 +2352,14 @@ form.bp textarea {
   height: 250px;
 }
 
-/* line 454, ../../../app/stylesheets/screen.scss */
+/* line 470, ../../../app/stylesheets/screen.scss */
 body.two-col #container {
   width: 950px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 456, ../../../app/stylesheets/screen.scss */
+/* line 472, ../../../app/stylesheets/screen.scss */
 body.two-col #header, body.two-col #footer {
   display: inline;
   float: left;
@@ -2345,7 +2370,7 @@ body.two-col #header, body.two-col #footer {
 * html body.two-col #header, * html body.two-col #footer {
   overflow-x: hidden;
 }
-/* line 458, ../../../app/stylesheets/screen.scss */
+/* line 474, ../../../app/stylesheets/screen.scss */
 body.two-col #sidebar {
   display: inline;
   float: left;
@@ -2356,7 +2381,7 @@ body.two-col #sidebar {
 * html body.two-col #sidebar {
   overflow-x: hidden;
 }
-/* line 462, ../../../app/stylesheets/screen.scss */
+/* line 478, ../../../app/stylesheets/screen.scss */
 body.two-col #content {
   display: inline;
   float: left;

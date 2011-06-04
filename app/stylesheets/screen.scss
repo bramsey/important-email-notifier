@@ -162,6 +162,22 @@ a.recover {
 	right: 0;
 	input { vertical-align: top;}
 	label { font-size: 80%; }
+	label:hover{
+	    background: $good;
+	}
+}
+
+.block {
+	float: right;
+	vertical-align: top;
+	position: absolute;
+	top: 50px;
+	right: 0;
+	input { vertical-align: top;}
+	label { font-size: 80%; }
+	label:hover {
+	    background: $bad;
+	}
 }
 
 .signup {
