@@ -1,13 +1,8 @@
 - unless user_signed_in?
 	#sign_in
-		= link_to "Sign in with Google"), user_omniauth_authorize_path(:open_id, :openid_url => "https://www.google.com/accounts/o8/id")
-		= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-			= f.text_field :email, :value => "Email"
-			= f.password_field :password, :value => "password"
-			- if devise_mapping.rememberable?
-				= f.check_box :remember_me
-				= f.label :remember_me
-			= f.submit "Sign in"
+		= link_to 'Sign in with Google', user_omniauth_authorize_path(:open_id, :openid_url => "https://www.google.com/accounts/o8/id")
+		= '--'
+		= link_to "Sign in", new_user_session_path
 - else
 	#sign_out
 		%strong

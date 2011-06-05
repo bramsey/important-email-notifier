@@ -7,7 +7,7 @@ module ApplicationHelper
   
   def siteNav
     content_tag :ul do
-      if signed_in?
+      if user_signed_in?
         link("Contacts", contacts_path) +
         link("Profile", current_user) +
         link("Settings", edit_user_path(current_user))

@@ -1822,7 +1822,7 @@ a.recover:hover {
   font-size: 80%;
 }
 /* line 165, ../../../app/stylesheets/screen.scss */
-.allow label:hover, .allow checkbox:hover + label {
+.allow label:hover {
   background: lime;
 }
 
@@ -1843,7 +1843,7 @@ a.recover:hover {
   font-size: 80%;
 }
 /* line 178, ../../../app/stylesheets/screen.scss */
-.block label:hover, .block label:active, .block input:hover + label, .block input:active + label {
+.block label:hover {
   background: red;
 }
 
@@ -2096,47 +2096,55 @@ ul li a#nav_selected:hover {
 #sign_in #session_email, #sign_in #session_password {
   width: 137px;
 }
-
+/* line 343, ../../../app/stylesheets/screen.scss */
+#sign_in a {
+  color: #1e90ff;
+}
 /* line 345, ../../../app/stylesheets/screen.scss */
+#sign_in a:hover {
+  color: #b7dbff;
+}
+
+/* line 349, ../../../app/stylesheets/screen.scss */
 #sign_out {
   float: right;
 }
-/* line 347, ../../../app/stylesheets/screen.scss */
+/* line 351, ../../../app/stylesheets/screen.scss */
 #sign_out a {
   color: #1e90ff;
 }
-/* line 349, ../../../app/stylesheets/screen.scss */
+/* line 353, ../../../app/stylesheets/screen.scss */
 #sign_out a:hover {
   color: #b7dbff;
 }
-/* line 351, ../../../app/stylesheets/screen.scss */
+/* line 355, ../../../app/stylesheets/screen.scss */
 #sign_out a.available:hover {
   color: lime;
 }
-/* line 352, ../../../app/stylesheets/screen.scss */
+/* line 356, ../../../app/stylesheets/screen.scss */
 #sign_out a.busy:hover {
   color: red;
 }
 
-/* line 356, ../../../app/stylesheets/screen.scss */
+/* line 360, ../../../app/stylesheets/screen.scss */
 .account_information input[type=text] {
   width: 137px;
 }
-/* line 357, ../../../app/stylesheets/screen.scss */
+/* line 361, ../../../app/stylesheets/screen.scss */
 .account_information input[type=password] {
   width: 90px;
 }
 
-/* line 361, ../../../app/stylesheets/screen.scss */
+/* line 365, ../../../app/stylesheets/screen.scss */
 .current_avatar {
   float: right;
 }
-/* line 363, ../../../app/stylesheets/screen.scss */
+/* line 367, ../../../app/stylesheets/screen.scss */
 .current_avatar img {
   border: 2px solid #b7dbff;
 }
 
-/* line 366, ../../../app/stylesheets/screen.scss */
+/* line 370, ../../../app/stylesheets/screen.scss */
 #sidebar {
   display: inline;
   float: left;
@@ -2152,7 +2160,7 @@ ul li a#nav_selected:hover {
   overflow-x: hidden;
 }
 
-/* line 372, ../../../app/stylesheets/screen.scss */
+/* line 376, ../../../app/stylesheets/screen.scss */
 .profile {
   display: inline;
   float: left;
@@ -2164,29 +2172,29 @@ ul li a#nav_selected:hover {
   overflow-x: hidden;
 }
 
-/* line 376, ../../../app/stylesheets/screen.scss */
+/* line 380, ../../../app/stylesheets/screen.scss */
 .profile_content {
   margin-left: 137px;
 }
-/* line 378, ../../../app/stylesheets/screen.scss */
+/* line 382, ../../../app/stylesheets/screen.scss */
 .profile_content h2 {
   padding: 0;
 }
 
-/* line 381, ../../../app/stylesheets/screen.scss */
+/* line 385, ../../../app/stylesheets/screen.scss */
 .profile_name {
   font-size: 2.5em;
   color: #00509e;
 }
 
-/* line 386, ../../../app/stylesheets/screen.scss */
+/* line 390, ../../../app/stylesheets/screen.scss */
 .profile_alias {
   padding-left: .1em;
   color: #333333;
   font-size: 1.5em;
 }
 
-/* line 392, ../../../app/stylesheets/screen.scss */
+/* line 396, ../../../app/stylesheets/screen.scss */
 .profile_feed {
   display: inline;
   float: left;
@@ -2199,33 +2207,33 @@ ul li a#nav_selected:hover {
   overflow-x: hidden;
 }
 
-/* line 397, ../../../app/stylesheets/screen.scss */
+/* line 401, ../../../app/stylesheets/screen.scss */
 .reliable, .unreliable, .untested, .unknown {
   padding-left: .1em;
   font-size: 1.25em;
 }
 
-/* line 398, ../../../app/stylesheets/screen.scss */
+/* line 402, ../../../app/stylesheets/screen.scss */
 .reliable {
   color: lime;
 }
 
-/* line 399, ../../../app/stylesheets/screen.scss */
+/* line 403, ../../../app/stylesheets/screen.scss */
 .unreliable {
   color: red;
 }
 
-/* line 400, ../../../app/stylesheets/screen.scss */
+/* line 404, ../../../app/stylesheets/screen.scss */
 .untested {
   color: #ff7519;
 }
 
-/* line 401, ../../../app/stylesheets/screen.scss */
+/* line 405, ../../../app/stylesheets/screen.scss */
 .unknown {
   color: #999999;
 }
 
-/* line 403, ../../../app/stylesheets/screen.scss */
+/* line 407, ../../../app/stylesheets/screen.scss */
 a.signup_button {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -2239,14 +2247,14 @@ a.signup_button {
   font-weight: bold;
   padding: 20px;
 }
-/* line 414, ../../../app/stylesheets/screen.scss */
+/* line 418, ../../../app/stylesheets/screen.scss */
 a.signup_button:hover {
   text-shadow: 2px 2px 2px #222222;
   background: #0F0;
   text-decoration: none;
 }
 
-/* line 424, ../../../app/stylesheets/screen.scss */
+/* line 428, ../../../app/stylesheets/screen.scss */
 .cupid-green {
   background: #7fbf4d;
   background: -moz-linear-gradient(top, #7fbf4d 0%, #63a62f 100%);
@@ -2270,7 +2278,7 @@ a.signup_button:hover {
   width: 150px;
 }
 
-/* line 447, ../../../app/stylesheets/screen.scss */
+/* line 451, ../../../app/stylesheets/screen.scss */
 .cupid-green:hover {
   background: #76b347;
   background: -moz-linear-gradient(top, #76b347 0%, #5e9e2e 100%);
@@ -2281,7 +2289,7 @@ a.signup_button:hover {
   cursor: pointer;
 }
 
-/* line 457, ../../../app/stylesheets/screen.scss */
+/* line 461, ../../../app/stylesheets/screen.scss */
 .cupid-green:active {
   border: 1px solid #5b992b;
   border-bottom: 1px solid #538c27;
@@ -2352,14 +2360,14 @@ form.bp textarea {
   height: 250px;
 }
 
-/* line 470, ../../../app/stylesheets/screen.scss */
+/* line 474, ../../../app/stylesheets/screen.scss */
 body.two-col #container {
   width: 950px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 472, ../../../app/stylesheets/screen.scss */
+/* line 476, ../../../app/stylesheets/screen.scss */
 body.two-col #header, body.two-col #footer {
   display: inline;
   float: left;
@@ -2370,7 +2378,7 @@ body.two-col #header, body.two-col #footer {
 * html body.two-col #header, * html body.two-col #footer {
   overflow-x: hidden;
 }
-/* line 474, ../../../app/stylesheets/screen.scss */
+/* line 478, ../../../app/stylesheets/screen.scss */
 body.two-col #sidebar {
   display: inline;
   float: left;
@@ -2381,7 +2389,7 @@ body.two-col #sidebar {
 * html body.two-col #sidebar {
   overflow-x: hidden;
 }
-/* line 478, ../../../app/stylesheets/screen.scss */
+/* line 482, ../../../app/stylesheets/screen.scss */
 body.two-col #content {
   display: inline;
   float: left;

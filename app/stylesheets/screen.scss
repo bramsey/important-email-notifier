@@ -340,6 +340,10 @@ ul li a#nav_selected {
 	@include column(10.4, last);
 	@include push(1);
 	#session_email, #session_password { width: 137px; }
+	a {
+		color: $main;
+		&:hover { color: $main-light; }
+	}
 }
 
 #sign_out {
