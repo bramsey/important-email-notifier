@@ -48,6 +48,7 @@ class UsersController < ApplicationController
   def edit
     @title = "Settings"
     @toDo = "add menu to subnav"
+    @user = current_user
     flash.now[:notice] = "Please set a password and specify an alias to help people " +
       "recognize you more easily." unless current_user.alias
   end

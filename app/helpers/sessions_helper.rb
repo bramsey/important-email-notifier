@@ -9,9 +9,9 @@ module SessionsHelper
     alias_for current_user
   end
 
-  def signed_in?
-    !current_user.nil?
-  end
+  #def signed_in?
+  #  !current_user.nil?
+  #end
 
   def current_user?(user)
     user == current_user
@@ -31,10 +31,10 @@ module SessionsHelper
     clear_return_to
   end
 
-  def sign_out
-    cookies.delete(:remember_token)
-    self.current_user = nil
-  end
+  #def sign_out
+  #  cookies.delete(:remember_token)
+  #  self.current_user = nil
+  #end
 
   private
 

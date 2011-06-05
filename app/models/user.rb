@@ -5,11 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
   devise :database_authenticatable, :confirmable, :recoverable, :rememberable, 
          :trackable, :omniauthable #add other devise modules here.
   
-  attr_accessor :password
+  #attr_accessor :password
   attr_accessible :alias, :name, :email, :password, :password_confirmation, :remember_me
 
   has_many :relationships, :foreign_key => "sender_id",
@@ -35,7 +34,7 @@ class User < ActiveRecord::Base
                        :confirmation => true,
                        :length => { :within => 6..40 }
 
-  before_save :encrypt_password
+  #before_save :encrypt_password
   
   def self.find_for_open_id(access_token, signed_in_resource=nil)
     data = access_token['user_info']

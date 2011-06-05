@@ -4,7 +4,8 @@ Notifier::Application.routes.draw do
 
   get "accounts/destroy"
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks",
+                                       :registrations => "users/registrations" }
   resources :users do
     resources :messages, :only => [:index, :show]
     resources :accounts, :only => [:index, :check, :new] do
@@ -36,7 +37,17 @@ Notifier::Application.routes.draw do
       post 'activate'
     end
   end
-  resources :sessions, :only => [:new, :create, :destroy]
+  
+  namespace :user do
+      root :to => "pages#home"
+  end
+  
+  devise_scope :user do
+    get "/login" => "devise/sessions#new"
+    get "/logout" => "devise/sessions#destroy"
+  end
+  
+  #resources :sessions, :only => [:sign_in, :create, :destroy]
   resources :relationships, :only => [:create, :destroy, :toggle_allow, :toggle_blocked] do
     member do
       post 'toggle_allow'
