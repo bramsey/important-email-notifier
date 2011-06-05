@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
   require 'starling'
   
-  before_filter :authenticate
+  before_filter :authenticate_user!
   before_filter :authorized_user, :except => [:create]
 
   def create

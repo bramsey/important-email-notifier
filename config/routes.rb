@@ -1,5 +1,7 @@
 Notifier::Application.routes.draw do
 
+  devise_for :users
+
   get "accounts/create"
 
   get "accounts/destroy"

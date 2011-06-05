@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   require 'starling'
   
   before_filter :authenticate_with_token, :only => [:edit]
-  before_filter :authenticate,      :except => [:new, :create, :recover, :reset_pass]
+  before_filter :authenticate_user!,      :except => [:new, :create, :recover, :reset_pass]
   before_filter :correct_user,      :only => [:edit, :update, :busy]
   before_filter :admin_user,        :only => :destroy
   before_filter :already_signed_in, :only => [:new, :create]

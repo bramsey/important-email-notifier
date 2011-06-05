@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   
-  before_filter :authenticate, :except => [:prioritize, :init, :rank]
+  before_filter :authenticate_user!, :except => [:prioritize, :init, :rank]
   before_filter :authorized_user, :except => [:create, :edit, :prioritize, :init, :update, :rank]
   before_filter :authorized_sender, :only => [:edit, :update]
   before_filter :authenticate_with_token, :only => [:prioritize, :rank]

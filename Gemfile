@@ -14,6 +14,9 @@ gem 'ruby-gmail'
 gem 'mime'
 gem 'daemons'
 gem 'starling'
+gem 'devise'
+gem 'oa-oauth', :require => 'omniauth/oauth'
+gem 'oa-openid', :require => 'omniauth/openid'
 
 group :development do
   gem 'rspec-rails'
