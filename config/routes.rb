@@ -1,11 +1,10 @@
 Notifier::Application.routes.draw do
 
-  devise_for :users
-
   get "accounts/create"
 
   get "accounts/destroy"
 
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users do
     resources :messages, :only => [:index, :show]
     resources :accounts, :only => [:index, :check, :new] do

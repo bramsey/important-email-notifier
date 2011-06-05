@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     @content = "Welcome to Notifier!"
     #@toDo = "mark new messages as read when visited"
     
-    if signed_in?
+    if user_signed_in?
       flash.now[:notice] = "Hi! You can get back here easily in the future if you " +
         "set a password and alias on the settings page." unless current_user.alias
     end

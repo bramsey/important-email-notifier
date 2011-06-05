@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
          :trackable, :omniauthable #add other devise modules here.
   
   attr_accessor :password
-  attr_accessible :alias, :name, :email, :password, :password_confirmation
+  attr_accessible :alias, :name, :email, :password, :password_confirmation, :remember_me
 
   has_many :relationships, :foreign_key => "sender_id",
                            :dependent => :destroy
