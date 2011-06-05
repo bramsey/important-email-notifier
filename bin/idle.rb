@@ -1,5 +1,5 @@
 SERVER = 'imap.gmail.com' # parameterize when supporting other hosts)
-HOST_URL = 'http://dev.vybly.com'
+HOST_URL = 'http://localhost:3000'
 USERNAME = ARGV[0] unless ARGV[0].nil?
 PW = ARGV[1] unless ARGV[1].nil?
 
@@ -233,6 +233,6 @@ reader = MailReader.new
 
 loop do
   sleep 10*60
-  puts "bouncing account #{key}"
+  puts "bouncing account #{USERNAME}"
   reader.bounce_idle
 end
