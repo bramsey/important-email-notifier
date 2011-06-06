@@ -38,13 +38,8 @@ Notifier::Application.routes.draw do
     end
   end
   
-  namespace :user do
+  namespace :users do
       root :to => "pages#home"
-  end
-  
-  devise_scope :user do
-    get "/login" => "devise/sessions#new"
-    get "/logout" => "devise/sessions#destroy"
   end
   
  
