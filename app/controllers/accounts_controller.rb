@@ -38,7 +38,7 @@ class AccountsController < ApplicationController
     else
       @account.active = true
       starling.set('idler_queue', 
-        "start #{@account.id} #{@account.username} #{@account.password}") if @account.user.busy
+        "start #{@account.id} #{@account.username} #{@account.token} #{@account.secret}") if @account.user.busy
     end
       
     @account.save
@@ -59,26 +59,6 @@ class AccountsController < ApplicationController
     @account = Account.new
   end
   
-  def check
-    @user = User.find(params[:user_id])
-    @accounts = @user.accounts
-    #@messages = []
-    
-    @accounts.each do |account| 
-      Gmail.new( account.username, account.password ) do |gmail|
-
-        gmail.inbox.emails(:unread).each do |email|
-          #@messages << {:sender => email.from, :recipient => email.to }
-          unless current_user.has_account?( email.from.first )
-            @token = Message.initiate( email.from.first, email.to.first )
-            send_response( account, email.from.first, email.subject, @token )
-          end
-        end
-      end if account.active
-    end
-    
-    render 'check'
-  end
 
   private
 
@@ -87,22 +67,6 @@ class AccountsController < ApplicationController
         @user = (@account = Account.find(params[:id])).user :
         @user = User.find(params[:user_id])
       redirect_to root_path unless current_user?(@user)
-    end
-    
-    def send_response( account, sender, subj, token )
-      Gmail.new( account.username, account.password ) do |gmail|
-
-        gmail.deliver do
-          to sender
-          subject "Re: #{subj}"
-          text_part do
-            body "I'm currently in the middle of something and not checking email;" +
-              "if you feel it important for your message to reach me right away, please " +
-              "click the following link, but note that if I disagree, such notices may be " +
-              "less likely to get my attention in the future.  #{token}"
-          end
-        end
-      end
     end
 
 end

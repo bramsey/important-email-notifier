@@ -1,10 +1,12 @@
 SERVER = 'imap.gmail.com' # parameterize when supporting other hosts)
-HOST_URL = 'http://localhost:3000'
+HOST_URL = 'http://dev.vybly.com'
 USERNAME = ARGV[0] unless ARGV[0].nil?
-PW = ARGV[1] unless ARGV[1].nil?
+#PW = ARGV[1] unless ARGV[1].nil?
+TOKEN = ARGV[1] unless ARGV[1].nil?
+SECRET = ARGV[2] unless ARGV[2].nil?
 
-if ARGV.length != 2
-  puts "usage: ruby <script> <username> <password>"
+if ARGV.length != 3
+  puts "usage: ruby <script> <username> <token> <secret>"
   ARGV.each {|arg| puts "#{arg}<"}
   exit
 end
@@ -16,6 +18,7 @@ require 'time'
 require 'date'
 require 'gmail'
 require 'net/http'
+require 'gmail_xoauth'
 
 # Extend support for idle command. See online.
 # http://www.ruby-forum.com/topic/50828
@@ -116,19 +119,7 @@ class MailReader
   end
   
   def send_response( sender, subj, token )
-    Gmail.new( USERNAME, PW ) do |gmail|
-
-      gmail.deliver do
-        to sender
-        subject "Re: #{subj}"
-        text_part do
-          body "I'm currently in the middle of something and not checking email;" +
-            "if you feel it important for your message to reach me right away, please " +
-            "click the following link, but note that if I disagree, such notices may be " +
-            "less likely to get my attention in the future.  #{token}"
-        end
-      end
-    end
+    puts "Mailing response!"
   end
   
   def trash_sent_messages
@@ -203,7 +194,13 @@ class MailReader
   def start_imap
     @imap = Net::IMAP.new SERVER, ssl: true
 
-    @imap.login USERNAME, PW
+    #@imap.login USERNAME, PW
+    @imap.authenticate('XOAUTH', USERNAME, 
+        :consumer_key => 'anonymous', 
+        :consumer_secret => 'anonymous', 
+        :token => TOKEN, 
+        :token_secret => SECRET
+      )
     @imap.select 'INBOX'
 
     # Add handler.

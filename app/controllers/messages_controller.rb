@@ -134,10 +134,8 @@ class MessagesController < ApplicationController
     def notify( msg )
       user = msg.recipient
       token = msg.new_token( user )
-      account = user.accounts.first
-      account = Account.first if account.nil? 
       #trigger for preferred user notification goes here.
-      #emailing default account is only temporary for use in notification flow.
+      # Emailing with gmail is only temporary.
       Gmail.new( "vybly.notifier@gmail.com", "email_password" ) do |gmail|
         url_path = "#{rank_url}?token=#{token}"
 

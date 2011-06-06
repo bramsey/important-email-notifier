@@ -10,7 +10,7 @@ def init
   Account.all.each do |account|
     if account.active && account.user.busy
       puts "starting #{account.id}"
-      start( account.id, account.username, account.password)
+      start( account.id, account.username, account.token, account.secret)
     else
       puts "stopping #{account.id}"
       stop( account.id )
@@ -18,8 +18,8 @@ def init
   end
 end
 
-def start( account, username, password )
-  %x[#{RUBY} #{DIR}/idle_ctl.rb start #{account} -- #{username} #{password}]
+def start( account, username, token, secret )
+  %x[#{RUBY} #{DIR}/idle_ctl.rb start #{account} -- #{username} #{token} #{secret}]
 end
 
 def stop( account )
@@ -38,7 +38,7 @@ loop do
   
   case action
   when "start"
-    start( account, command.split[2], command.split[3] )
+    start( account, command.split[2], command.split[3], command.split[4] )
   when "stop"
     stop( account )
   else

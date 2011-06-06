@@ -1,7 +1,7 @@
 %h1 Accounts Management
 - unless @user.accounts.empty?
-	%h2= link_to 'Link Main Account', root_url + "oauth/request"
 	.accounts
 		= render @accounts
 	%hr
+%h3= link_to 'Link A Gmail Account', root_url + "oauth/google"
 = render :partial => 'new_account', :locals => { :account => Account.new }

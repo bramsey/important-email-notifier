@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   require 'starling'
   
   before_filter :authenticate_with_token, :only => [:edit]
-  before_filter :authenticate_user!,      :except => [:new, :create, :recover, :reset_pass]
+  before_filter :authenticate_user!,      :except => [:new, :create]
   before_filter :correct_user,      :only => [:edit, :update, :busy]
   before_filter :admin_user,        :only => :destroy
   before_filter :already_signed_in, :only => [:new, :create]
@@ -79,7 +79,7 @@ class UsersController < ApplicationController
       @user.accounts.each do |account|
         if account.active
           starling.set('idler_queue', 
-                       "start #{account.id} #{account.username} #{account.password}")
+                       "start #{account.id} #{account.username} #{account.token} #{account.secret}")
         end
       end
     end
@@ -114,24 +114,6 @@ class UsersController < ApplicationController
     render 'show_relationship'
   end
   
-  def recover
-    @title = "Recover Account"
-  end
-  
-  def reset_pass
-    if params[:user]
-      @user = User.find_by_email(params[:user][:email])
-      if @user
-        send_token @user
-        flash[:success] = "The email has been sent"
-        redirect_to root_path
-      else
-        flash[:error] = "No such email found, please ensure the correct address " +
-          "is entered."
-        redirect_to recover_users_path
-      end
-    end
-  end
 
   private
 
@@ -151,24 +133,6 @@ class UsersController < ApplicationController
     def authenticate_with_token
       @token = Token.find_by_value( params[:token] ) unless params[:token].nil?
       sign_in @token.user if @token
-    end
-    
-    def send_token( user ) 
-      token = user.new_token
-      url_path = "#{edit_user_url(user)}?token=#{token}"
-      account = user.accounts.first
-      account = Account.first if account.nil? 
-      # Change to email with site account instead of user account once set up.
-      Gmail.new( account.username, account.password ) do |gmail|
-
-        gmail.deliver do
-          to user.email
-          subject "Notifier Password Recovery Instructions"
-          html_part do
-            body "Please click the following link to log in and change your password: <a href=\"#{url_path}\">here</a>."
-          end
-        end
-      end
     end
     
     def clear_token

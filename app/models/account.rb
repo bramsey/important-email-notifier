@@ -4,7 +4,6 @@ class Account < ActiveRecord::Base
   belongs_to :user
   
   validates :username, :presence => true
-  validates :password, :presence => true
   validates :user_id, :presence => true
   
   def self.active_accounts
