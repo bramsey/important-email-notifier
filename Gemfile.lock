@@ -163,6 +163,7 @@ DEPENDENCIES
   nokogiri
   oa-oauth
   oa-openid
+  oauth
   rails
   rspec
   rspec-rails

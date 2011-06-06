@@ -1,5 +1,5 @@
 class Account < ActiveRecord::Base
-  attr_accessible :username, :password
+  attr_accessible :username, :password, :active, :token, :secret
   
   belongs_to :user
   

@@ -47,6 +47,8 @@ Notifier::Application.routes.draw do
     get "/logout" => "devise/sessions#destroy"
   end
   
+ 
+  
   #resources :sessions, :only => [:sign_in, :create, :destroy]
   resources :relationships, :only => [:create, :destroy, :toggle_allow, :toggle_blocked] do
     member do
@@ -55,6 +57,8 @@ Notifier::Application.routes.draw do
     end
   end
 
+  match '/oauth/google', :to => 'oauth#google'
+  match '/oauth/auth', :to => 'oauth#auth'
   match '/contacts', :to => 'users#index'
   match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'

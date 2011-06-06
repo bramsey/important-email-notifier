@@ -185,6 +185,8 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   config.omniauth :open_id, OpenID::Store::Filesystem.new('./tmp'), :identifier => 'https://www.google.com/accounts/o8/id'
 
+  #config.omniauth :google, 'anonymous', 'anonymous', :scope => 'https://mail.google.com/%20https://www.googleapis.com/auth/userinfo%23email'
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

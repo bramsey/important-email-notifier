@@ -1,6 +1,6 @@
 %h1 Accounts Management
 - unless @user.accounts.empty?
-	%h2= link_to 'Check Accounts', check_user_accounts_path( current_user )
+	%h2= link_to 'Link Main Account', root_url + "oauth/request"
 	.accounts
 		= render @accounts
 	%hr
