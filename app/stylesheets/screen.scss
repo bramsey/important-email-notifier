@@ -441,6 +441,23 @@ a.busy_button {
 	}
 }
 
+a.available_button {
+	@include gradient($good);
+	@include round;
+  	display: block;
+	text-align: center;
+	width: 430px;
+	color: #fff;
+	//background: #FF7519;
+	font-size: 250%;
+	font-weight: bold;
+	padding: 20px;
+
+	&:hover {
+		@include gradient(lighten($good, 15%));
+		text-decoration: none;
+	}
+}
 
 
 // Button green
