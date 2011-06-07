@@ -4,6 +4,6 @@
 - else
 	#sign_out
 		%strong
-			= busy_link
+			= busy_link unless current_user.accounts.empty?
 			= '--'
-			= link_to 'Sign out: ' + current_alias, destroy_user_session_path
+			= link_to 'Sign out: ' + current_alias, destroy_user_session_path, :class => "sign_out" 

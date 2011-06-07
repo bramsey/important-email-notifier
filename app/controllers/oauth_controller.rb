@@ -60,7 +60,7 @@ class OauthController < ApplicationController
       flash[:error] = "Authorization denied"
     end
     
-    redirect_to user_accounts_path( current_user )
+    redirect_to root_url
   end
   
   private

@@ -1,5 +1,7 @@
-- unless current_user.received_messages.empty?
-	%h2 New Messages
+= busy_button unless current_user.accounts.empty?
+%br
+- unless current_user.new_messages.nil?
+	%h2 New Messages:
 	.messages
 		- current_user.received_messages.each do |message|
 			- if message.sender.reliable_to( current_user ) && message.disagree.nil? && !message.urgency.nil?

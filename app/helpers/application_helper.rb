@@ -67,4 +67,14 @@ module ApplicationHelper
   		  :method => "post", :class => "busy"
 		end
 	end
+	
+	def busy_button
+    if current_user.busy
+      link_to 'Set Available', busy_user_path(current_user), 
+  			:method => "post", :class => "available_button"
+		else
+  		link_to 'Set Busy', busy_user_path(current_user),
+  		  :method => "post", :class => "busy_button"
+		end
+	end
 end

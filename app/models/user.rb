@@ -134,6 +134,10 @@ class User < ActiveRecord::Base
     #account ? account.user == self : false
     
   end
+  
+  def new_messages
+    msgs = received_messages.reject {|msg| msg.disagree.nil?} unless received_messages.empty?
+  end
 
   #def feed
   #  Micropost.from_users_followed_by(self)

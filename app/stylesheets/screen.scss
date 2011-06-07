@@ -303,12 +303,12 @@ div.user_info span.user_name {
 }
 
 #nav {
-	@include column(12, last);
-	@include push(1);
+	//@include column(12, last);
+	//@include push(1);
 	@include shadow;
 	margin: 0;
 	padding-top: 2em;
-	//float: right;
+	float: right;
 	//line-height: 4em;
 	
 	//background-color: $main-dark;
@@ -354,14 +354,27 @@ ul li a#nav_selected {
 
 #sign_out {
 	float: right;
-	a {
+	a.sign_out {
 		color: $main;
 		&:hover { color: $main-light; }
 	}
-	a.available:hover { color: $good; }
-	a.busy:hover { color: $bad; }
 }
 
+a.busy {
+	@include round;
+	background-color: $main-light;
+	color: $bad;
+	padding: 1em;
+	&:hover { background-color: $bad; color: $back-color; text-decoration: none;}
+}
+
+a.available {
+	@include round;
+	background-color: $main-light;
+	color: $good;
+	padding: 1em;
+	&:hover { background-color: $good; color: $back-color; text-decoration: none; }
+}
 .account_information {
 	input[type=text] { width: 137px; }
 	input[type=password] { width: 90px; }
@@ -410,20 +423,20 @@ ul li a#nav_selected {
 .untested { color: $caution; }
 .unknown { color: $quiet-text-color; }
 
-a.signup_button {
+a.busy_button {
+	@include gradient($bad);
 	@include round;
-  display: block;
-  text-align: center;
-  width: 190px;
-  color: #fff;
-  background: #FF7519;
-  font-size: 150%;
-  font-weight: bold;
-  padding: 20px;
+  	display: block;
+	text-align: center;
+	width: 430px;
+	color: #fff;
+	//background: #FF7519;
+	font-size: 250%;
+	font-weight: bold;
+	padding: 20px;
 
 	&:hover {
-		@include shadow;
-		background: #0F0;
+		@include gradient(lighten($bad, 15%));
 		text-decoration: none;
 	}
 }
