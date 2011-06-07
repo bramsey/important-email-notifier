@@ -95,8 +95,9 @@ class MailReader
       if processFlag
         if directFlag
           # Call direct notification of recipient without autoreply
+          priority ||= "1"
           response = send_init_with_priority( mail.from.first, 
-                                              mail.to.first,
+                                              USERNAME,
                                               priority,
                                               mail.subject )
           puts "direct response: #{response}"
