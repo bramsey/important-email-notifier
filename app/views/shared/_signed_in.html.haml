@@ -1,14 +1,13 @@
 = busy_button unless current_user.accounts.empty?
 %br
-- unless current_user.new_messages.nil?
+- unless current_user.new_messages.nil? || current_user.new_messages.empty?
 	%h2 New Messages:
 	.messages
-		- current_user.received_messages.each do |message|
-			- if message.sender.reliable_to( current_user ) && message.disagree.nil? && !message.urgency.nil?
-				- if message.sender.reliability_to( current_user ) == "Reliable"
-					= render :partial => 'messages/important_message', 
-							 :locals => {:message => message }
-				- else
-					= render message
+		- current_user.new_messages.each do |message|
+			- if message.sender.reliability_to( current_user ) == "Reliable"
+				= render :partial => 'messages/important_message', 
+						 :locals => {:message => message }
+			- else
+				= render message
 - else
 	= render 'shared/empty_inbox'
