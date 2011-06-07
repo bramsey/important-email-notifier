@@ -911,24 +911,6 @@ li {
   vertical-align: top;
 }
 
-/* line 29, ../../../app/stylesheets/iphone.scss */
-body {
-  background: url('/images/grid.png?1302458518');
-  display: inline;
-  float: left;
-  margin-right: 5px;
-  width: 480px;
-}
-/* line 138, ../../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html body {
-  overflow-x: hidden;
-}
-
-/* line 30, ../../../app/stylesheets/iphone.scss */
-body {
-  width: 480px;
-}
-
 /* line 31, ../../../app/stylesheets/iphone.scss */
 body {
   background-color: white;

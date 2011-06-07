@@ -26,8 +26,8 @@ li { list-style-type: none;
 
 	vertical-align: top;}
 
-body { 	@include showgrid;  @include column($blueprint-grid-columns);}
-body { width: 480px; }
+//body { 	@include showgrid;  @include column($blueprint-grid-columns);}
+//body { width: 480px; }
 body { background-color: $back-color; }
 .main { 
 	.container, #content { background-color: $back-color; } }
