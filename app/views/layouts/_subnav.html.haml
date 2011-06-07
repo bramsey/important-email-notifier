@@ -1,3 +1,5 @@
 #subnav
 	.container
+		- if signed_in?
+			= busy_button unless current_user.accounts.empty?
 		= toDo_block if Rails.env.development?

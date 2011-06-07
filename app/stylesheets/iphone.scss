@@ -2,7 +2,7 @@
 @import "blueprint/reset";
 
 // To configure blueprint, edit the partials/base.sass file.
-@import "partials/base";
+@import "partials/iphone";
 
 // Import all the default blueprint modules so that we can access their mixins.
 @import "blueprint";
@@ -33,7 +33,7 @@ li { list-style-type: none;
 
 	vertical-align: top;}
 
-//nav, body { 	@include showgrid; }
+//body { 	@include showgrid; }
 body { background-color: $back-color; }
 .main { 
 	.container, #content { background-color: $back-color; } }
@@ -303,12 +303,12 @@ div.user_info span.user_name {
 }
 
 #nav {
-	//@include column(12, last);
+	@include column(12, last);
 	//@include push(1);
 	@include shadow;
 	margin: 0;
-	padding-top: 2em;
-	float: right;
+	padding-top: 1em;
+	//float: right;
 	//line-height: 4em;
 	
 	//background-color: $main-dark;
@@ -321,7 +321,7 @@ div.user_info span.user_name {
 			//padding-bottom: 2em;
 			
 			a{
-				padding: .5em 1em 1em 1em;
+				padding: .5em 1.5em 1em 1.5em;
 				@include top-round;
 				//font-weight: bold;
 				font-family: $marketing-font;
@@ -346,17 +346,21 @@ ul li a#nav_selected {
 	//@include push(1);
 	//#session_email, #session_password { width: 137px; }
 	float: right;
-	a {
-		color: $main;
-		&:hover { color: $main-light; }
+	a.sign_in {
+		@include round;
+		background-color: $main-light;
+		color: $main-dark;
+		padding: 1em;
 	}
 }
 
 #sign_out {
 	float: right;
 	a.sign_out {
-		color: $main;
-		&:hover { color: $main-light; }
+		@include round;
+		background-color: $main-light;
+		color: $main-dark;
+		padding: 1em;
 	}
 }
 

@@ -10,7 +10,7 @@ module ApplicationHelper
       if user_signed_in?
         link("Contacts", contacts_path) +
         link("Profile", current_user) +
-        link("Settings", edit_user_registration_path(current_user))
+        link("Accounts", user_accounts_path( current_user ))
       else
         #put logged_out links here.
         #link("About", about_path) +

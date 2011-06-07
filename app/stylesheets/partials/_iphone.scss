@@ -1,0 +1,113 @@
+// Here is where you can define your constants for your application and to configure the blueprint framework.
+// Feel free to delete these if you want keep the defaults:
+
+$blueprint-grid-columns: 12;
+$blueprint-container-size: 470px;
+$blueprint-grid-margin: 10px;
+
+// Use this to calculate the width based on the total width.
+// Or you can set $blueprint-grid-width to a fixed value and unset $blueprint-container-size -- it will be calculated for you.
+$blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin;
+
+// colors
+$border-color: #EBEBEB;
+$quiet-text-color: #999999;
+$std-text-color: #333333;
+$attention-color: #FF0000;
+$back-color: #FFFFFF;
+$marketing-color: $back-color;
+$good: #0f0;
+$caution: #FF7519;
+$bad: #f00;
+
+
+//@mixin shadow { text-shadow: 0px 0px 0px #222222; }
+@mixin shadow { text-shadow: 2px 2px 2px #222222; }
+@mixin inner-shadow { text-shadow: 1px 1px white, -1px -1px #222; }
+@mixin box-shadow { 
+	box-shadow: 7px 7px 8px #818181;
+	-webkit-box-shadow: 0 1em 28px #818181;
+	-moz-box-shadow: 7px 7px 8px #818181;
+	filter: progid:DXImageTransform.Microsoft.dropShadow(color=#818181, offX=7, offY=7, positive=true);
+}
+
+@mixin top-round {
+	-moz-border-radius:10px 10px 0 0;
+	-webkit-border-radius:10px 10px 0 0;
+	-o-border-radius:10px 10px 0 0;
+	-ms-border-radius:10px 10px 0 0;
+	-khtml-border-radius:10px 10px 0 0;
+	border-radius:10px 10px 0 0;
+}
+@mixin round {
+	-moz-border-radius: 10px;
+	 -webkit-border-radius: 10px;
+	 border-radius: 10px;
+}
+@mixin circle {
+	-moz-border-radius: 30em;
+	 -webkit-border-radius: 30em;
+	 border-radius: 30em;
+}
+
+@mixin gradient($color) {
+   /* fallback/image non-cover color */
+   background-color: $color; 
+
+   /* Firefox 3.6+ */
+   background-image: -moz-linear-gradient($color, darken($color, 15%));
+
+   /* Safari 4+, Chrome 1+ */
+   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($color), to(darken($color, 15%)));
+
+   /* Safari 5.1+, Chrome 10+ */
+   background-image: -webkit-linear-gradient($color, darken($color, 15%)); 
+
+   /* Opera 11.10+ */
+   background-image: -o-linear-gradient($color, darken($color, 15%));
+}
+
+@mixin rgradient($color) {
+	/* fallback/image non-cover color */
+	   background-color: $color; 
+
+	   /* Firefox 3.6+ */
+	   background-image: -moz-linear-gradient(darken($color, 15%), $color);
+
+	   /* Safari 4+, Chrome 1+ */
+	   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(darken($color, 15%)), to($color));
+	
+	/* Safari 5.1+, Chrome 10+ */
+	   background-image: -webkit-linear-gradient(darken($color, 15%), $color);
+	
+	/* Opera 11.10+ */
+	   background-image: -o-linear-gradient(darken($color, 15%), $color);
+}
+
+
+//$main: lighten(#00FFFF, 25%); //Aqua
+$main: #1E90FF; //DodgerBlue
+//$main: #FF3333; //Red
+//$main: lighten(#FF7519, 15%); //Orange
+//$main: #F60; //YC Orange
+//$main: #FFFF80; //Yellow - nope
+//$main: #33FF33; //Green
+//$main: #3333FF; //Blue
+//$main: #9366B4; //Indigo - nope
+//$main: #EE82EE; //Violet
+//$main: #00FFFF; //Cyan - nope
+//$main: #FF69B4; //Pink
+//$main: #FF00FF; //Magenta - nope
+//$main: #87CEFA; //LightSkyBlue
+//$main: #98FB98; //PaleGreen
+
+$main-dark: darken($main, 25%);
+//$main-dark: #999;
+$main-light: lighten($main, 30%);
+$main-very-dark: darken($main-dark, 10%);
+$footer: #EEE;
+
+// font
+$master-font: 'Helvetica Neue',arial,helvetica,sans-serif;
+$marketing-font: Helvetica, 'Geneva', 'Helvetica Neue',serif;
+$logo-font: Menlo, 'Helvetica Neue', arial, helvetica, sans-serif;
