@@ -33,7 +33,8 @@ li { list-style-type: none;
 
 	vertical-align: top;}
 
-//body { 	@include showgrid; }
+body { 	@include showgrid; }
+body { width: 480px; }
 body { background-color: $back-color; }
 .main { 
 	.container, #content { background-color: $back-color; } }
@@ -106,6 +107,7 @@ div#bio {
 
 .container { padding: 0 1.5em 0 1.5em;
 	//@include showgrid();
+	@include column(22);
  	//margin: auto;
 }
 
