@@ -73,16 +73,16 @@ class MessagesController < ApplicationController
     sender = params[:sender]
     recipient = params[:recipient]
     priority = params[:priority]
+    subject = params[:subject] || "no subject provided"
     unless (sender.nil? || recipient.nil?)
       if priority
-        subject = params[:subject] || "no subject provided"
         msg = Message.initiate_with_priority( sender, recipient, priority, subject)
         notify msg unless msg == "Ignore" || msg.nil?
         @link = "priority notification sent at #{Time.now}"
         render :text => @link
         #render :nothing => true #set this to a success response eventually
       else
-        @link = Message.initiate( sender, recipient )
+        @link = Message.initiate( sender, recipient, subject )
         render :text => @link
       end 
     else

@@ -75,7 +75,7 @@ class MailReader
       # Flags will be true if desired condition is met.
       toFlag = mail.to.include? USERNAME
       noReplyFlag = !(mail.from.collect {|e| e.include? "noreplys"}.include?(true))
-      listFlag = mail.header['List-Unsubscribe'].nil?
+      listFlag = mail.header['List-Unsubscribe'].nil? && mail.header['List-Id'].nil?
       
       processFlag = toFlag && noReplyFlag && listFlag
       
@@ -103,7 +103,7 @@ class MailReader
           @imap.store msg_id, '+FLAGS', [:Seen] unless response == "Ignore"
         else
           # Do autoreply stuff
-          token = send_init( mail.from.first, mail.to.first, mail.subject )
+          token = send_init( mail.from.first, USERNAME, mail.subject )
           if token != "Ignore"
             send_response( mail.from.first, mail.subject, token )
             puts "response sent"
@@ -119,7 +119,31 @@ class MailReader
   end
   
   def send_response( sender, subj, token )
-    puts "Mailing response!"
+    smtp = Net::SMTP.new('smtp.gmail.com', 587)
+    smtp.enable_starttls_auto
+    secret = {
+      :consumer_key => 'anonymous',
+      :consumer_secret => 'anonymous',
+      :token => TOKEN,
+      :token_secret => SECRET
+    }
+    
+    smtp.start('gmail.com', USERNAME, secret, :xoauth)
+    
+    
+    mail = Mail.new do
+      from USERNAME
+      to sender
+      subject "Re: #{subj}"
+      body "I'm currently in the middle of something and not checking email;" +
+        "if you feel it important for your message to reach me right away, please " +
+        "click the following link, but note that if I disagree, such notices may be " +
+        "less likely to get my attention in the future.  #{token}"
+    end
+    
+    
+    smtp.send_message mail.to_s, USERNAME, sender
+    smtp.finish
   end
   
   def trash_sent_messages

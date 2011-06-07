@@ -28,7 +28,7 @@ class Message < ActiveRecord::Base
     self.update_attribute(:disagree, false)
   end
   
-  def self.initiate(sender_email, recipient_email)
+  def self.initiate(sender_email, recipient_email, subject)
     sender = User.find_or_create_by_email( sender_email )
     recipient = User.find_or_create_by_email( recipient_email )
     unless sender == recipient
@@ -38,6 +38,7 @@ class Message < ActiveRecord::Base
       unless ((!sender.reliable_to(recipient) && !allow_flag) || blocked_flag)
         # Build message if the sender is allowed to message the recipient.
         msg = sender.send!( recipient )
+        msg.update_attribute(:content, subject)
         response = Message.build_response(msg.new_token( sender)) if msg
       else
         # Ignore message.
