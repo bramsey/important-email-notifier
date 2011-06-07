@@ -30,7 +30,7 @@ class OauthController < ApplicationController
       @account = Account.find_by_username(@email)
       if @account
         @account.update_attributes(:token => @access_token.token, :secret => @access_token.secret)
-        flash["success"] = "Linked #{@email} with token: #{@access_token.token} and secret: #{@access_token.secret}"
+        flash["success"] = "#{@email} linked successfully."
       else
         RAILS_DEFAULT_LOGGER.error "account not found for: #{@email}, trying to create new one."
         
@@ -42,7 +42,7 @@ class OauthController < ApplicationController
         }
         @account = current_user.accounts.build(account_params)
         if @account.save
-          flash[:success] = "Account created with the following credentials: email[#{@email}], token[#{@access_token.token}], secret[#{@access_token.secret}]"
+          flash[:success] = "#{@email} linked successfully."
         else
           flash[:error] = "Could not create account with the returned credentials"
           RAILS_DEFAULT_LOGGER.error "could not create account for #{@email}"

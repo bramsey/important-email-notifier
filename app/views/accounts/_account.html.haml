@@ -1,13 +1,7 @@
 .account
-	.account_source
-		%h2 Gmail
 	.account_information
 		.row
-			= form_for(account) do |f|
-				= f.text_field :username, :value => account.username
-				= f.password_field :password, :value => account.password
-				= f.submit "Update Info"
-		.row
+			%h3= account.username
 			= activate_link account
 			= link_to '( Delete )', account, :method => :delete, 
 				:class => "delete_item"

@@ -4,4 +4,7 @@
 		= render @accounts
 	%hr
 %h3= link_to 'Link A Gmail Account', root_url + "oauth/google"
-= render :partial => 'new_account', :locals => { :account => Account.new }
+%strong Note: 
+select 
+%i "sign in as a different user" 
+when prompted by google to link additional accounts.
