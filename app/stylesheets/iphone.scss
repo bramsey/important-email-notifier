@@ -1,14 +1,15 @@
 // This import applies a global reset to any page that imports this stylesheet.
 @import "blueprint/reset";
+@import "blueprint";
 
 // To configure blueprint, edit the partials/base.sass file.
 @import "partials/iphone";
 
 // Import all the default blueprint modules so that we can access their mixins.
-@import "blueprint";
+
 
 // Import the non-default scaffolding module.
-@import "blueprint/scaffolding";
+//@import "blueprint/scaffolding";
 
 // To generate css equivalent to the blueprint css but with your
 // configuration applied, uncomment:
@@ -19,14 +20,6 @@
 // when stylesheets are concatenated together.
 //@include blueprint-scaffolding("body.bp");
 
-body.bp {
-  @include blueprint-typography(true);
-  @include blueprint-utilities;
-  @include blueprint-debug;
-  @include blueprint-interaction;
-  // Remove the scaffolding when you're ready to start doing visual design.
-  // Or leave it in if you're happy with how blueprint looks out-of-the-box
-}
 * { padding: 0; font-family: $master-font;}
 
 li { list-style-type: none;
@@ -39,7 +32,6 @@ body { background-color: $back-color; }
 .main { 
 	.container, #content { background-color: $back-color; } }
 	
-//.main, footer { .container { @include round; @include box-shadow; } }
 
 h1, h2, h3, h4, h5 { color: $main-very-dark; }
 
@@ -83,12 +75,12 @@ footer {
 	margin-top: 1em;
 	margin-bottom: 1em;
 	//border-top: 1px solid $border-color;
-	//.container{ background-color: #EEE; }
 	* {color: $quiet-text-color;} }
 
 #content {
 	margin-top: 1em;
 	min-height: 350px;
+	width: 470px;
  }
 
 #footer_info {
@@ -105,9 +97,9 @@ div#bio {
 	padding: 0;
 	li { padding: 0 8px 0 0; } }
 
-.container { padding: 0 1.5em 0 1.5em;
+.container { margin: 0 5px 0 5px;
 	//@include showgrid();
-	@include column(22);
+	//@include column(22);
  	//margin: auto;
 }
 
@@ -117,7 +109,7 @@ div#bio {
 }
 
 .messages, .users {
-	padding-left: 1em;
+	//padding-left: 1em;
 }
 
 .message_content, .user_information {
@@ -305,7 +297,7 @@ div.user_info span.user_name {
 }
 
 #nav {
-	@include column(12, last);
+	@include column(22, last);
 	//@include push(1);
 	@include shadow;
 	margin: 0;
@@ -348,6 +340,7 @@ ul li a#nav_selected {
 	//@include push(1);
 	//#session_email, #session_password { width: 137px; }
 	float: right;
+	padding-right: .5em;
 	a.sign_in {
 		@include round;
 		background-color: $main-light;
@@ -358,6 +351,7 @@ ul li a#nav_selected {
 
 #sign_out {
 	float: right;
+	padding-right: .5em;
 	a.sign_out {
 		@include round;
 		background-color: $main-light;
@@ -507,22 +501,3 @@ a.available_button {
   box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eee;
 }
 
-form.bp {
-  @include blueprint-form; }
-
-// Page layout can be done using mixins applied to your semantic classes and IDs:
-body.two-col {
-  #container {
-    @include container; }
-  #header, #footer {
-    @include column($blueprint-grid-columns); }
-  #sidebar {
-    // One third of the grid columns, rounding down. With 24 cols, this is 8.
-    $sidebar-columns: floor($blueprint-grid-columns / 3);
-    @include column($sidebar-columns); }
-  #content {
-    // Two thirds of the grid columns, rounding up.
-    // With 24 cols, this is 16.
-    $content-columns: ceil(2 * $blueprint-grid-columns / 3);
-    // true means it's the last column in the row
-    @include column($content-columns, true); } }
