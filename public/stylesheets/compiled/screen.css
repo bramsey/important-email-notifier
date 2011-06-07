@@ -2278,7 +2278,45 @@ a.busy_button:hover {
   text-decoration: none;
 }
 
-/* line 447, ../../../app/stylesheets/screen.scss */
+/* line 444, ../../../app/stylesheets/screen.scss */
+a.available_button {
+  /* fallback/image non-cover color */
+  background-color: lime;
+  /* Firefox 3.6+ */
+  background-image: -moz-linear-gradient(lime, #00b300);
+  /* Safari 4+, Chrome 1+ */
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(lime), to(#00b300));
+  /* Safari 5.1+, Chrome 10+ */
+  background-image: -webkit-linear-gradient(lime, #00b300);
+  /* Opera 11.10+ */
+  background-image: -o-linear-gradient(lime, #00b300);
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  display: block;
+  text-align: center;
+  width: 430px;
+  color: #fff;
+  font-size: 250%;
+  font-weight: bold;
+  padding: 20px;
+}
+/* line 456, ../../../app/stylesheets/screen.scss */
+a.available_button:hover {
+  /* fallback/image non-cover color */
+  background-color: #4dff4d;
+  /* Firefox 3.6+ */
+  background-image: -moz-linear-gradient(#4dff4d, lime);
+  /* Safari 4+, Chrome 1+ */
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4dff4d), to(lime));
+  /* Safari 5.1+, Chrome 10+ */
+  background-image: -webkit-linear-gradient(#4dff4d, lime);
+  /* Opera 11.10+ */
+  background-image: -o-linear-gradient(#4dff4d, lime);
+  text-decoration: none;
+}
+
+/* line 464, ../../../app/stylesheets/screen.scss */
 .cupid-green {
   background: #7fbf4d;
   background: -moz-linear-gradient(top, #7fbf4d 0%, #63a62f 100%);
@@ -2302,7 +2340,7 @@ a.busy_button:hover {
   width: 150px;
 }
 
-/* line 470, ../../../app/stylesheets/screen.scss */
+/* line 487, ../../../app/stylesheets/screen.scss */
 .cupid-green:hover {
   background: #76b347;
   background: -moz-linear-gradient(top, #76b347 0%, #5e9e2e 100%);
@@ -2313,7 +2351,7 @@ a.busy_button:hover {
   cursor: pointer;
 }
 
-/* line 480, ../../../app/stylesheets/screen.scss */
+/* line 497, ../../../app/stylesheets/screen.scss */
 .cupid-green:active {
   border: 1px solid #5b992b;
   border-bottom: 1px solid #538c27;
@@ -2384,14 +2422,14 @@ form.bp textarea {
   height: 250px;
 }
 
-/* line 493, ../../../app/stylesheets/screen.scss */
+/* line 510, ../../../app/stylesheets/screen.scss */
 body.two-col #container {
   width: 950px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 495, ../../../app/stylesheets/screen.scss */
+/* line 512, ../../../app/stylesheets/screen.scss */
 body.two-col #header, body.two-col #footer {
   display: inline;
   float: left;
@@ -2402,7 +2440,7 @@ body.two-col #header, body.two-col #footer {
 * html body.two-col #header, * html body.two-col #footer {
   overflow-x: hidden;
 }
-/* line 497, ../../../app/stylesheets/screen.scss */
+/* line 514, ../../../app/stylesheets/screen.scss */
 body.two-col #sidebar {
   display: inline;
   float: left;
@@ -2413,7 +2451,7 @@ body.two-col #sidebar {
 * html body.two-col #sidebar {
   overflow-x: hidden;
 }
-/* line 501, ../../../app/stylesheets/screen.scss */
+/* line 518, ../../../app/stylesheets/screen.scss */
 body.two-col #content {
   display: inline;
   float: left;
