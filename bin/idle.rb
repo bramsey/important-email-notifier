@@ -76,8 +76,9 @@ class MailReader
       toFlag = mail.to.include? USERNAME
       noReplyFlag = !(mail.from.collect {|e| e.include? "noreplys"}.include?(true))
       listFlag = mail.header['List-Unsubscribe'].nil? && mail.header['List-Id'].nil?
+      notifierFlag = !mail.from.include?("vybly.notifier@gmail.com")
       
-      processFlag = toFlag && noReplyFlag && listFlag
+      processFlag = toFlag && noReplyFlag && listFlag && notifierFlag
       
       puts "toFlag: #{toFlag.to_s}"
       puts "noReplyFlag: #{noReplyFlag.to_s}"
