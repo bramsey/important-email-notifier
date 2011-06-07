@@ -136,7 +136,7 @@ class User < ActiveRecord::Base
   end
   
   def new_messages
-    msgs = received_messages.reject {|msg| !msg.disagree.nil? || msg.urgency.nil? || !msg.sender.reliable_to( current_user )} unless received_messages.empty?
+    msgs = received_messages.reject {|msg| !msg.disagree.nil? || msg.urgency.nil? || !msg.sender.reliable_to( self )} unless received_messages.empty?
   end
 
   #def feed
