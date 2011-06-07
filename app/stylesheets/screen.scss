@@ -154,6 +154,11 @@ a.recover {
 	position: relative;
 }
 
+a.attention_link {
+	color: $main;
+	&:hover { color: $good;}
+}
+
 .allow {
 	float: right;
 	vertical-align: top;

@@ -14,9 +14,13 @@ class OauthController < ApplicationController
   
   def auth
         
-    @access_token = @request_token.get_access_token({:oauth_verifier => params[:oauth_verifier]})
-    
+    begin
+      @access_token = @request_token.get_access_token({:oauth_verifier => params[:oauth_verifier]})
     RAILS_DEFAULT_LOGGER.error "post access token creation"
+    
+    rescue
+      flash[:error] = "Authorization denied"
+    end
     
     if @access_token
       response = @access_token.get('https://www.googleapis.com/userinfo/email?alt=json')

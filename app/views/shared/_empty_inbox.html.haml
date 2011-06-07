@@ -1,1 +1,8 @@
-%h2 You have no new messages to view.
+- if current_user.accounts.empty?
+	%h2
+		If you 
+		= link_to 'link an account', root_url + "oauth/google", :class => "attention_link"
+		, you can start ignoring your email without worrying about missing 
+		something important!
+- else
+	%h2 You have no new messages to view.
