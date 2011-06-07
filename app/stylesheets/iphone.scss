@@ -26,7 +26,7 @@ li { list-style-type: none;
 
 	vertical-align: top;}
 
-body { 	@include showgrid; }
+body { 	@include showgrid;  @include column($blueprint-grid-columns);}
 body { width: 480px; }
 body { background-color: $back-color; }
 .main { 
@@ -88,10 +88,12 @@ footer {
 }
 
 div#avatar {
-	@include column(5); }
+	//@include column(5); 
+}
 
 div#bio {
-	@include column(12, last); }
+	//@include column(12, last); 
+}
 
 .team {
 	padding: 0;
@@ -280,7 +282,8 @@ div.user_info span.user_name {
 }
 
 #logo { 
-	@include column(6);
+	//@include column(6);
+	float:left;
 	@include shadow;
 	a {
 		font-size: 4em;
@@ -297,10 +300,11 @@ div.user_info span.user_name {
 }
 
 #nav {
-	@include column(22, last);
+	//@include column(11, last);
 	//@include push(1);
 	@include shadow;
 	margin: 0;
+	float: left;
 	padding-top: 1em;
 	//float: right;
 	//line-height: 4em;
@@ -388,7 +392,7 @@ a.available {
 
 
 .profile {
-	@include column(12);
+	//@include column(12);
 }
 
 .profile_content {
@@ -408,7 +412,7 @@ a.available {
 }
 
 .profile_feed {
-	@include column(10);
+	//@include column(10);
 	padding-top: 1.5em;
 }
 
