@@ -11,8 +11,8 @@ if ARGV.length != 3
   exit
 end
 
-require 'net/imap'
-require 'rubygems'
+#require 'net/imap'
+#require 'rubygems'
 require 'mail'
 require 'time'
 require 'date'
