@@ -1049,52 +1049,53 @@ footer * {
 /* line 102, ../../../app/stylesheets/iphone.scss */
 .container {
   margin: 0 5px 0 5px;
+  width: 100%;
 }
 
-/* line 108, ../../../app/stylesheets/iphone.scss */
+/* line 109, ../../../app/stylesheets/iphone.scss */
 .avatar {
   float: left;
   margin-top: 3px;
 }
 
-/* line 117, ../../../app/stylesheets/iphone.scss */
+/* line 118, ../../../app/stylesheets/iphone.scss */
 .message_content, .user_information {
   margin-left: 58px;
 }
 
-/* line 121, ../../../app/stylesheets/iphone.scss */
+/* line 122, ../../../app/stylesheets/iphone.scss */
 .agreement {
   font-size: 12px;
 }
 
-/* line 125, ../../../app/stylesheets/iphone.scss */
+/* line 126, ../../../app/stylesheets/iphone.scss */
 .message, div.urgent1, div.urgent2, div.urgent3 {
   min-height: 100px;
   border-bottom: 1px solid #ebebeb;
   padding-top: 10px;
   width: 450px;
 }
-/* line 130, ../../../app/stylesheets/iphone.scss */
+/* line 131, ../../../app/stylesheets/iphone.scss */
 .message:hover, div.urgent1:hover, div.urgent2:hover, div.urgent3:hover {
   background-color: #b7dbff;
 }
 
-/* line 133, ../../../app/stylesheets/iphone.scss */
+/* line 134, ../../../app/stylesheets/iphone.scss */
 div.urgent1 {
   background-color: #ffb3b3;
 }
 
-/* line 134, ../../../app/stylesheets/iphone.scss */
+/* line 135, ../../../app/stylesheets/iphone.scss */
 div.urgent2 {
   background-color: #ffe0cc;
 }
 
-/* line 135, ../../../app/stylesheets/iphone.scss */
+/* line 136, ../../../app/stylesheets/iphone.scss */
 div.urgent3 {
   background-color: #b3ffb3;
 }
 
-/* line 136, ../../../app/stylesheets/iphone.scss */
+/* line 137, ../../../app/stylesheets/iphone.scss */
 a.recover {
   -moz-border-radius: 30em;
   -webkit-border-radius: 30em;
@@ -1113,7 +1114,7 @@ a.recover {
   background-color: #1e90ff;
   padding: .25em;
 }
-/* line 142, ../../../app/stylesheets/iphone.scss */
+/* line 143, ../../../app/stylesheets/iphone.scss */
 a.recover:hover {
   text-decoration: none;
   background-color: #0f0;
@@ -1129,7 +1130,7 @@ a.recover:hover {
   background-image: -o-linear-gradient(lime, #00b300);
 }
 
-/* line 145, ../../../app/stylesheets/iphone.scss */
+/* line 146, ../../../app/stylesheets/iphone.scss */
 .user {
   min-height: 70px;
   border-bottom: 1px solid #ebebeb;
@@ -1138,16 +1139,16 @@ a.recover:hover {
   position: relative;
 }
 
-/* line 153, ../../../app/stylesheets/iphone.scss */
+/* line 154, ../../../app/stylesheets/iphone.scss */
 a.attention_link {
   color: #1e90ff;
 }
-/* line 155, ../../../app/stylesheets/iphone.scss */
+/* line 156, ../../../app/stylesheets/iphone.scss */
 a.attention_link:hover {
   color: lime;
 }
 
-/* line 158, ../../../app/stylesheets/iphone.scss */
+/* line 159, ../../../app/stylesheets/iphone.scss */
 .allow {
   float: right;
   vertical-align: top;
@@ -1155,20 +1156,20 @@ a.attention_link:hover {
   top: 30px;
   right: 0;
 }
-/* line 164, ../../../app/stylesheets/iphone.scss */
+/* line 165, ../../../app/stylesheets/iphone.scss */
 .allow input {
   vertical-align: top;
 }
-/* line 165, ../../../app/stylesheets/iphone.scss */
+/* line 166, ../../../app/stylesheets/iphone.scss */
 .allow label {
   font-size: 80%;
 }
-/* line 166, ../../../app/stylesheets/iphone.scss */
+/* line 167, ../../../app/stylesheets/iphone.scss */
 .allow label:hover {
   background: lime;
 }
 
-/* line 171, ../../../app/stylesheets/iphone.scss */
+/* line 172, ../../../app/stylesheets/iphone.scss */
 .block {
   float: right;
   vertical-align: top;
@@ -1176,20 +1177,20 @@ a.attention_link:hover {
   top: 50px;
   right: 0;
 }
-/* line 177, ../../../app/stylesheets/iphone.scss */
+/* line 178, ../../../app/stylesheets/iphone.scss */
 .block input {
   vertical-align: top;
 }
-/* line 178, ../../../app/stylesheets/iphone.scss */
+/* line 179, ../../../app/stylesheets/iphone.scss */
 .block label {
   font-size: 80%;
 }
-/* line 179, ../../../app/stylesheets/iphone.scss */
+/* line 180, ../../../app/stylesheets/iphone.scss */
 .block label:hover {
   background: red;
 }
 
-/* line 184, ../../../app/stylesheets/iphone.scss */
+/* line 185, ../../../app/stylesheets/iphone.scss */
 .signup {
   float: right;
   vertical-align: top;
@@ -1197,54 +1198,54 @@ a.attention_link:hover {
   top: 405px;
   right: 20px;
 }
-/* line 190, ../../../app/stylesheets/iphone.scss */
+/* line 191, ../../../app/stylesheets/iphone.scss */
 .signup input {
   vertical-align: top;
 }
-/* line 191, ../../../app/stylesheets/iphone.scss */
+/* line 192, ../../../app/stylesheets/iphone.scss */
 .signup label {
   font-size: 80%;
 }
 
-/* line 194, ../../../app/stylesheets/iphone.scss */
+/* line 195, ../../../app/stylesheets/iphone.scss */
 span.urgent1 {
   color: red;
 }
 
-/* line 195, ../../../app/stylesheets/iphone.scss */
+/* line 196, ../../../app/stylesheets/iphone.scss */
 span.urgent2 {
   color: #ff7519;
 }
 
-/* line 196, ../../../app/stylesheets/iphone.scss */
+/* line 197, ../../../app/stylesheets/iphone.scss */
 span.urgent3 {
   color: lime;
 }
 
-/* line 198, ../../../app/stylesheets/iphone.scss */
+/* line 199, ../../../app/stylesheets/iphone.scss */
 .message_user_alias {
   font-weight: bold;
   font-size: 15px;
 }
 
-/* line 203, ../../../app/stylesheets/iphone.scss */
+/* line 204, ../../../app/stylesheets/iphone.scss */
 .message_user_name {
   font-size: 12px;
   color: #999999;
 }
 
-/* line 208, ../../../app/stylesheets/iphone.scss */
+/* line 209, ../../../app/stylesheets/iphone.scss */
 .message_timestamp {
   font-size: 11px;
   color: #999999;
 }
 
-/* line 213, ../../../app/stylesheets/iphone.scss */
+/* line 214, ../../../app/stylesheets/iphone.scss */
 .toDo {
   color: red;
 }
 
-/* line 216, ../../../app/stylesheets/iphone.scss */
+/* line 217, ../../../app/stylesheets/iphone.scss */
 #subnav {
   /* fallback/image non-cover color */
   background-color: #b7dbff;
@@ -1261,18 +1262,18 @@ span.urgent3 {
   padding-bottom: 2px;
 }
 
-/* line 226, ../../../app/stylesheets/iphone.scss */
+/* line 227, ../../../app/stylesheets/iphone.scss */
 .profile img.gravatar {
   border: 1px solid #999;
   margin-bottom: -15px;
 }
 
-/* line 231, ../../../app/stylesheets/iphone.scss */
+/* line 232, ../../../app/stylesheets/iphone.scss */
 section {
   font-size: 120%;
 }
 
-/* line 235, ../../../app/stylesheets/iphone.scss */
+/* line 236, ../../../app/stylesheets/iphone.scss */
 .field_with_errors {
   margin-top: 10px;
   padding: 2px;
@@ -1280,7 +1281,7 @@ section {
   display: table;
 }
 
-/* line 242, ../../../app/stylesheets/iphone.scss */
+/* line 243, ../../../app/stylesheets/iphone.scss */
 #error_explanation {
   width: 400px;
   border: 2px solid red;
@@ -1290,7 +1291,7 @@ section {
   background-color: #f0f0f0;
 }
 
-/* line 251, ../../../app/stylesheets/iphone.scss */
+/* line 252, ../../../app/stylesheets/iphone.scss */
 #error_explanation h2 {
   text-align: left;
   font-weight: bold;
@@ -1301,52 +1302,52 @@ section {
   color: #fff;
 }
 
-/* line 261, ../../../app/stylesheets/iphone.scss */
+/* line 262, ../../../app/stylesheets/iphone.scss */
 #error_explanation p {
   color: #333;
   margin-bottom: 0;
   padding: 5px;
 }
 
-/* line 267, ../../../app/stylesheets/iphone.scss */
+/* line 268, ../../../app/stylesheets/iphone.scss */
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
 }
 
-/* line 272, ../../../app/stylesheets/iphone.scss */
+/* line 273, ../../../app/stylesheets/iphone.scss */
 div.user_info img {
   padding-right: 0.1em;
 }
 
-/* line 276, ../../../app/stylesheets/iphone.scss */
+/* line 277, ../../../app/stylesheets/iphone.scss */
 div.user_info a {
   text-decoration: none;
 }
 
-/* line 280, ../../../app/stylesheets/iphone.scss */
+/* line 281, ../../../app/stylesheets/iphone.scss */
 div.user_info span.user_name {
   position: absolute;
 }
 
-/* line 284, ../../../app/stylesheets/iphone.scss */
+/* line 285, ../../../app/stylesheets/iphone.scss */
 #logo {
   float: left;
   text-shadow: 2px 2px 2px #222222;
 }
-/* line 288, ../../../app/stylesheets/iphone.scss */
+/* line 289, ../../../app/stylesheets/iphone.scss */
 #logo a {
   font-size: 4em;
   color: white;
   font-family: Menlo, "Helvetica Neue", arial, helvetica, sans-serif;
 }
-/* line 293, ../../../app/stylesheets/iphone.scss */
+/* line 294, ../../../app/stylesheets/iphone.scss */
 #logo a:hover {
   text-decoration: none;
   color: #b7dbff;
 }
 
-/* line 302, ../../../app/stylesheets/iphone.scss */
+/* line 303, ../../../app/stylesheets/iphone.scss */
 #nav {
   text-shadow: 2px 2px 2px #222222;
   margin: 0;
@@ -1354,16 +1355,16 @@ div.user_info span.user_name {
   padding-top: 1em;
   white-space: nowrap;
 }
-/* line 314, ../../../app/stylesheets/iphone.scss */
+/* line 315, ../../../app/stylesheets/iphone.scss */
 #nav ul {
   margin: 0;
   padding: 0;
 }
-/* line 317, ../../../app/stylesheets/iphone.scss */
+/* line 318, ../../../app/stylesheets/iphone.scss */
 #nav ul li {
   display: inline-block;
 }
-/* line 321, ../../../app/stylesheets/iphone.scss */
+/* line 322, ../../../app/stylesheets/iphone.scss */
 #nav ul li a {
   padding: .5em 1.5em 1em 1.5em;
   -moz-border-radius: 10px 10px 0 0;
@@ -1376,13 +1377,13 @@ div.user_info span.user_name {
   font-size: 200%;
   color: white;
 }
-/* line 328, ../../../app/stylesheets/iphone.scss */
+/* line 329, ../../../app/stylesheets/iphone.scss */
 #nav ul li a:hover {
   text-decoration: none;
   background-color: #00366b;
 }
 
-/* line 336, ../../../app/stylesheets/iphone.scss */
+/* line 337, ../../../app/stylesheets/iphone.scss */
 ul li a#nav_selected {
   /* fallback/image non-cover color */
   background-color: #1e90ff;
@@ -1396,17 +1397,17 @@ ul li a#nav_selected {
   background-image: -o-linear-gradient(#1e90ff, #006ad1);
   background-color: #1e90ff;
 }
-/* line 339, ../../../app/stylesheets/iphone.scss */
+/* line 340, ../../../app/stylesheets/iphone.scss */
 ul li a#nav_selected:hover {
   background-color: #1e90ff;
 }
 
-/* line 342, ../../../app/stylesheets/iphone.scss */
+/* line 343, ../../../app/stylesheets/iphone.scss */
 #sign_in {
   float: right;
   padding-right: .5em;
 }
-/* line 348, ../../../app/stylesheets/iphone.scss */
+/* line 349, ../../../app/stylesheets/iphone.scss */
 #sign_in a.sign_in {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -1416,12 +1417,12 @@ ul li a#nav_selected:hover {
   padding: 1em;
 }
 
-/* line 356, ../../../app/stylesheets/iphone.scss */
+/* line 357, ../../../app/stylesheets/iphone.scss */
 #sign_out {
   float: right;
   padding-right: .5em;
 }
-/* line 359, ../../../app/stylesheets/iphone.scss */
+/* line 360, ../../../app/stylesheets/iphone.scss */
 #sign_out a.sign_out {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -1431,7 +1432,7 @@ ul li a#nav_selected:hover {
   padding: 1em;
 }
 
-/* line 367, ../../../app/stylesheets/iphone.scss */
+/* line 368, ../../../app/stylesheets/iphone.scss */
 a.busy {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -1440,14 +1441,14 @@ a.busy {
   color: red;
   padding: 1em;
 }
-/* line 372, ../../../app/stylesheets/iphone.scss */
+/* line 373, ../../../app/stylesheets/iphone.scss */
 a.busy:hover {
   background-color: red;
   color: white;
   text-decoration: none;
 }
 
-/* line 375, ../../../app/stylesheets/iphone.scss */
+/* line 376, ../../../app/stylesheets/iphone.scss */
 a.available {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -1456,85 +1457,85 @@ a.available {
   color: lime;
   padding: 1em;
 }
-/* line 380, ../../../app/stylesheets/iphone.scss */
+/* line 381, ../../../app/stylesheets/iphone.scss */
 a.available:hover {
   background-color: lime;
   color: white;
   text-decoration: none;
 }
 
-/* line 383, ../../../app/stylesheets/iphone.scss */
+/* line 384, ../../../app/stylesheets/iphone.scss */
 .account_information input[type=text] {
   width: 137px;
 }
-/* line 384, ../../../app/stylesheets/iphone.scss */
+/* line 385, ../../../app/stylesheets/iphone.scss */
 .account_information input[type=password] {
   width: 90px;
 }
 
-/* line 388, ../../../app/stylesheets/iphone.scss */
+/* line 389, ../../../app/stylesheets/iphone.scss */
 .current_avatar {
   float: right;
 }
-/* line 390, ../../../app/stylesheets/iphone.scss */
+/* line 391, ../../../app/stylesheets/iphone.scss */
 .current_avatar img {
   border: 2px solid #b7dbff;
 }
 
-/* line 398, ../../../app/stylesheets/iphone.scss */
+/* line 399, ../../../app/stylesheets/iphone.scss */
 .profile_content {
   margin-left: 137px;
 }
-/* line 400, ../../../app/stylesheets/iphone.scss */
+/* line 401, ../../../app/stylesheets/iphone.scss */
 .profile_content h2 {
   padding: 0;
 }
 
-/* line 403, ../../../app/stylesheets/iphone.scss */
+/* line 404, ../../../app/stylesheets/iphone.scss */
 .profile_name {
   font-size: 2.5em;
   color: #00509e;
 }
 
-/* line 408, ../../../app/stylesheets/iphone.scss */
+/* line 409, ../../../app/stylesheets/iphone.scss */
 .profile_alias {
   padding-left: .1em;
   color: #333333;
   font-size: 1.5em;
 }
 
-/* line 414, ../../../app/stylesheets/iphone.scss */
+/* line 415, ../../../app/stylesheets/iphone.scss */
 .profile_feed {
   padding-top: 1.5em;
 }
 
-/* line 419, ../../../app/stylesheets/iphone.scss */
+/* line 420, ../../../app/stylesheets/iphone.scss */
 .reliable, .unreliable, .untested, .unknown {
   padding-left: .1em;
   font-size: 1.25em;
 }
 
-/* line 420, ../../../app/stylesheets/iphone.scss */
+/* line 421, ../../../app/stylesheets/iphone.scss */
 .reliable {
   color: lime;
 }
 
-/* line 421, ../../../app/stylesheets/iphone.scss */
+/* line 422, ../../../app/stylesheets/iphone.scss */
 .unreliable {
   color: red;
 }
 
-/* line 422, ../../../app/stylesheets/iphone.scss */
+/* line 423, ../../../app/stylesheets/iphone.scss */
 .untested {
   color: #ff7519;
 }
 
-/* line 423, ../../../app/stylesheets/iphone.scss */
+/* line 424, ../../../app/stylesheets/iphone.scss */
 .unknown {
   color: #999999;
 }
 
-/* line 425, ../../../app/stylesheets/iphone.scss */
+/* line 426, ../../../app/stylesheets/iphone.scss */
 a.busy_button {
   /* fallback/image non-cover color */
   background-color: red;
@@ -1559,7 +1560,7 @@ a.busy_button {
   margin-bottom: .5em;
   margin-top: .25em;
 }
-/* line 439, ../../../app/stylesheets/iphone.scss */
+/* line 440, ../../../app/stylesheets/iphone.scss */
 a.busy_button:hover {
   /* fallback/image non-cover color */
   background-color: #ff4d4d;
@@ -1574,7 +1575,7 @@ a.busy_button:hover {
   text-decoration: none;
 }
 
-/* line 445, ../../../app/stylesheets/iphone.scss */
+/* line 446, ../../../app/stylesheets/iphone.scss */
 a.available_button {
   /* fallback/image non-cover color */
   background-color: lime;
@@ -1599,7 +1600,7 @@ a.available_button {
   margin-bottom: .5em;
   margin-top: .25em;
 }
-/* line 459, ../../../app/stylesheets/iphone.scss */
+/* line 460, ../../../app/stylesheets/iphone.scss */
 a.available_button:hover {
   /* fallback/image non-cover color */
   background-color: #4dff4d;
@@ -1614,7 +1615,7 @@ a.available_button:hover {
   text-decoration: none;
 }
 
-/* line 467, ../../../app/stylesheets/iphone.scss */
+/* line 468, ../../../app/stylesheets/iphone.scss */
 .cupid-green {
   background: #7fbf4d;
   background: -moz-linear-gradient(top, #7fbf4d 0%, #63a62f 100%);
@@ -1638,7 +1639,7 @@ a.available_button:hover {
   width: 150px;
 }
 
-/* line 490, ../../../app/stylesheets/iphone.scss */
+/* line 491, ../../../app/stylesheets/iphone.scss */
 .cupid-green:hover {
   background: #76b347;
   background: -moz-linear-gradient(top, #76b347 0%, #5e9e2e 100%);
@@ -1649,7 +1650,7 @@ a.available_button:hover {
   cursor: pointer;
 }
 
-/* line 500, ../../../app/stylesheets/iphone.scss */
+/* line 501, ../../../app/stylesheets/iphone.scss */
 .cupid-green:active {
   border: 1px solid #5b992b;
   border-bottom: 1px solid #538c27;
