@@ -98,7 +98,7 @@ div#avatar {
 	@include column(5); }
 
 div#bio {
-	@include column(16, last); }
+	@include column(12, last); }
 
 .team {
 	padding: 0;
@@ -106,7 +106,7 @@ div#bio {
 
 .container { padding: 0 1.5em 0 1.5em;
 	//@include showgrid();
- 	margin: auto;
+ 	//margin: auto;
 }
 
 .avatar {
@@ -390,14 +390,9 @@ a.available {
 	img { border: 2px solid $main-light; }
 }
 
-#sidebar {
-	@include column(8, last);
-	@include push(1);
-	
-}
 
 .profile {
-	@include column(16);
+	@include column(12);
 }
 
 .profile_content {
