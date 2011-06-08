@@ -31,14 +31,14 @@ class AccountsController < ApplicationController
   
   def toggle_active
     @account = Account.find(params[:id])
-    #starling = Starling.new('localhost:22122')
+    starling = Starling.new('localhost:22122')
     if @account.active 
       @account.active = false 
-      #starling.set('idler_queue', "stop #{@account.id}")
+      starling.set('idler_queue', "stop #{@account.id}")
     else
       @account.active = true
-      #starling.set('idler_queue', 
-      #  "start #{@account.id} #{@account.username} #{@account.token} #{@account.secret}") if @account.user.busy
+      starling.set('idler_queue', 
+        "start #{@account.id} #{@account.username} #{@account.token} #{@account.secret}") if @account.user.busy
     end
       
     @account.save
