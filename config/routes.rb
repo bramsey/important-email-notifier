@@ -32,9 +32,9 @@ Notifier::Application.routes.draw do
       post :init
     end
   end
-  resources :accounts, :only => [:create, :destroy, :update, :activate] do
+  resources :accounts, :only => [:create, :destroy, :update, :toggle_active] do
     member do
-      post 'activate'
+      post 'toggle_active'
     end
   end
   

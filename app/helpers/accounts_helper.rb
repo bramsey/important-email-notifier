@@ -10,6 +10,15 @@ module AccountsHelper
 		end
 	end
 	
+	def activate_box_for( account )
+    active = account.active
+    label_tag( "active#{account.id}", "Active?", :class => "switch" ) + 
+    check_box_tag( "active#{account.id}", "active#{account.id}", active, 
+       :onclick => remote_function(
+         :url => toggle_active_account_path(account)
+       ))
+  end
+	
 	def current_user?(user)
     user == current_user
   end

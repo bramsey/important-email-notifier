@@ -2,6 +2,6 @@
 	.account_information
 		.row
 			%h3= account.username
-			= activate_link account
+			= activate_box_for account
 			= link_to '( Delete )', account, :method => :delete, 
 				:class => "delete_item"
