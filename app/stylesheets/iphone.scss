@@ -29,8 +29,7 @@ li { list-style-type: none;
 //nav, body { 	@include showgrid; }
 body { background-color: $back-color; -webkit-text-size-adjust: 100%;}
 body {
-	width: 252px;
-	padding: 48px 34px 60px;
+	width: 320px;
 }
 .main { 
 	.container, #content { background-color: $back-color; } }
@@ -88,6 +87,85 @@ header {
 	//border-bottom: 1px solid $border-color;
 	padding-top: 6px;
 	padding-bottom: 2px;
+}
+
+#logo { 
+	@include shadow;
+	float: left;
+	width: 150px;
+	a {
+		font-size: 1.5em;
+		color: $back-color;
+		//margin: 0;
+		font-family: $logo-font;
+		&:hover {
+			text-decoration: none;
+			color: $main-light;
+		}
+		//line-height: 1em;
+		//padding: 0; 
+	}
+}
+
+#nav {
+	@include shadow;
+	margin: 0;
+	padding-top: 2em;
+	float: left;
+	clear: both;
+	
+	white-space: nowrap;
+	ul { 
+		margin: 0;
+		padding: 0;
+		li {
+		 	display: inline-block;
+			//padding-bottom: 2em;
+			
+			a{
+				padding: .5em .75em 1em .75em;
+				@include top-round;
+				//font-weight: bold;
+				font-family: $marketing-font;
+				font-size: 120%;
+				color: $back-color;
+				&:hover { 
+					text-decoration: none;
+					background-color: $main-very-dark;}
+			}
+		}
+	} 
+}
+
+ul li a#nav_selected { 
+	@include gradient($main);
+	background-color: $main;
+	&:hover { background-color: $main; } 
+}
+
+#sign_in {
+	//#session_email, #session_password { width: 137px; }
+	float: right;
+	width: 180px;
+	padding-right: 1em;
+	a.sign_in {
+		@include round;
+		background-color: $main-dark;
+		color: $main-light;
+		padding: 1em;
+	}
+}
+
+#sign_out {
+	float: right;
+	width: 180px;
+	padding-right: 1em;
+	a.sign_out {
+		@include round;
+		background-color: $main-dark;
+		color: $main-light;
+		padding: 1em;
+	}
 }
 
 footer { 
@@ -293,84 +371,7 @@ div.user_info span.user_name {
   position: absolute;
 }
 
-#logo { 
-	@include shadow;
-	float: left;
-	width: 150px;
-	a {
-		font-size: 1.5em;
-		color: $back-color;
-		//margin: 0;
-		font-family: $logo-font;
-		&:hover {
-			text-decoration: none;
-			color: $main-light;
-		}
-		//line-height: 1em;
-		//padding: 0; 
-	}
-}
 
-#nav {
-	@include shadow;
-	margin: 0;
-	padding-top: 2em;
-	float: left;
-	clear: both;
-	
-	white-space: nowrap;
-	ul { 
-		margin: 0;
-		padding: 0;
-		li {
-		 	display: inline-block;
-			//padding-bottom: 2em;
-			
-			a{
-				padding: .5em .5em 1em .5em;
-				@include top-round;
-				//font-weight: bold;
-				font-family: $marketing-font;
-				font-size: 200%;
-				color: $back-color;
-				&:hover { 
-					text-decoration: none;
-					background-color: $main-very-dark;}
-			}
-		}
-	} 
-}
-
-ul li a#nav_selected { 
-	@include gradient($main);
-	background-color: $main;
-	&:hover { background-color: $main; } 
-}
-
-#sign_in {
-	//#session_email, #session_password { width: 137px; }
-	float: right;
-	width: 180px;
-	padding-right: 1em;
-	a.sign_in {
-		@include round;
-		background-color: $main-dark;
-		color: $main-light;
-		padding: 1em;
-	}
-}
-
-#sign_out {
-	float: right;
-	width: 180px;
-	padding-right: 1em;
-	a.sign_out {
-		@include round;
-		background-color: $main-dark;
-		color: $main-light;
-		padding: 1em;
-	}
-}
 
 a.busy {
 	@include round;
