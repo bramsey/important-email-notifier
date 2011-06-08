@@ -33,12 +33,12 @@ li { list-style-type: none;
 body { background-color: $back-color; -webkit-text-size-adjust: 100%;}
 
 body {
-	width: 320px;
+	width: 320px; background-color: #999;
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 	body {
-		width: 320px;
+		width: 480px;
 	}
 }
 .main { 
@@ -199,8 +199,8 @@ footer {
 }
 
 div#avatar {
-	width: 130px;
-	height: 130px;
+	width: 96px;
+	height: 96px;
 }
 
 div#bio {
@@ -427,19 +427,21 @@ a.available {
 }
 
 .profile_content {
-	margin-left: 137px;
+	margin-left: .5em;
+	float: right;
+	width: 195px;
 	h2 { padding: 0; }
 }
 
 .profile_name {
-	font-size: 2.5em;
+	font-size: 1.5em;
 	color: $main-dark;
 }
 
 .profile_alias {
 	padding-left: .1em;
 	color: $std-text-color;
-	font-size: 1.5em;
+	font-size: 1em;
 }
 
 .profile_feed {
