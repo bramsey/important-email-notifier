@@ -460,9 +460,7 @@ a.busy_button {
 	@include round;
   	display: block;
 	text-align: center;
-	//width: 100%;
 	color: #fff;
-	//background: #FF7519;
 	font-size: 250%;
 	font-weight: bold;
 	padding: .5em 0 .5em 0;
@@ -482,14 +480,14 @@ a.available_button {
 	@include round;
   	display: block;
 	text-align: center;
-	width: 430px;
 	color: #fff;
-	//background: #FF7519;
 	font-size: 250%;
 	font-weight: bold;
-	padding: 20px;
+	padding: .5em 0 .5em 0;
 	margin-bottom: .5em;
 	margin-top: .25em;
+	margin-left: .25em;
+	margin-right: .25em;
 
 	&:hover {
 		@include gradient(lighten($good, 15%));
