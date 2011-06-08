@@ -2243,15 +2243,15 @@ a.available:hover {
 /* line 426, ../../../app/stylesheets/screen.scss */
 a.busy_button {
   /* fallback/image non-cover color */
-  background-color: red;
+  background-color: #ff6600;
   /* Firefox 3.6+ */
-  background-image: -moz-linear-gradient(red, #b30000);
+  background-image: -moz-linear-gradient(#ff6600, #b34700);
   /* Safari 4+, Chrome 1+ */
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(red), to(#b30000));
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ff6600), to(#b34700));
   /* Safari 5.1+, Chrome 10+ */
-  background-image: -webkit-linear-gradient(red, #b30000);
+  background-image: -webkit-linear-gradient(#ff6600, #b34700);
   /* Opera 11.10+ */
-  background-image: -o-linear-gradient(red, #b30000);
+  background-image: -o-linear-gradient(#ff6600, #b34700);
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -2268,15 +2268,15 @@ a.busy_button {
 /* line 440, ../../../app/stylesheets/screen.scss */
 a.busy_button:hover {
   /* fallback/image non-cover color */
-  background-color: #ff4d4d;
+  background-color: #ff944d;
   /* Firefox 3.6+ */
-  background-image: -moz-linear-gradient(#ff4d4d, red);
+  background-image: -moz-linear-gradient(#ff944d, #ff6600);
   /* Safari 4+, Chrome 1+ */
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ff4d4d), to(red));
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ff944d), to(#ff6600));
   /* Safari 5.1+, Chrome 10+ */
-  background-image: -webkit-linear-gradient(#ff4d4d, red);
+  background-image: -webkit-linear-gradient(#ff944d, #ff6600);
   /* Opera 11.10+ */
-  background-image: -o-linear-gradient(#ff4d4d, red);
+  background-image: -o-linear-gradient(#ff944d, #ff6600);
   text-decoration: none;
 }
 

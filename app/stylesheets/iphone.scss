@@ -348,9 +348,11 @@ ul li a#nav_selected {
 	//@include push(1);
 	//#session_email, #session_password { width: 137px; }
 	float: right;
-	a {
-		color: $main;
-		&:hover { color: $main-light; }
+	a.sign_in {
+		@include round;
+		background-color: $main-dark;
+		color: $main-light;
+		padding: 1em;
 	}
 }
 
@@ -428,7 +430,7 @@ a.available {
 .unknown { color: $quiet-text-color; }
 
 a.busy_button {
-	@include gradient($bad);
+	@include gradient(#f60);
 	@include round;
   	display: block;
 	text-align: center;
@@ -442,7 +444,7 @@ a.busy_button {
 	margin-top: .25em;
 
 	&:hover {
-		@include gradient(lighten($bad, 15%));
+		@include gradient(lighten(#f60, 15%));
 		text-decoration: none;
 	}
 }
