@@ -1,5 +1,5 @@
 = stylesheet_link_tag 'compiled/iphone.css', :media => 'only screen and (min-device-width: 768px)'
 = stylesheet_link_tag 'compiled/print.css', :media => 'print'
-= stylesheet_link_tag 'compiled/iphone.css', :media => "only screen and (max-device-width: 480px)"
+= stylesheet_link_tag 'compiled/iphone.css', :media => "only screen and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)"
 /[if lt IE 8]
 	= stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
