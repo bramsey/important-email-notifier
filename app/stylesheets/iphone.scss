@@ -27,7 +27,11 @@ li { list-style-type: none;
 	vertical-align: top;}
 
 //nav, body { 	@include showgrid; }
-body { background-color: $back-color; }
+body { background-color: $back-color; -webkit-text-size-adjust: 100%;}
+body {
+	width: 252px;
+	padding: 48px 34px 60px;
+}
 .main { 
 	.container, #content { background-color: $back-color; } }
 	
