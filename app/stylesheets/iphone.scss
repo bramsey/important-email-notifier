@@ -28,13 +28,19 @@ li { list-style-type: none;
 
 //nav, body { 	@include showgrid; }
 body { background-color: $back-color; -webkit-text-size-adjust: 100%;}
+
 body {
 	width: 320px;
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	body {
+		width: 320px;
+	}
 }
 .main { 
 	.container, #content { background-color: $back-color; } }
 	
-.main { margin: 0 1em 0 1em; }
 	
 
 h1, h2, h3, h4, h5 { color: $main-very-dark; }
@@ -125,12 +131,13 @@ header {
 			//padding-bottom: 2em;
 			
 			a{
-				padding: .5em .8em 1em .8em;
+				padding: .5em .8em .5em .8em;
 				@include top-round;
 				//font-weight: bold;
 				font-family: $marketing-font;
 				font-size: 120%;
 				color: $back-color;
+				background-color: $main-very-dark;
 				&:hover { 
 					text-decoration: none;
 					background-color: $main-very-dark;}
@@ -162,11 +169,13 @@ ul li a#nav_selected {
 	float: right;
 	width: 164px;
 	padding-right: .5em;
-	margin-right: -.25em;
+	//margin-right: -.25em;
 	a.sign_out {
-		@include round;
+		@include bottom-round;
+		float: right;
 		background-color: $main-dark;
 		color: $main-light;
+		font-size: 75%;
 		padding: .5em;
 	}
 }
@@ -178,7 +187,7 @@ footer {
 	* {color: $quiet-text-color;} }
 
 #content {
-	margin-top: 1em;
+	margin: .5em;
 	min-height: 350px;
  }
 
@@ -202,7 +211,7 @@ div#bio {
 	//margin-right: .75em;
 	//margin-left: .75em;
 	//@include showgrid();
-	width: 98%;
+	width: 100%;
  	margin: auto;
 }
 
@@ -212,7 +221,8 @@ div#bio {
 }
 
 .messages, .users {
-	padding-left: .5em;
+	//padding-left: .5em;
+	margin-top: .5em;
 }
 
 .message_content, .user_information {
@@ -227,7 +237,7 @@ div#bio {
 	min-height: 100px;
 	border-bottom: 1px solid $border-color;
 	padding-top: 10px;
-	width: 98%;
+	width: 100%;
 	&:hover { background-color: $main-light; }
 }
 
@@ -439,7 +449,7 @@ a.busy_button {
 	@include round;
   	display: block;
 	text-align: center;
-	width: 96%;
+	//width: 100%;
 	color: #fff;
 	//background: #FF7519;
 	font-size: 250%;
@@ -448,7 +458,7 @@ a.busy_button {
 	margin-bottom: .5em;
 	margin-top: .25em;
 	margin-left: .25em;
-	//margin-right: .5em;
+	margin-right: .25em;
 
 	&:hover {
 		@include gradient(lighten(#f60, 15%));

@@ -40,6 +40,16 @@ $bad: #f00;
 	-khtml-border-radius:10px 10px 0 0;
 	border-radius:10px 10px 0 0;
 }
+
+@mixin bottom-round {
+	-moz-border-radius:0 0 10px 10px;
+	-webkit-border-radius:0 0 10px 10px;
+	-o-border-radius:0 0 10px 10px;
+	-ms-border-radius:0 0 10px 10px;
+	-khtml-border-radius:0 0 10px 10px;
+	border-radius:0 0 10px 10px;
+}
+
 @mixin round {
 	-moz-border-radius: 10px;
 	 -webkit-border-radius: 10px;
