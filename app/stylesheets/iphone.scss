@@ -92,7 +92,8 @@ header {
 #logo { 
 	@include shadow;
 	float: left;
-	width: 150px;
+	width: 112px;
+	margin-left: .5em;
 	a {
 		font-size: 1.5em;
 		color: $back-color;
@@ -113,6 +114,7 @@ header {
 	padding-top: 2em;
 	float: left;
 	clear: both;
+	margin-left: .5em;
 	
 	white-space: nowrap;
 	ul { 
@@ -123,7 +125,7 @@ header {
 			//padding-bottom: 2em;
 			
 			a{
-				padding: .5em .75em 1em .75em;
+				padding: .5em .8em 1em .8em;
 				@include top-round;
 				//font-weight: bold;
 				font-family: $marketing-font;
@@ -158,13 +160,14 @@ ul li a#nav_selected {
 
 #sign_out {
 	float: right;
-	width: 180px;
-	padding-right: 1em;
+	width: 164px;
+	padding-right: .5em;
+	margin-right: -.25em;
 	a.sign_out {
 		@include round;
 		background-color: $main-dark;
 		color: $main-light;
-		padding: 1em;
+		padding: .5em;
 	}
 }
 
@@ -436,7 +439,7 @@ a.busy_button {
 	@include round;
   	display: block;
 	text-align: center;
-	width: 98%;
+	width: 96%;
 	color: #fff;
 	//background: #FF7519;
 	font-size: 250%;
@@ -445,6 +448,7 @@ a.busy_button {
 	margin-bottom: .5em;
 	margin-top: .25em;
 	margin-left: .25em;
+	//margin-right: .5em;
 
 	&:hover {
 		@include gradient(lighten(#f60, 15%));
