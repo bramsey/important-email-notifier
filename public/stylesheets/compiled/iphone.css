@@ -1709,8 +1709,8 @@ div#bio {
 
 /* line 107, ../../../app/stylesheets/iphone.scss */
 .container {
-  margin-right: 1.5em;
-  margin-left: 1.5em;
+  margin-right: .75m;
+  margin-left: .75em;
 }
 
 /* line 114, ../../../app/stylesheets/iphone.scss */
@@ -2041,7 +2041,7 @@ div.user_info span.user_name {
 }
 /* line 327, ../../../app/stylesheets/iphone.scss */
 #nav ul li a {
-  padding: .5em 1.49em 1em 1.49em;
+  padding: .5em .5em 1em .5em;
   -moz-border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
   -o-border-radius: 10px 10px 0 0;

@@ -105,8 +105,8 @@ div#bio {
 	li { padding: 0 8px 0 0; } }
 
 .container { //padding: 0 0 0 1.5em;
-	margin-right: 1.5em;
-	margin-left: 1.5em;
+	margin-right: .75m;
+	margin-left: .75em;
 	//@include showgrid();
  	//margin: auto;
 }
@@ -325,7 +325,7 @@ div.user_info span.user_name {
 			//padding-bottom: 2em;
 			
 			a{
-				padding: .5em 1.49em 1em 1.49em;
+				padding: .5em .5em 1em .5em;
 				@include top-round;
 				//font-weight: bold;
 				font-family: $marketing-font;
