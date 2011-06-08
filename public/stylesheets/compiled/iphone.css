@@ -124,7 +124,7 @@ body {
 @media only screen and (min-width: 480px) and (max-width: 767px) {
   /* line 40, ../../../app/stylesheets/iphone.scss */
   body {
-    width: 320px;
+    width: 480px;
   }
 }
 
