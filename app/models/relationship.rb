@@ -34,7 +34,7 @@ class Relationship < ActiveRecord::Base
     reliable? ? 
       trusted? ? 
         "Reliable" : 
-        "Insufficiently tested" : 
+        "Learning" : 
       "Unreliable"
   end
   

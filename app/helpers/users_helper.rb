@@ -12,7 +12,7 @@ module UsersHelper
       content_tag(:span, :class => "reliable") { user.reliability_to(current_user) }
     when "Unreliable"
       content_tag(:span, :class => "unreliable") { user.reliability_to(current_user) }
-    when "Insufficiently tested"
+    when "Learning"
       content_tag(:span, :class => "untested") { user.reliability_to(current_user) }
     else
       content_tag(:span, :class => "unknown") { "Unknown" }
@@ -23,7 +23,7 @@ module UsersHelper
     relationship = user.relationship_with(current_user)
     if relationship
       allow = relationship.allow
-      label_tag( "allow_#{user.id}", "Always allow?" ) + 
+      label_tag( "allow_#{user.id}", "Allow?" ) + 
       check_box_tag( "allow_#{user.id}", "allow_#{user.id}", allow, 
          :onclick => remote_function(
            :url => toggle_allow_relationship_path(relationship)

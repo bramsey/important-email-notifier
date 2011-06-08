@@ -38,7 +38,7 @@ body {
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 	body {
-		width: 480px;
+		width: 320px;
 	}
 }
 .main { 
@@ -282,9 +282,7 @@ a.attention_link {
 .allow {
 	float: right;
 	vertical-align: top;
-	position: absolute;
-	top: 20px;
-	right: 0;
+	position: relative;
 	input { vertical-align: center;}
 	label { font-size: 80%; }
 	label:hover{
@@ -295,9 +293,7 @@ a.attention_link {
 .block {
 	float: right;
 	vertical-align: top;
-	position: absolute;
-	top: 40px;
-	right: 0;
+	position: relative;
 	input { vertical-align: center;}
 	label { font-size: 80%; }
 	label:hover {
@@ -451,7 +447,7 @@ a.available {
 	padding-top: 1.5em;
 }
 
-.reliable, .unreliable, .untested, .unknown { padding-left: .1em; font-size: 1.25em;}
+.reliable, .unreliable, .untested, .unknown { padding-left: .1em; font-size: .75em;}
 .reliable { color: $good; }
 .unreliable { color: $bad; }
 .untested { color: $caution; }

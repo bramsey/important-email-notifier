@@ -7,13 +7,14 @@
 				= link_to alias_for(user), user
 			%span.message_user_name
 				= user.name
+			.allow
+				= allow_box_for user
 		.row
 			= show_reliability_for user
 			- if current_user.admin?
 				| 
 				= link_to "delete", user, :method => :delete, :confirm => "You sure?", 
 									  :title => "Delete #{user.name}"
-	.allow
-		= allow_box_for user
-	.block
-		= block_box_for user
+			.block
+				= block_box_for user
+	
