@@ -104,7 +104,7 @@ div#bio {
 	padding: 0;
 	li { padding: 0 8px 0 0; } }
 
-.container { padding: 0 1.5em 0 1.5em;
+.container { //padding: 0 1.5em 0 1.5em;
 	//@include showgrid();
  	margin: auto;
 }
@@ -115,7 +115,7 @@ div#bio {
 }
 
 .messages, .users {
-	padding-left: 1em;
+	padding-left: .5em;
 }
 
 .message_content, .user_information {
@@ -288,6 +288,7 @@ div.user_info span.user_name {
 #logo { 
 	@include column(6);
 	@include shadow;
+	float: left;
 	a {
 		font-size: 4em;
 		color: $back-color;
@@ -308,7 +309,8 @@ div.user_info span.user_name {
 	@include shadow;
 	margin: 0;
 	padding-top: 2em;
-	float: right;
+	float: left;
+	clear: both;
 	//line-height: 4em;
 	
 	//background-color: $main-dark;
@@ -355,8 +357,10 @@ ul li a#nav_selected {
 #sign_out {
 	float: right;
 	a.sign_out {
-		color: $main;
-		&:hover { color: $main-light; }
+		@include round;
+		background-color: $main-dark;
+		color: $main-light;
+		padding: 1em;
 	}
 }
 
@@ -413,7 +417,7 @@ a.available {
 }
 
 .profile_feed {
-	@include column(10);
+	@include column(24);
 	padding-top: 1.5em;
 }
 
@@ -428,7 +432,7 @@ a.busy_button {
 	@include round;
   	display: block;
 	text-align: center;
-	width: 80%;
+	width: 430px;
 	color: #fff;
 	//background: #FF7519;
 	font-size: 250%;
