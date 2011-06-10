@@ -306,9 +306,9 @@ div.user_info span.user_name {
 	//@include column(12, last);
 	//@include push(1);
 	@include shadow;
-	margin: 0;
+	margin-left: 2em;
 	padding-top: 2em;
-	float: right;
+	float: left;
 	//line-height: 4em;
 	
 	//background-color: $main-dark;
@@ -346,6 +346,9 @@ ul li a#nav_selected {
 	//@include push(1);
 	//#session_email, #session_password { width: 137px; }
 	float: right;
+	position: absolute;
+	top: 0;
+	right: 2em;
 	a {
 		color: $main;
 		&:hover { color: $main-light; }
@@ -354,6 +357,9 @@ ul li a#nav_selected {
 
 #sign_out {
 	float: right;
+	position: absolute;
+	top: 0;
+	right: 2em;
 	a.sign_out {
 		color: $main;
 		&:hover { color: $main-light; }
@@ -485,7 +491,7 @@ a.available_button {
   padding: 17px 0 18px 0;
   text-align: center;
   text-shadow: 0 -1px 0 #4c9021;
-  width: 150px;
+  width: 250px;
 }
 
 .cupid-green:hover {

@@ -2023,9 +2023,9 @@ div.user_info span.user_name {
 /* line 305, ../../../app/stylesheets/screen.scss */
 #nav {
   text-shadow: 2px 2px 2px #222222;
-  margin: 0;
+  margin-left: 2em;
   padding-top: 2em;
-  float: right;
+  float: left;
   white-space: nowrap;
 }
 /* line 316, ../../../app/stylesheets/screen.scss */
@@ -2078,30 +2078,36 @@ ul li a#nav_selected:hover {
 /* line 344, ../../../app/stylesheets/screen.scss */
 #sign_in {
   float: right;
+  position: absolute;
+  top: 0;
+  right: 2em;
 }
-/* line 349, ../../../app/stylesheets/screen.scss */
+/* line 352, ../../../app/stylesheets/screen.scss */
 #sign_in a {
   color: #1e90ff;
 }
-/* line 351, ../../../app/stylesheets/screen.scss */
+/* line 354, ../../../app/stylesheets/screen.scss */
 #sign_in a:hover {
   color: #b7dbff;
 }
 
-/* line 355, ../../../app/stylesheets/screen.scss */
+/* line 358, ../../../app/stylesheets/screen.scss */
 #sign_out {
   float: right;
+  position: absolute;
+  top: 0;
+  right: 2em;
 }
-/* line 357, ../../../app/stylesheets/screen.scss */
+/* line 363, ../../../app/stylesheets/screen.scss */
 #sign_out a.sign_out {
   color: #1e90ff;
 }
-/* line 359, ../../../app/stylesheets/screen.scss */
+/* line 365, ../../../app/stylesheets/screen.scss */
 #sign_out a.sign_out:hover {
   color: #b7dbff;
 }
 
-/* line 363, ../../../app/stylesheets/screen.scss */
+/* line 369, ../../../app/stylesheets/screen.scss */
 a.busy {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -2110,14 +2116,14 @@ a.busy {
   color: red;
   padding: 1em;
 }
-/* line 368, ../../../app/stylesheets/screen.scss */
+/* line 374, ../../../app/stylesheets/screen.scss */
 a.busy:hover {
   background-color: red;
   color: white;
   text-decoration: none;
 }
 
-/* line 371, ../../../app/stylesheets/screen.scss */
+/* line 377, ../../../app/stylesheets/screen.scss */
 a.available {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -2126,32 +2132,32 @@ a.available {
   color: lime;
   padding: 1em;
 }
-/* line 376, ../../../app/stylesheets/screen.scss */
+/* line 382, ../../../app/stylesheets/screen.scss */
 a.available:hover {
   background-color: lime;
   color: white;
   text-decoration: none;
 }
 
-/* line 379, ../../../app/stylesheets/screen.scss */
+/* line 385, ../../../app/stylesheets/screen.scss */
 .account_information input[type=text] {
   width: 137px;
 }
-/* line 380, ../../../app/stylesheets/screen.scss */
+/* line 386, ../../../app/stylesheets/screen.scss */
 .account_information input[type=password] {
   width: 90px;
 }
 
-/* line 384, ../../../app/stylesheets/screen.scss */
+/* line 390, ../../../app/stylesheets/screen.scss */
 .current_avatar {
   float: right;
 }
-/* line 386, ../../../app/stylesheets/screen.scss */
+/* line 392, ../../../app/stylesheets/screen.scss */
 .current_avatar img {
   border: 2px solid #b7dbff;
 }
 
-/* line 389, ../../../app/stylesheets/screen.scss */
+/* line 395, ../../../app/stylesheets/screen.scss */
 #sidebar {
   display: inline;
   float: left;
@@ -2167,7 +2173,7 @@ a.available:hover {
   overflow-x: hidden;
 }
 
-/* line 395, ../../../app/stylesheets/screen.scss */
+/* line 401, ../../../app/stylesheets/screen.scss */
 .profile {
   display: inline;
   float: left;
@@ -2179,29 +2185,29 @@ a.available:hover {
   overflow-x: hidden;
 }
 
-/* line 399, ../../../app/stylesheets/screen.scss */
+/* line 405, ../../../app/stylesheets/screen.scss */
 .profile_content {
   margin-left: 137px;
 }
-/* line 401, ../../../app/stylesheets/screen.scss */
+/* line 407, ../../../app/stylesheets/screen.scss */
 .profile_content h2 {
   padding: 0;
 }
 
-/* line 404, ../../../app/stylesheets/screen.scss */
+/* line 410, ../../../app/stylesheets/screen.scss */
 .profile_name {
   font-size: 2.5em;
   color: #00509e;
 }
 
-/* line 409, ../../../app/stylesheets/screen.scss */
+/* line 415, ../../../app/stylesheets/screen.scss */
 .profile_alias {
   padding-left: .1em;
   color: #333333;
   font-size: 1.5em;
 }
 
-/* line 415, ../../../app/stylesheets/screen.scss */
+/* line 421, ../../../app/stylesheets/screen.scss */
 .profile_feed {
   display: inline;
   float: left;
@@ -2214,33 +2220,33 @@ a.available:hover {
   overflow-x: hidden;
 }
 
-/* line 420, ../../../app/stylesheets/screen.scss */
+/* line 426, ../../../app/stylesheets/screen.scss */
 .reliable, .unreliable, .untested, .unknown {
   padding-left: .1em;
   font-size: 1.25em;
 }
 
-/* line 421, ../../../app/stylesheets/screen.scss */
+/* line 427, ../../../app/stylesheets/screen.scss */
 .reliable {
   color: lime;
 }
 
-/* line 422, ../../../app/stylesheets/screen.scss */
+/* line 428, ../../../app/stylesheets/screen.scss */
 .unreliable {
   color: red;
 }
 
-/* line 423, ../../../app/stylesheets/screen.scss */
+/* line 429, ../../../app/stylesheets/screen.scss */
 .untested {
   color: #ff7519;
 }
 
-/* line 424, ../../../app/stylesheets/screen.scss */
+/* line 430, ../../../app/stylesheets/screen.scss */
 .unknown {
   color: #999999;
 }
 
-/* line 426, ../../../app/stylesheets/screen.scss */
+/* line 432, ../../../app/stylesheets/screen.scss */
 a.busy_button {
   /* fallback/image non-cover color */
   background-color: #ff6600;
@@ -2265,7 +2271,7 @@ a.busy_button {
   margin-bottom: .5em;
   margin-top: .25em;
 }
-/* line 440, ../../../app/stylesheets/screen.scss */
+/* line 446, ../../../app/stylesheets/screen.scss */
 a.busy_button:hover {
   /* fallback/image non-cover color */
   background-color: #ff944d;
@@ -2280,7 +2286,7 @@ a.busy_button:hover {
   text-decoration: none;
 }
 
-/* line 446, ../../../app/stylesheets/screen.scss */
+/* line 452, ../../../app/stylesheets/screen.scss */
 a.available_button {
   /* fallback/image non-cover color */
   background-color: lime;
@@ -2305,7 +2311,7 @@ a.available_button {
   margin-bottom: .5em;
   margin-top: .25em;
 }
-/* line 460, ../../../app/stylesheets/screen.scss */
+/* line 466, ../../../app/stylesheets/screen.scss */
 a.available_button:hover {
   /* fallback/image non-cover color */
   background-color: #4dff4d;
@@ -2320,7 +2326,7 @@ a.available_button:hover {
   text-decoration: none;
 }
 
-/* line 468, ../../../app/stylesheets/screen.scss */
+/* line 474, ../../../app/stylesheets/screen.scss */
 .cupid-green {
   background: #7fbf4d;
   background: -moz-linear-gradient(top, #7fbf4d 0%, #63a62f 100%);
@@ -2341,10 +2347,10 @@ a.available_button:hover {
   padding: 17px 0 18px 0;
   text-align: center;
   text-shadow: 0 -1px 0 #4c9021;
-  width: 150px;
+  width: 250px;
 }
 
-/* line 491, ../../../app/stylesheets/screen.scss */
+/* line 497, ../../../app/stylesheets/screen.scss */
 .cupid-green:hover {
   background: #76b347;
   background: -moz-linear-gradient(top, #76b347 0%, #5e9e2e 100%);
@@ -2355,7 +2361,7 @@ a.available_button:hover {
   cursor: pointer;
 }
 
-/* line 501, ../../../app/stylesheets/screen.scss */
+/* line 507, ../../../app/stylesheets/screen.scss */
 .cupid-green:active {
   border: 1px solid #5b992b;
   border-bottom: 1px solid #538c27;
@@ -2426,14 +2432,14 @@ form.bp textarea {
   height: 250px;
 }
 
-/* line 514, ../../../app/stylesheets/screen.scss */
+/* line 520, ../../../app/stylesheets/screen.scss */
 body.two-col #container {
   width: 950px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 516, ../../../app/stylesheets/screen.scss */
+/* line 522, ../../../app/stylesheets/screen.scss */
 body.two-col #header, body.two-col #footer {
   display: inline;
   float: left;
@@ -2444,7 +2450,7 @@ body.two-col #header, body.two-col #footer {
 * html body.two-col #header, * html body.two-col #footer {
   overflow-x: hidden;
 }
-/* line 518, ../../../app/stylesheets/screen.scss */
+/* line 524, ../../../app/stylesheets/screen.scss */
 body.two-col #sidebar {
   display: inline;
   float: left;
@@ -2455,7 +2461,7 @@ body.two-col #sidebar {
 * html body.two-col #sidebar {
   overflow-x: hidden;
 }
-/* line 522, ../../../app/stylesheets/screen.scss */
+/* line 528, ../../../app/stylesheets/screen.scss */
 body.two-col #content {
   display: inline;
   float: left;
