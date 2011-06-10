@@ -3,6 +3,7 @@ class AccountsController < ApplicationController
   
   before_filter :authenticate_user!
   before_filter :authorized_user, :except => [:create]
+  after_filter  :update_listener, :only => [:toggle_active, :toggle_reply]
 
   def create
     @account  = current_user.accounts.build(params[:account])
@@ -31,17 +32,16 @@ class AccountsController < ApplicationController
   
   def toggle_active
     @account = Account.find(params[:id])
-    starling = Starling.new('localhost:22122')
-    if @account.active 
-      @account.active = false 
-      starling.set('idler_queue', "stop #{@account.id}")
-    else
-      @account.active = true
-      starling.set('idler_queue', 
-        "start #{@account.id} #{@account.username} #{@account.token} #{@account.secret}") if @account.user.busy
-    end
-      
-    @account.save
+    
+    @account.update_attribute(:active, !@account.active)
+
+    render :nothing => true
+  end
+  
+  def toggle_reply
+    @account = Account.find(params[:id])
+    
+    @account.update_attribute(:reply, !@account.reply)
 
     render :nothing => true
   end
@@ -67,6 +67,17 @@ class AccountsController < ApplicationController
         @user = (@account = Account.find(params[:id])).user :
         @user = User.find(params[:user_id])
       redirect_to root_path unless current_user?(@user)
+    end
+    
+    def update_listener
+      starling = Starling.new('localhost:22122')
+      if @account.active
+        starling.set('idler_queue', 
+          "start #{@account.id} #{@account.username}" +
+          " #{@account.token} #{@account.secret} #{@account.reply}") if @account.user.busy 
+      else
+        starling.set('idler_queue', "stop #{@account.id}")
+      end
     end
 
 end

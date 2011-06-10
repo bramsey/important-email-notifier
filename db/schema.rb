@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110606171652) do
+ActiveRecord::Schema.define(:version => 20110610012117) do
 
   create_table "accounts", :force => true do |t|
     t.string   "username"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20110606171652) do
     t.boolean  "active",     :default => false
     t.string   "token"
     t.string   "secret"
+    t.boolean  "reply"
   end
 
   add_index "accounts", ["user_id"], :name => "index_accounts_on_user_id"

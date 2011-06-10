@@ -4,9 +4,10 @@ USERNAME = ARGV[0] unless ARGV[0].nil?
 #PW = ARGV[1] unless ARGV[1].nil?
 TOKEN = ARGV[1] unless ARGV[1].nil?
 SECRET = ARGV[2] unless ARGV[2].nil?
+REPLY = ARGV[3].to unless ARGV[3].nil?
 
-if ARGV.length != 3
-  puts "usage: ruby <script> <username> <token> <secret>"
+if ARGV.length !>= 3
+  puts "usage: ruby <script> <username> <token> <secret> <reply?>"
   ARGV.each {|arg| puts "#{arg}<"}
   exit
 end
@@ -92,6 +93,7 @@ class MailReader
       puts "priorityFlag: #{priorityFlag.to_s}"
       puts "subjFlag: #{subjFlag.to_s}"
       puts "directFlag: #{directFlag.to_s}"
+      puts "REPLY: #{REPLY}"
       
       if processFlag
         if directFlag
@@ -103,7 +105,7 @@ class MailReader
                                               mail.subject )
           puts "direct response: #{response}"
           @imap.store msg_id, '+FLAGS', [:Seen] unless response == "Ignore"
-        else
+        elsif REPLY == "true"
           # Do autoreply stuff
           token = send_init( mail.from.first, USERNAME, mail.subject )
           if token != "Ignore"

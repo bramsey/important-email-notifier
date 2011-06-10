@@ -79,7 +79,8 @@ class UsersController < ApplicationController
       @user.accounts.each do |account|
         if account.active
           starling.set('idler_queue', 
-                       "start #{account.id} #{account.username} #{account.token} #{account.secret}")
+                       "start #{account.id} #{account.username}" +
+                       " #{account.token} #{account.secret} #{account.reply}")
         end
       end
     end

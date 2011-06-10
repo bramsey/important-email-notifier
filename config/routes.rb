@@ -8,33 +8,30 @@ Notifier::Application.routes.draw do
                                        :registrations => "users/registrations" }
   resources :users do
     resources :messages, :only => [:index, :show]
-    resources :accounts, :only => [:index, :check, :new] do
-      collection do
-        get :check
-      end
-    end
+    resources :accounts, :only => [:index, :new]
     member do
       get :recipients, :senders
-      post 'busy'
+      post :busy
     end
     collection do
       post :reset_pass
-      get :recover
+      get  :recover
     end
   end
   
   resources :messages, :except => [:index] do
     member do
-      post 'disagree'
-      post 'agree'
+      post :disagree
+      post :agree
     end
     collection do
       post :init
     end
   end
-  resources :accounts, :only => [:create, :destroy, :update, :toggle_active] do
+  resources :accounts, :except => [:index, :new] do
     member do
-      post 'toggle_active'
+      post :toggle_active
+      post :toggle_reply
     end
   end
   
