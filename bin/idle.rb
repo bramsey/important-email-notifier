@@ -89,11 +89,12 @@ class MailReader
       subjFlag = (mail.subject[0] == "!")
       directFlag = priorityFlag || subjFlag
       replyFlag = ARGV[3] || false
+      replyFlag = false if replyFlag == "false"
       
       puts "priorityFlag: #{priorityFlag.to_s}"
       puts "subjFlag: #{subjFlag.to_s}"
       puts "directFlag: #{directFlag.to_s}"
-      puts "REPLY: #{REPLY}"
+      puts "REPLY: #{replyFlag}"
       
       if processFlag
         if directFlag
@@ -105,7 +106,7 @@ class MailReader
                                               mail.subject )
           puts "direct response: #{response}"
           @imap.store msg_id, '+FLAGS', [:Seen] unless response == "Ignore"
-        elsif REPLY == "true"
+        elsif replyFlag
           # Do autoreply stuff
           token = send_init( mail.from.first, USERNAME, mail.subject )
           if token != "Ignore"
