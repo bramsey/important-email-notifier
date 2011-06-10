@@ -18,6 +18,7 @@ def init
 end
 
 def start( account, username, token, secret, reply )
+  %x[#{RUBY} #{DIR}/idle_ctl.rb stop #{account}]
   %x[#{RUBY} #{DIR}/idle_ctl.rb start #{account} -- #{username} #{token} #{secret} #{reply}]
 end
 
