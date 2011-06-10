@@ -6,7 +6,7 @@ TOKEN = ARGV[1] unless ARGV[1].nil?
 SECRET = ARGV[2] unless ARGV[2].nil?
 REPLY = ARGV[3].to unless ARGV[3].nil?
 
-if ARGV.length !>= 3
+if ARGV.length !( >= 3 )
   puts "usage: ruby <script> <username> <token> <secret> <reply?>"
   ARGV.each {|arg| puts "#{arg}<"}
   exit
