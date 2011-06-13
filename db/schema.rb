@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110610012117) do
+ActiveRecord::Schema.define(:version => 20110613150947) do
 
   create_table "accounts", :force => true do |t|
     t.string   "username"
@@ -18,13 +18,19 @@ ActiveRecord::Schema.define(:version => 20110610012117) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "active",     :default => false
+    t.boolean  "active",                  :default => false
     t.string   "token"
     t.string   "secret"
     t.boolean  "reply"
+    t.integer  "notification_service_id"
   end
 
   add_index "accounts", ["user_id"], :name => "index_accounts_on_user_id"
+
+  create_table "email_services", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "messages", :force => true do |t|
     t.integer  "urgency"
@@ -36,6 +42,19 @@ ActiveRecord::Schema.define(:version => 20110610012117) do
   end
 
   add_index "messages", ["relationship_id"], :name => "index_messages_on_relationship_id"
+
+  create_table "notification_services", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "username"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notifo_services", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "relationships", :force => true do |t|
     t.integer  "sender_id"
@@ -75,11 +94,12 @@ ActiveRecord::Schema.define(:version => 20110610012117) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",                :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "default_notification_service"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
