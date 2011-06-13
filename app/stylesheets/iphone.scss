@@ -330,6 +330,21 @@ span.urgent3 { color: $good; }
 	color: $quiet-text-color;
 }
 
+.account_name {
+	font-weight: bold;
+	font-size: 1em;
+}
+
+.account_information {
+	margin-bottom: .5em;
+	margin-top: .5em;
+}
+
+.account_notification_information {
+	font-size: 12px;
+	color: $quiet-text-color;
+}
+
 .toDo { color: $attention-color; }
 
 
@@ -350,6 +365,7 @@ section {
   background-color: $bad;
   display: table;
 }
+.field {float: none;}
 
 #error_explanation {
   width: 98%;

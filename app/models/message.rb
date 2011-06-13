@@ -3,6 +3,7 @@ class Message < ActiveRecord::Base
 
   belongs_to :relationship
   belongs_to :reverse_relationship
+  belongs_to :received_account, :class_name => "Account"
   
   has_one :token, :dependent => :destroy
 
@@ -33,12 +34,13 @@ class Message < ActiveRecord::Base
     recipient = User.find_or_create_by_email( recipient_email )
     unless sender == recipient
       rel = sender.relationship_with(recipient)
+      received_account = Account.find_by_username(recipient_email)
       allow_flag = (!rel.nil? && rel.allow)
       blocked_flag = (!rel.nil? && rel.blocked)
       unless ((!sender.reliable_to(recipient) && !allow_flag) || blocked_flag)
         # Build message if the sender is allowed to message the recipient.
         msg = sender.send!( recipient )
-        msg.update_attribute(:content, subject)
+        msg.update_attributes(:content => subject, :received_account_id => received_account)
         response = Message.build_response(msg.new_token( sender)) if msg
       else
         # Ignore message.
@@ -52,13 +54,16 @@ class Message < ActiveRecord::Base
     recipient = User.find_or_create_by_email( recipient_email )
     unless sender == recipient
       rel = sender.relationship_with(recipient)
+      received_account = Account.find_by_username(recipient_email)
       allow_flag = (!rel.nil? && rel.allow)
       blocked_flag = (!rel.nil? && rel.blocked)
       unless ((!sender.reliable_to(recipient) && !allow_flag) || blocked_flag)
         # Build message if the sender is allowed to message the recipient.
         msg = sender.send!( recipient )
         priority = 1 unless priority.to_i.between?(0,5)
-        msg.update_attributes( { :content => subject, :urgency => priority.to_i } )
+        msg.update_attributes(:content => subject, 
+                              :urgency => priority.to_i,
+                              :received_account_id => received_account)
         response = msg
       else
         # Ignore message.

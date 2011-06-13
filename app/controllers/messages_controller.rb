@@ -77,7 +77,7 @@ class MessagesController < ApplicationController
     unless (sender.nil? || recipient.nil?)
       if priority
         msg = Message.initiate_with_priority( sender, recipient, priority, subject)
-        notify msg unless msg == "Ignore" || msg.nil?
+        msg.received_account.notification_service.notify(msg) unless msg == "Ignore" || msg.nil?
         @link = "priority notification sent at #{Time.now}"
         render :text => @link
         #render :nothing => true #set this to a success response eventually
@@ -100,7 +100,7 @@ class MessagesController < ApplicationController
     if @message.update_attributes(params[:message])
       flash[:success] = "Message sent."
       #ToDo: insert trigger for notification here.
-      notify( @message )
+      @message.received_account.notification_service.notify(msg)
       redirect_to @message
     else
       @title = "Send message"

@@ -1590,16 +1590,15 @@ h1, h2, h3, h4, h5 {
 /* line 47, ../../../app/stylesheets/screen.scss */
 a {
   color: #333333;
-  text-decoration: none;
 }
 
-/* line 51, ../../../app/stylesheets/screen.scss */
+/* line 52, ../../../app/stylesheets/screen.scss */
 a:hover {
   color: #1e90ff;
   text-decoration: underline;
 }
 
-/* line 56, ../../../app/stylesheets/screen.scss */
+/* line 57, ../../../app/stylesheets/screen.scss */
 .marketing {
   /* fallback/image non-cover color */
   background-color: #1e90ff;
@@ -1614,7 +1613,7 @@ a:hover {
   padding-top: 1.5em;
 }
 
-/* line 61, ../../../app/stylesheets/screen.scss */
+/* line 62, ../../../app/stylesheets/screen.scss */
 header {
   /* fallback/image non-cover color */
   background-color: #00509e;
@@ -1630,19 +1629,19 @@ header {
   background-color: #00509e;
 }
 
-/* line 67, ../../../app/stylesheets/screen.scss */
+/* line 68, ../../../app/stylesheets/screen.scss */
 .marketing {
   background-color: #1e90ff;
 }
-/* line 69, ../../../app/stylesheets/screen.scss */
+/* line 70, ../../../app/stylesheets/screen.scss */
 .marketing p {
   color: white;
 }
-/* line 70, ../../../app/stylesheets/screen.scss */
+/* line 71, ../../../app/stylesheets/screen.scss */
 .marketing .container {
   padding: 0;
 }
-/* line 71, ../../../app/stylesheets/screen.scss */
+/* line 72, ../../../app/stylesheets/screen.scss */
 .marketing h1 {
   text-shadow: 2px 2px 2px #222222;
   margin: 0;
@@ -1653,28 +1652,28 @@ header {
   color: white;
 }
 
-/* line 81, ../../../app/stylesheets/screen.scss */
+/* line 82, ../../../app/stylesheets/screen.scss */
 footer {
   margin-top: 1em;
   margin-bottom: 1em;
 }
-/* line 86, ../../../app/stylesheets/screen.scss */
+/* line 87, ../../../app/stylesheets/screen.scss */
 footer * {
   color: #999999;
 }
 
-/* line 88, ../../../app/stylesheets/screen.scss */
+/* line 89, ../../../app/stylesheets/screen.scss */
 #content {
   margin-top: 1em;
   min-height: 350px;
 }
 
-/* line 93, ../../../app/stylesheets/screen.scss */
+/* line 94, ../../../app/stylesheets/screen.scss */
 #footer_info {
   margin-top: 1em;
 }
 
-/* line 97, ../../../app/stylesheets/screen.scss */
+/* line 98, ../../../app/stylesheets/screen.scss */
 div#avatar {
   display: inline;
   float: left;
@@ -1686,7 +1685,7 @@ div#avatar {
   overflow-x: hidden;
 }
 
-/* line 100, ../../../app/stylesheets/screen.scss */
+/* line 101, ../../../app/stylesheets/screen.scss */
 div#bio {
   display: inline;
   float: left;
@@ -1698,70 +1697,70 @@ div#bio {
   overflow-x: hidden;
 }
 
-/* line 103, ../../../app/stylesheets/screen.scss */
+/* line 104, ../../../app/stylesheets/screen.scss */
 .team {
   padding: 0;
 }
-/* line 105, ../../../app/stylesheets/screen.scss */
+/* line 106, ../../../app/stylesheets/screen.scss */
 .team li {
   padding: 0 8px 0 0;
 }
 
-/* line 107, ../../../app/stylesheets/screen.scss */
+/* line 108, ../../../app/stylesheets/screen.scss */
 .container {
   padding: 0 1.5em 0 1.5em;
   margin: auto;
 }
 
-/* line 112, ../../../app/stylesheets/screen.scss */
+/* line 113, ../../../app/stylesheets/screen.scss */
 .avatar {
   float: left;
   margin-top: 3px;
 }
 
-/* line 117, ../../../app/stylesheets/screen.scss */
+/* line 118, ../../../app/stylesheets/screen.scss */
 .messages, .users {
   padding-left: 1em;
 }
 
-/* line 121, ../../../app/stylesheets/screen.scss */
+/* line 122, ../../../app/stylesheets/screen.scss */
 .message_content, .user_information {
   margin-left: 58px;
 }
 
-/* line 125, ../../../app/stylesheets/screen.scss */
+/* line 126, ../../../app/stylesheets/screen.scss */
 .agreement {
   font-size: 12px;
 }
 
-/* line 129, ../../../app/stylesheets/screen.scss */
+/* line 130, ../../../app/stylesheets/screen.scss */
 .message, div.urgent1, div.urgent2, div.urgent3 {
   min-height: 100px;
   border-bottom: 1px solid #ebebeb;
   padding-top: 10px;
   width: 450px;
 }
-/* line 134, ../../../app/stylesheets/screen.scss */
+/* line 135, ../../../app/stylesheets/screen.scss */
 .message:hover, div.urgent1:hover, div.urgent2:hover, div.urgent3:hover {
   background-color: #b7dbff;
 }
 
-/* line 137, ../../../app/stylesheets/screen.scss */
+/* line 138, ../../../app/stylesheets/screen.scss */
 div.urgent1 {
   background-color: #ffb3b3;
 }
 
-/* line 138, ../../../app/stylesheets/screen.scss */
+/* line 139, ../../../app/stylesheets/screen.scss */
 div.urgent2 {
   background-color: #ffe0cc;
 }
 
-/* line 139, ../../../app/stylesheets/screen.scss */
+/* line 140, ../../../app/stylesheets/screen.scss */
 div.urgent3 {
   background-color: #b3ffb3;
 }
 
-/* line 140, ../../../app/stylesheets/screen.scss */
+/* line 141, ../../../app/stylesheets/screen.scss */
 a.recover {
   -moz-border-radius: 30em;
   -webkit-border-radius: 30em;
@@ -1780,7 +1779,7 @@ a.recover {
   background-color: #1e90ff;
   padding: .25em;
 }
-/* line 146, ../../../app/stylesheets/screen.scss */
+/* line 147, ../../../app/stylesheets/screen.scss */
 a.recover:hover {
   text-decoration: none;
   background-color: #0f0;
@@ -1796,7 +1795,7 @@ a.recover:hover {
   background-image: -o-linear-gradient(lime, #00b300);
 }
 
-/* line 149, ../../../app/stylesheets/screen.scss */
+/* line 150, ../../../app/stylesheets/screen.scss */
 .user {
   min-height: 70px;
   border-bottom: 1px solid #ebebeb;
@@ -1805,16 +1804,16 @@ a.recover:hover {
   position: relative;
 }
 
-/* line 157, ../../../app/stylesheets/screen.scss */
+/* line 158, ../../../app/stylesheets/screen.scss */
 a.attention_link {
   color: #1e90ff;
 }
-/* line 159, ../../../app/stylesheets/screen.scss */
+/* line 160, ../../../app/stylesheets/screen.scss */
 a.attention_link:hover {
   color: lime;
 }
 
-/* line 162, ../../../app/stylesheets/screen.scss */
+/* line 163, ../../../app/stylesheets/screen.scss */
 .allow {
   float: right;
   vertical-align: top;
@@ -1822,20 +1821,20 @@ a.attention_link:hover {
   top: 30px;
   right: 0;
 }
-/* line 168, ../../../app/stylesheets/screen.scss */
+/* line 169, ../../../app/stylesheets/screen.scss */
 .allow input {
   vertical-align: top;
 }
-/* line 169, ../../../app/stylesheets/screen.scss */
+/* line 170, ../../../app/stylesheets/screen.scss */
 .allow label {
   font-size: 80%;
 }
-/* line 170, ../../../app/stylesheets/screen.scss */
+/* line 171, ../../../app/stylesheets/screen.scss */
 .allow label:hover {
   background: lime;
 }
 
-/* line 175, ../../../app/stylesheets/screen.scss */
+/* line 176, ../../../app/stylesheets/screen.scss */
 .block {
   float: right;
   vertical-align: top;
@@ -1843,20 +1842,20 @@ a.attention_link:hover {
   top: 50px;
   right: 0;
 }
-/* line 181, ../../../app/stylesheets/screen.scss */
+/* line 182, ../../../app/stylesheets/screen.scss */
 .block input {
   vertical-align: top;
 }
-/* line 182, ../../../app/stylesheets/screen.scss */
+/* line 183, ../../../app/stylesheets/screen.scss */
 .block label {
   font-size: 80%;
 }
-/* line 183, ../../../app/stylesheets/screen.scss */
+/* line 184, ../../../app/stylesheets/screen.scss */
 .block label:hover {
   background: red;
 }
 
-/* line 188, ../../../app/stylesheets/screen.scss */
+/* line 189, ../../../app/stylesheets/screen.scss */
 .signup {
   float: right;
   vertical-align: top;
@@ -1864,54 +1863,66 @@ a.attention_link:hover {
   top: 405px;
   right: 20px;
 }
-/* line 194, ../../../app/stylesheets/screen.scss */
+/* line 195, ../../../app/stylesheets/screen.scss */
 .signup input {
   vertical-align: top;
 }
-/* line 195, ../../../app/stylesheets/screen.scss */
+/* line 196, ../../../app/stylesheets/screen.scss */
 .signup label {
   font-size: 80%;
 }
 
-/* line 198, ../../../app/stylesheets/screen.scss */
+/* line 199, ../../../app/stylesheets/screen.scss */
 span.urgent1 {
   color: red;
 }
 
-/* line 199, ../../../app/stylesheets/screen.scss */
+/* line 200, ../../../app/stylesheets/screen.scss */
 span.urgent2 {
   color: #ff7519;
 }
 
-/* line 200, ../../../app/stylesheets/screen.scss */
+/* line 201, ../../../app/stylesheets/screen.scss */
 span.urgent3 {
   color: lime;
 }
 
-/* line 202, ../../../app/stylesheets/screen.scss */
+/* line 203, ../../../app/stylesheets/screen.scss */
 .message_user_alias {
   font-weight: bold;
   font-size: 15px;
 }
 
-/* line 207, ../../../app/stylesheets/screen.scss */
+/* line 208, ../../../app/stylesheets/screen.scss */
 .message_user_name {
   font-size: 12px;
   color: #999999;
 }
 
-/* line 212, ../../../app/stylesheets/screen.scss */
+/* line 213, ../../../app/stylesheets/screen.scss */
 .message_timestamp {
   font-size: 11px;
   color: #999999;
 }
 
-/* line 217, ../../../app/stylesheets/screen.scss */
+/* line 219, ../../../app/stylesheets/screen.scss */
+.account_name {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+/* line 224, ../../../app/stylesheets/screen.scss */
+.account_notification_information {
+  font-size: 12px;
+  color: #999999;
+}
+
+/* line 229, ../../../app/stylesheets/screen.scss */
 .toDo {
   color: red;
 }
 
-/* line 220, ../../../app/stylesheets/screen.scss */
+/* line 232, ../../../app/stylesheets/screen.scss */
 #subnav {
   /* fallback/image non-cover color */
   background-color: #b7dbff;
@@ -1928,18 +1939,18 @@ span.urgent3 {
   padding-bottom: 2px;
 }
 
-/* line 230, ../../../app/stylesheets/screen.scss */
+/* line 242, ../../../app/stylesheets/screen.scss */
 .profile img.gravatar {
   border: 1px solid #999;
   margin-bottom: -15px;
 }
 
-/* line 235, ../../../app/stylesheets/screen.scss */
+/* line 247, ../../../app/stylesheets/screen.scss */
 section {
   font-size: 120%;
 }
 
-/* line 239, ../../../app/stylesheets/screen.scss */
+/* line 251, ../../../app/stylesheets/screen.scss */
 .field_with_errors {
   margin-top: 10px;
   padding: 2px;
@@ -1947,7 +1958,7 @@ section {
   display: table;
 }
 
-/* line 246, ../../../app/stylesheets/screen.scss */
+/* line 258, ../../../app/stylesheets/screen.scss */
 #error_explanation {
   width: 400px;
   border: 2px solid red;
@@ -1957,7 +1968,7 @@ section {
   background-color: #f0f0f0;
 }
 
-/* line 255, ../../../app/stylesheets/screen.scss */
+/* line 267, ../../../app/stylesheets/screen.scss */
 #error_explanation h2 {
   text-align: left;
   font-weight: bold;
@@ -1968,35 +1979,35 @@ section {
   color: #fff;
 }
 
-/* line 265, ../../../app/stylesheets/screen.scss */
+/* line 277, ../../../app/stylesheets/screen.scss */
 #error_explanation p {
   color: #333;
   margin-bottom: 0;
   padding: 5px;
 }
 
-/* line 271, ../../../app/stylesheets/screen.scss */
+/* line 283, ../../../app/stylesheets/screen.scss */
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
 }
 
-/* line 276, ../../../app/stylesheets/screen.scss */
+/* line 288, ../../../app/stylesheets/screen.scss */
 div.user_info img {
   padding-right: 0.1em;
 }
 
-/* line 280, ../../../app/stylesheets/screen.scss */
+/* line 292, ../../../app/stylesheets/screen.scss */
 div.user_info a {
   text-decoration: none;
 }
 
-/* line 284, ../../../app/stylesheets/screen.scss */
+/* line 296, ../../../app/stylesheets/screen.scss */
 div.user_info span.user_name {
   position: absolute;
 }
 
-/* line 288, ../../../app/stylesheets/screen.scss */
+/* line 300, ../../../app/stylesheets/screen.scss */
 #logo {
   display: inline;
   float: left;
@@ -2008,19 +2019,20 @@ div.user_info span.user_name {
 * html #logo {
   overflow-x: hidden;
 }
-/* line 291, ../../../app/stylesheets/screen.scss */
+/* line 303, ../../../app/stylesheets/screen.scss */
 #logo a {
   font-size: 4em;
   color: white;
   font-family: Menlo, "Helvetica Neue", arial, helvetica, sans-serif;
+  text-decoration: none;
 }
-/* line 296, ../../../app/stylesheets/screen.scss */
+/* line 309, ../../../app/stylesheets/screen.scss */
 #logo a:hover {
   text-decoration: none;
   color: #b7dbff;
 }
 
-/* line 305, ../../../app/stylesheets/screen.scss */
+/* line 318, ../../../app/stylesheets/screen.scss */
 #nav {
   text-shadow: 2px 2px 2px #222222;
   margin-left: 2em;
@@ -2028,16 +2040,16 @@ div.user_info span.user_name {
   float: left;
   white-space: nowrap;
 }
-/* line 316, ../../../app/stylesheets/screen.scss */
+/* line 329, ../../../app/stylesheets/screen.scss */
 #nav ul {
   margin: 0;
   padding: 0;
 }
-/* line 319, ../../../app/stylesheets/screen.scss */
+/* line 332, ../../../app/stylesheets/screen.scss */
 #nav ul li {
   display: inline-block;
 }
-/* line 323, ../../../app/stylesheets/screen.scss */
+/* line 336, ../../../app/stylesheets/screen.scss */
 #nav ul li a {
   padding: .5em 1em 1em 1em;
   -moz-border-radius: 10px 10px 0 0;
@@ -2049,14 +2061,15 @@ div.user_info span.user_name {
   font-family: Helvetica, "Geneva", "Helvetica Neue", serif;
   font-size: 200%;
   color: white;
+  text-decoration: none;
 }
-/* line 330, ../../../app/stylesheets/screen.scss */
+/* line 344, ../../../app/stylesheets/screen.scss */
 #nav ul li a:hover {
   text-decoration: none;
   background-color: #00366b;
 }
 
-/* line 338, ../../../app/stylesheets/screen.scss */
+/* line 352, ../../../app/stylesheets/screen.scss */
 ul li a#nav_selected {
   /* fallback/image non-cover color */
   background-color: #1e90ff;
@@ -2070,44 +2083,44 @@ ul li a#nav_selected {
   background-image: -o-linear-gradient(#1e90ff, #006ad1);
   background-color: #1e90ff;
 }
-/* line 341, ../../../app/stylesheets/screen.scss */
+/* line 355, ../../../app/stylesheets/screen.scss */
 ul li a#nav_selected:hover {
   background-color: #1e90ff;
 }
 
-/* line 344, ../../../app/stylesheets/screen.scss */
+/* line 358, ../../../app/stylesheets/screen.scss */
 #sign_in {
   float: right;
   position: absolute;
   top: 0;
   right: 2em;
 }
-/* line 352, ../../../app/stylesheets/screen.scss */
+/* line 366, ../../../app/stylesheets/screen.scss */
 #sign_in a {
   color: #1e90ff;
 }
-/* line 354, ../../../app/stylesheets/screen.scss */
+/* line 368, ../../../app/stylesheets/screen.scss */
 #sign_in a:hover {
   color: #b7dbff;
 }
 
-/* line 358, ../../../app/stylesheets/screen.scss */
+/* line 372, ../../../app/stylesheets/screen.scss */
 #sign_out {
   float: right;
   position: absolute;
   top: 0;
   right: 2em;
 }
-/* line 363, ../../../app/stylesheets/screen.scss */
+/* line 377, ../../../app/stylesheets/screen.scss */
 #sign_out a.sign_out {
   color: #1e90ff;
 }
-/* line 365, ../../../app/stylesheets/screen.scss */
+/* line 379, ../../../app/stylesheets/screen.scss */
 #sign_out a.sign_out:hover {
   color: #b7dbff;
 }
 
-/* line 369, ../../../app/stylesheets/screen.scss */
+/* line 383, ../../../app/stylesheets/screen.scss */
 a.busy {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -2116,14 +2129,14 @@ a.busy {
   color: red;
   padding: 1em;
 }
-/* line 374, ../../../app/stylesheets/screen.scss */
+/* line 388, ../../../app/stylesheets/screen.scss */
 a.busy:hover {
   background-color: red;
   color: white;
   text-decoration: none;
 }
 
-/* line 377, ../../../app/stylesheets/screen.scss */
+/* line 391, ../../../app/stylesheets/screen.scss */
 a.available {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -2132,32 +2145,28 @@ a.available {
   color: lime;
   padding: 1em;
 }
-/* line 382, ../../../app/stylesheets/screen.scss */
+/* line 396, ../../../app/stylesheets/screen.scss */
 a.available:hover {
   background-color: lime;
   color: white;
   text-decoration: none;
 }
 
-/* line 385, ../../../app/stylesheets/screen.scss */
-.account_information input[type=text] {
-  width: 137px;
-}
-/* line 386, ../../../app/stylesheets/screen.scss */
-.account_information input[type=password] {
-  width: 90px;
+/* line 398, ../../../app/stylesheets/screen.scss */
+.account_information {
+  margin-bottom: 1.5em;
 }
 
-/* line 390, ../../../app/stylesheets/screen.scss */
+/* line 403, ../../../app/stylesheets/screen.scss */
 .current_avatar {
   float: right;
 }
-/* line 392, ../../../app/stylesheets/screen.scss */
+/* line 405, ../../../app/stylesheets/screen.scss */
 .current_avatar img {
   border: 2px solid #b7dbff;
 }
 
-/* line 395, ../../../app/stylesheets/screen.scss */
+/* line 408, ../../../app/stylesheets/screen.scss */
 #sidebar {
   display: inline;
   float: left;
@@ -2173,7 +2182,7 @@ a.available:hover {
   overflow-x: hidden;
 }
 
-/* line 401, ../../../app/stylesheets/screen.scss */
+/* line 414, ../../../app/stylesheets/screen.scss */
 .profile {
   display: inline;
   float: left;
@@ -2185,29 +2194,29 @@ a.available:hover {
   overflow-x: hidden;
 }
 
-/* line 405, ../../../app/stylesheets/screen.scss */
+/* line 418, ../../../app/stylesheets/screen.scss */
 .profile_content {
   margin-left: 137px;
 }
-/* line 407, ../../../app/stylesheets/screen.scss */
+/* line 420, ../../../app/stylesheets/screen.scss */
 .profile_content h2 {
   padding: 0;
 }
 
-/* line 410, ../../../app/stylesheets/screen.scss */
+/* line 423, ../../../app/stylesheets/screen.scss */
 .profile_name {
   font-size: 2.5em;
   color: #00509e;
 }
 
-/* line 415, ../../../app/stylesheets/screen.scss */
+/* line 428, ../../../app/stylesheets/screen.scss */
 .profile_alias {
   padding-left: .1em;
   color: #333333;
   font-size: 1.5em;
 }
 
-/* line 421, ../../../app/stylesheets/screen.scss */
+/* line 434, ../../../app/stylesheets/screen.scss */
 .profile_feed {
   display: inline;
   float: left;
@@ -2220,33 +2229,33 @@ a.available:hover {
   overflow-x: hidden;
 }
 
-/* line 426, ../../../app/stylesheets/screen.scss */
+/* line 439, ../../../app/stylesheets/screen.scss */
 .reliable, .unreliable, .untested, .unknown {
   padding-left: .1em;
   font-size: 1.25em;
 }
 
-/* line 427, ../../../app/stylesheets/screen.scss */
+/* line 440, ../../../app/stylesheets/screen.scss */
 .reliable {
   color: lime;
 }
 
-/* line 428, ../../../app/stylesheets/screen.scss */
+/* line 441, ../../../app/stylesheets/screen.scss */
 .unreliable {
   color: red;
 }
 
-/* line 429, ../../../app/stylesheets/screen.scss */
+/* line 442, ../../../app/stylesheets/screen.scss */
 .untested {
   color: #ff7519;
 }
 
-/* line 430, ../../../app/stylesheets/screen.scss */
+/* line 443, ../../../app/stylesheets/screen.scss */
 .unknown {
   color: #999999;
 }
 
-/* line 432, ../../../app/stylesheets/screen.scss */
+/* line 445, ../../../app/stylesheets/screen.scss */
 a.busy_button {
   /* fallback/image non-cover color */
   background-color: #ff6600;
@@ -2270,8 +2279,9 @@ a.busy_button {
   padding: 20px;
   margin-bottom: .5em;
   margin-top: .25em;
+  text-decoration: none;
 }
-/* line 446, ../../../app/stylesheets/screen.scss */
+/* line 460, ../../../app/stylesheets/screen.scss */
 a.busy_button:hover {
   /* fallback/image non-cover color */
   background-color: #ff944d;
@@ -2286,7 +2296,7 @@ a.busy_button:hover {
   text-decoration: none;
 }
 
-/* line 452, ../../../app/stylesheets/screen.scss */
+/* line 466, ../../../app/stylesheets/screen.scss */
 a.available_button {
   /* fallback/image non-cover color */
   background-color: lime;
@@ -2310,8 +2320,9 @@ a.available_button {
   padding: 20px;
   margin-bottom: .5em;
   margin-top: .25em;
+  text-decoration: none;
 }
-/* line 466, ../../../app/stylesheets/screen.scss */
+/* line 481, ../../../app/stylesheets/screen.scss */
 a.available_button:hover {
   /* fallback/image non-cover color */
   background-color: #4dff4d;
@@ -2326,7 +2337,7 @@ a.available_button:hover {
   text-decoration: none;
 }
 
-/* line 474, ../../../app/stylesheets/screen.scss */
+/* line 489, ../../../app/stylesheets/screen.scss */
 .cupid-green {
   background: #7fbf4d;
   background: -moz-linear-gradient(top, #7fbf4d 0%, #63a62f 100%);
@@ -2350,7 +2361,7 @@ a.available_button:hover {
   width: 250px;
 }
 
-/* line 497, ../../../app/stylesheets/screen.scss */
+/* line 512, ../../../app/stylesheets/screen.scss */
 .cupid-green:hover {
   background: #76b347;
   background: -moz-linear-gradient(top, #76b347 0%, #5e9e2e 100%);
@@ -2361,7 +2372,7 @@ a.available_button:hover {
   cursor: pointer;
 }
 
-/* line 507, ../../../app/stylesheets/screen.scss */
+/* line 522, ../../../app/stylesheets/screen.scss */
 .cupid-green:active {
   border: 1px solid #5b992b;
   border-bottom: 1px solid #538c27;
@@ -2432,14 +2443,14 @@ form.bp textarea {
   height: 250px;
 }
 
-/* line 520, ../../../app/stylesheets/screen.scss */
+/* line 535, ../../../app/stylesheets/screen.scss */
 body.two-col #container {
   width: 950px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 522, ../../../app/stylesheets/screen.scss */
+/* line 537, ../../../app/stylesheets/screen.scss */
 body.two-col #header, body.two-col #footer {
   display: inline;
   float: left;
@@ -2450,7 +2461,7 @@ body.two-col #header, body.two-col #footer {
 * html body.two-col #header, * html body.two-col #footer {
   overflow-x: hidden;
 }
-/* line 524, ../../../app/stylesheets/screen.scss */
+/* line 539, ../../../app/stylesheets/screen.scss */
 body.two-col #sidebar {
   display: inline;
   float: left;
@@ -2461,7 +2472,7 @@ body.two-col #sidebar {
 * html body.two-col #sidebar {
   overflow-x: hidden;
 }
-/* line 528, ../../../app/stylesheets/screen.scss */
+/* line 543, ../../../app/stylesheets/screen.scss */
 body.two-col #content {
   display: inline;
   float: left;

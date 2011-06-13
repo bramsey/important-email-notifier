@@ -22,8 +22,17 @@ class AccountsController < ApplicationController
     redirect_to user_accounts_path( current_user ) 
   end
   
+  def edit
+    @account = Account.find(params[:id])
+  end
+  
   def update
     @account = Account.find(params[:id])
+    if params[:account][:notification_service_id].is_a?(String)
+      params[:account][:notification_service_id] = params[:account][:notification_service_id].to_i
+    end
+    
+    RAILS_DEFAULT_LOGGER.error params[:account][:notification_service_id]
     @account.update_attributes(params[:account]) ?
       flash[:success] = "Account updated." :
       flash[:error] = "Error updating account."

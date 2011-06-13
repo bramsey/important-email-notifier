@@ -6,7 +6,8 @@
 		= render @accounts
 	%hr
 %h3= link_to 'Link A Gmail Account', root_url + "oauth/google"
-%strong Note: 
-select 
-%i "sign in as a different user" 
-when prompted by google to link additional accounts.
+%span.account_notification_information
+	%strong Note: 
+	select 
+	%i "sign in as a different user" 
+	when prompted by google to link additional accounts.

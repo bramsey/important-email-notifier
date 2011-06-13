@@ -1,0 +1,11 @@
+%h2= @account.username
+= activate_box_for @account
+= reply_box_for @account
+= form_for @account do |f|
+	= render 'shared/error_messages', :object => f.object
+	.field
+		= f.label :notification_service
+		= f.collection_select( :notification_service_id, @account.user.notification_services, :id, :description)
+		%br
+	.actions
+		= f.submit "Update Account"

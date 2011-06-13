@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110613155407) do
+ActiveRecord::Schema.define(:version => 20110613162723) do
 
   create_table "accounts", :force => true do |t|
     t.string   "username"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20110613155407) do
     t.integer  "relationship_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "received_account_id"
   end
 
   add_index "messages", ["relationship_id"], :name => "index_messages_on_relationship_id"
