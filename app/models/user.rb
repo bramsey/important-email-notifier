@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
 
   
   #attr_accessor :password
-  attr_accessible :alias, :name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :alias, :name, :email, :password, 
+                  :password_confirmation, :remember_me, :default_notification_service
 
   has_many :relationships, :foreign_key => "sender_id",
                            :dependent => :destroy
@@ -17,6 +18,7 @@ class User < ActiveRecord::Base
   has_many :senders, :through => :reverse_relationships
   has_many :accounts, :dependent => :destroy
   has_many :tokens, :dependent => :destroy
+  has_many :notification_services, :dependent => :destroy
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
