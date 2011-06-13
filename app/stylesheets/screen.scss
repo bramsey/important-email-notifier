@@ -226,6 +226,16 @@ span.urgent3 { color: $good; }
 	color: $quiet-text-color;
 }
 
+.notification_service {
+	margin-bottom: .5em;
+	margin-top: .5em;
+}
+
+.notification_username, .notification_type {
+	font-size: 1em;
+	color: $quiet-text-color;
+}
+
 .toDo { color: $attention-color; }
 
 

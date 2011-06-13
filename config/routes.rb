@@ -9,6 +9,9 @@ Notifier::Application.routes.draw do
   resources :users do
     resources :messages, :only => [:index, :show]
     resources :accounts, :only => [:index, :new]
+    resources :notification_services, :except => [:create]
+    resources :email_services, :controller => "notification_services"
+    resources :notifo_services, :controller => "notification_services"
     member do
       get :recipients, :senders
       post :busy
@@ -34,6 +37,10 @@ Notifier::Application.routes.draw do
       post :toggle_reply
     end
   end
+  
+  resources :notification_services
+  resources :email_services, :controller => "notification_services"
+  resources :notifo_services, :controller => "notification_services"
   
   namespace :users do
       root :to => "pages#home"

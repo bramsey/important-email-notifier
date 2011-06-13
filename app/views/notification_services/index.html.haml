@@ -1,0 +1,16 @@
+%h2 Notification Services
+.notification_services
+	- @notification_services.each do |notification_service|
+		.notification_service
+			.row
+				%span.notification_type
+					%strong Type:
+					= notification_service.type
+			.row
+				%span.notification_username
+					%strong Username: 
+					= notification_service.username
+			.row
+				= link_to '( Delete )', notification_service, :method => :delete, :confirm => "You sure?", :title => "Delete #{notification_service.username}"
+%h2= link_to 'Add Email Notification Service', new_user_notification_service_path(current_user) + "?type=EmailService"
+%h2= link_to 'Add Notifo Notification Service', new_user_notification_service_path(current_user) + "?type=NotifoService"

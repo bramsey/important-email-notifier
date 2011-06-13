@@ -1,5 +1,8 @@
 %h1 Accounts Management
-%h2= link_to 'Edit User', edit_user_registration_path(current_user)
+%h2
+	= link_to 'Edit User', edit_user_registration_path(current_user)
+	|
+	= link_to 'Notification Services', user_notification_services_path(current_user)
 
 - unless @user.accounts.empty?
 	.accounts
