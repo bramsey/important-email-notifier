@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/jot/notifo.git
+  revision: 57bd83f69c0f8402a11e325ccbf36c83c8acc800
+  specs:
+    notifo (0.1.2)
+      httparty (~> 0.4.5)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -74,8 +81,6 @@ GEM
     multi_xml (0.2.2)
     multipart-post (1.1.0)
     nokogiri (1.4.4)
-    notifo (0.1.0)
-      httparty (~> 0.4.5)
     oa-core (0.2.5)
     oa-oauth (0.2.5)
       faraday (~> 0.6.1)
@@ -169,7 +174,7 @@ DEPENDENCIES
   haml
   mime
   nokogiri
-  notifo
+  notifo!
   oa-oauth
   oa-openid
   oauth
