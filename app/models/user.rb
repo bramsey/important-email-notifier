@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+         
+  
+  after_create :create_default_notification_service
 
   
   #attr_accessor :password
@@ -19,6 +22,8 @@ class User < ActiveRecord::Base
   has_many :accounts, :dependent => :destroy
   has_many :tokens, :dependent => :destroy
   has_many :notification_services, :dependent => :destroy
+  
+  belongs_to :default_notification_service, :class_name => "NotificationService"
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -194,5 +199,10 @@ class User < ActiveRecord::Base
 
     def secure_hash(string)
       Digest::SHA2.hexdigest(string)
+    end
+    
+    def create_default_notification_service
+      update_attribute(:default_notification_service_id, 
+        EmailService.create(:user_id => self.id, :username => self.email).id)
     end
 end

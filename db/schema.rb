@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110613150947) do
+ActiveRecord::Schema.define(:version => 20110613155407) do
 
   create_table "accounts", :force => true do |t|
     t.string   "username"
@@ -94,12 +94,12 @@ ActiveRecord::Schema.define(:version => 20110613150947) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                :default => 0
+    t.integer  "sign_in_count",                   :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.integer  "default_notification_service"
+    t.integer  "default_notification_service_id"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
