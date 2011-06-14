@@ -64,8 +64,8 @@ class MessagesController < ApplicationController
   end
   
   def rank
-    @message ? 
-      redirect_to( message_path( @message ) ):
+    #@message ? 
+    #  redirect_to( message_path( @message ) ):
       redirect_to( root_path )
   end
   
