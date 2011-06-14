@@ -1,5 +1,5 @@
 class Message < ActiveRecord::Base
-  attr_accessible :urgency, :disagree, :content
+  attr_accessible :urgency, :disagree, :content, :received_account_id
 
   belongs_to :relationship
   belongs_to :reverse_relationship
