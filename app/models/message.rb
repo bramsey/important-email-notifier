@@ -40,7 +40,7 @@ class Message < ActiveRecord::Base
       unless ((!sender.reliable_to(recipient) && !allow_flag) || blocked_flag)
         # Build message if the sender is allowed to message the recipient.
         msg = sender.send!( recipient )
-        msg.update_attributes(:content => subject, :received_account_id => received_account)
+        msg.update_attributes(:content => subject, :received_account_id => received_account.id)
         response = Message.build_response(msg.new_token( sender)) if msg
       else
         # Ignore message.
@@ -63,7 +63,7 @@ class Message < ActiveRecord::Base
         priority = 1 unless priority.to_i.between?(0,5)
         msg.update_attributes(:content => subject, 
                               :urgency => priority.to_i,
-                              :received_account_id => received_account)
+                              :received_account_id => received_account.id)
         response = msg
       else
         # Ignore message.
