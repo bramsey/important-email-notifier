@@ -9,7 +9,7 @@ class EmailService < NotificationService
     #trigger for preferred user notification goes here.
     # Emailing with gmail is only temporary.
     Gmail.new( "vybly.notifier@gmail.com", "email_password" ) do |gmail|
-      url_path = "http://localhost:3000/rank?token=#{token}"
+      url_path = "http://dev.vybly.com/rank?token=#{token}"
 
       gmail.deliver do
         to user.email
