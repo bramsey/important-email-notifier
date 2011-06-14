@@ -12,6 +12,8 @@
 						Notifications are sent to the Notifo account:
 						%strong= account.notification_service.username
 					= link_to '( Change )', edit_account_path(account)
+				- else
+					= link_to '( Add Notification Service )', edit_account_path(account)
 		.row
 			= activate_box_for account
 			= reply_box_for account
