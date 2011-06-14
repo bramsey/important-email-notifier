@@ -1,6 +1,7 @@
 class NotificationServicesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :authorized_user
+  require 'notifo'
   
   def index
     @user = User.find(params[:user_id])
@@ -24,6 +25,9 @@ class NotificationServicesController < ApplicationController
     @notification_service  = NotificationService.create(params[:notification_service])
     if @notification_service.save
       flash[:success] = "Service created!"
+      notifo = Notifo.new("vybly","notifo_key")
+      response = notifo.subscribe_user(@notification_service.username)
+      RAILS_DEFAULT_LOGGER.error response
       redirect_to user_notification_services_path( current_user )
     else
       render 'pages/home'

@@ -7,4 +7,5 @@ class NotificationService < ActiveRecord::Base
   def notify( msg )
     # Method template for overloading.
   end
+  
 end

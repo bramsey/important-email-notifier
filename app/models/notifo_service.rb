@@ -1,8 +1,9 @@
 class NotifoService < NotificationService
+  require 'notifo'
   
   def notify( msg )
     # Overload NotificationService notify method to trigger Notifo notification.
-    require 'notifo'
+    
     
     user = msg.recipient
     token = msg.new_token( user )
