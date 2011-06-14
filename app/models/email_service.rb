@@ -12,7 +12,7 @@ class EmailService < NotificationService
       url_path = "http://dev.vybly.com/rank?token=#{token}"
 
       gmail.deliver do
-        to user.email
+        to self.username
         subject "New message from #{msg.sender.email}!"
         html_part do
           body "Message: #{msg.content} | Please rate the urgency for this message here: #{url_path}"
