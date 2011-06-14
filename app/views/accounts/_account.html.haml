@@ -4,13 +4,14 @@
 			%span.account_name= account.username
 		.row
 			%span.account_notification_information
-				- if account.notification_service.type == "EmailService"
-					Notifications are sent via email to: 
-					%strong= account.notification_service.username
-				- elsif account.notification_service.type == "NotifoService"
-					Notifications are sent to the Notifo account:
-					%strong= account.notification_service.username
-				= link_to '( Change )', edit_account_path(account)
+				- unless account.notification_service.nil?
+					- if account.notification_service.type == "EmailService"
+						Notifications are sent via email to: 
+						%strong= account.notification_service.username
+					- elsif account.notification_service.type == "NotifoService"
+						Notifications are sent to the Notifo account:
+						%strong= account.notification_service.username
+					= link_to '( Change )', edit_account_path(account)
 		.row
 			= activate_box_for account
 			= reply_box_for account
