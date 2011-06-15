@@ -74,7 +74,7 @@ class MailReader
       
       # Flags will be true if desired condition is met.
       toFlag = mail.to.include? USERNAME
-      noReplyFlag = !(mail.from.collect {|e| e.include? "noreplys"}.include?(true))
+      noReplyFlag = !(mail.from.collect {|e| e.include?("noreplys")}.include?(true))
       listFlag = mail.header['List-Unsubscribe'].nil? && mail.header['List-Id'].nil?
       notifierFlag = !mail.from.include?("vybly.notifier@gmail.com")
       
