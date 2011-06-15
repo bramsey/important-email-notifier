@@ -73,7 +73,7 @@ class MailReader
       puts "New mail from #{mail.from.first}:"
       
       # Flags will be true if desired condition is met.
-      toFlag = mail.to.include? USERNAME
+      toFlag = mail.to.compact.downcase.include? USERNAME.downcase
       noReplyFlag = !(mail.from.collect {|e| e.include?("noreplys")}.include?(true))
       listFlag = mail.header['List-Unsubscribe'].nil? && mail.header['List-Id'].nil?
       notifierFlag = !mail.from.include?("vybly.notifier@gmail.com")
