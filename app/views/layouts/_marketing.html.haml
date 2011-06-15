@@ -2,4 +2,6 @@
 	- if @slogan
 		- unless user_signed_in?
 			.container
-				%h1= @slogan
+				.slogan
+					%h1= @slogan
+				= link_to "Try with Gmail", user_omniauth_authorize_path(:open_id, :openid_url => "https://www.google.com/accounts/o8/id"), :class => "signup"
