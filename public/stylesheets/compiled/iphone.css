@@ -1,18 +1,5 @@
-/* line 4, ../../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.1/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
-html {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-/* line 18, ../../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.1/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
-.bp-reset-element, body, h1, h2, h3, h4, h5, h6, article, aside, dialog, figure, footer, header, hgroup, nav, section, blockquote, q, th, td, caption, table,
-div, span, object, iframe, p,
-pre, a, abbr, acronym, address,
-code, del, dfn, em, img,
-dl, dt, dd, ol, ul, li, fieldset,
-form, label, legend,
-caption, tbody, tfoot, thead, tr {
+/* line 4, ../../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+html, body {
   margin: 0;
   padding: 0;
   border: 0;
@@ -23,36 +10,73 @@ caption, tbody, tfoot, thead, tr {
   vertical-align: baseline;
 }
 
-/* line 20, ../../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.1/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
-article, aside, dialog, figure, footer, header, hgroup, nav, section {
-  display: block;
+/* line 6, ../../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+html {
+  font-size: 100.01%;
 }
 
-/* line 21, ../../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.1/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+/* line 16, ../../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
+pre, a, abbr, acronym, address, code, del, dfn, em, img,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption, tbody, tfoot, thead, tr {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+/* line 18, ../../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
 blockquote, q {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
   quotes: "" "";
 }
-/* line 67, ../../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.1/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+/* line 45, ../../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
 blockquote:before, blockquote:after, q:before, q:after {
   content: "";
 }
 
-/* line 22, ../../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.1/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+/* line 20, ../../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
 th, td, caption {
-  float: none !important;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 23, ../../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.1/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+/* line 22, ../../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
 table {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
   border-collapse: separate;
   border-spacing: 0;
   vertical-align: middle;
 }
 
-/* line 24, ../../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.11.1/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+/* line 24, ../../../../../.rvm/gems/ruby-1.9.2-p180/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
 a img {
   border: none;
 }
@@ -102,6 +126,7 @@ body {
     width: 480px;
   }
 }
+
 /* line 45, ../../../app/stylesheets/iphone.scss */
 .main .container, .main #content {
   background-color: white;
@@ -109,7 +134,7 @@ body {
 
 /* line 49, ../../../app/stylesheets/iphone.scss */
 h1, h2, h3, h4, h5 {
-  color: #00366b;
+  color: #515151;
 }
 
 /* line 51, ../../../app/stylesheets/iphone.scss */
@@ -125,45 +150,45 @@ a {
 
 /* line 57, ../../../app/stylesheets/iphone.scss */
 a:hover {
-  color: #1e90ff;
+  color: #aaaaaa;
   text-decoration: underline;
 }
 
 /* line 62, ../../../app/stylesheets/iphone.scss */
 .marketing {
   /* fallback/image non-cover color */
-  background-color: #1e90ff;
+  background-color: #aaaaaa;
   /* Firefox 3.6+ */
-  background-image: -moz-linear-gradient(#1e90ff, #006ad1);
+  background-image: -moz-linear-gradient(#aaaaaa, #848484);
   /* Safari 4+, Chrome 1+ */
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1e90ff), to(#006ad1));
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#aaaaaa), to(#848484));
   /* Safari 5.1+, Chrome 10+ */
-  background-image: -webkit-linear-gradient(#1e90ff, #006ad1);
+  background-image: -webkit-linear-gradient(#aaaaaa, #848484);
   /* Opera 11.10+ */
-  background-image: -o-linear-gradient(#1e90ff, #006ad1);
+  background-image: -o-linear-gradient(#aaaaaa, #848484);
   padding-top: 1.5em;
 }
 
 /* line 67, ../../../app/stylesheets/iphone.scss */
 header {
   /* fallback/image non-cover color */
-  background-color: #00509e;
+  background-color: #6a6a6a;
   /* Firefox 3.6+ */
-  background-image: -moz-linear-gradient(#002951, #00509e);
+  background-image: -moz-linear-gradient(#444444, #6a6a6a);
   /* Safari 4+, Chrome 1+ */
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#002951), to(#00509e));
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#444444), to(#6a6a6a));
   /* Safari 5.1+, Chrome 10+ */
-  background-image: -webkit-linear-gradient(#002951, #00509e);
+  background-image: -webkit-linear-gradient(#444444, #6a6a6a);
   /* Opera 11.10+ */
-  background-image: -o-linear-gradient(#002951, #00509e);
+  background-image: -o-linear-gradient(#444444, #6a6a6a);
   float: left;
-  border-top: 2px solid #00366b;
-  background-color: #00509e;
+  border-top: 2px solid #515151;
+  background-color: #6a6a6a;
 }
 
 /* line 74, ../../../app/stylesheets/iphone.scss */
 .marketing {
-  background-color: #1e90ff;
+  background-color: #aaaaaa;
   position: relative;
   float: left;
 }
@@ -179,7 +204,7 @@ header {
 .marketing h1 {
   text-shadow: 2px 2px 2px #222222;
   margin: 0;
-  padding-bottom: .5em;
+  padding: 0em .25em .25em .25em;
   font-family: Helvetica, "Geneva", "Helvetica Neue", serif;
   font-size: 300%;
   font-weight: bold;
@@ -189,17 +214,17 @@ header {
 /* line 91, ../../../app/stylesheets/iphone.scss */
 #subnav {
   /* fallback/image non-cover color */
-  background-color: #b7dbff;
+  background-color: #f6f6f6;
   /* Firefox 3.6+ */
-  background-image: -moz-linear-gradient(#6ab6ff, #b7dbff);
+  background-image: -moz-linear-gradient(#d0d0d0, #f6f6f6);
   /* Safari 4+, Chrome 1+ */
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#6ab6ff), to(#b7dbff));
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d0d0d0), to(#f6f6f6));
   /* Safari 5.1+, Chrome 10+ */
-  background-image: -webkit-linear-gradient(#6ab6ff, #b7dbff);
+  background-image: -webkit-linear-gradient(#d0d0d0, #f6f6f6);
   /* Opera 11.10+ */
-  background-image: -o-linear-gradient(#6ab6ff, #b7dbff);
+  background-image: -o-linear-gradient(#d0d0d0, #f6f6f6);
   float: left;
-  background-color: #b7dbff;
+  background-color: #f6f6f6;
   padding-top: 6px;
   padding-bottom: 2px;
 }
@@ -220,7 +245,7 @@ header {
 /* line 111, ../../../app/stylesheets/iphone.scss */
 #logo a:hover {
   text-decoration: none;
-  color: #b7dbff;
+  color: #f6f6f6;
 }
 
 /* line 120, ../../../app/stylesheets/iphone.scss */
@@ -254,31 +279,31 @@ header {
   font-family: Helvetica, "Geneva", "Helvetica Neue", serif;
   font-size: 120%;
   color: white;
-  background-color: #00366b;
+  background-color: #515151;
 }
 /* line 144, ../../../app/stylesheets/iphone.scss */
 #nav ul li a:hover {
   text-decoration: none;
-  background-color: #00366b;
+  background-color: #515151;
 }
 
 /* line 152, ../../../app/stylesheets/iphone.scss */
 ul li a#nav_selected {
   /* fallback/image non-cover color */
-  background-color: #1e90ff;
+  background-color: #aaaaaa;
   /* Firefox 3.6+ */
-  background-image: -moz-linear-gradient(#1e90ff, #006ad1);
+  background-image: -moz-linear-gradient(#aaaaaa, #848484);
   /* Safari 4+, Chrome 1+ */
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1e90ff), to(#006ad1));
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#aaaaaa), to(#848484));
   /* Safari 5.1+, Chrome 10+ */
-  background-image: -webkit-linear-gradient(#1e90ff, #006ad1);
+  background-image: -webkit-linear-gradient(#aaaaaa, #848484);
   /* Opera 11.10+ */
-  background-image: -o-linear-gradient(#1e90ff, #006ad1);
-  background-color: #1e90ff;
+  background-image: -o-linear-gradient(#aaaaaa, #848484);
+  background-color: #aaaaaa;
 }
 /* line 155, ../../../app/stylesheets/iphone.scss */
 ul li a#nav_selected:hover {
-  background-color: #1e90ff;
+  background-color: #aaaaaa;
 }
 
 /* line 158, ../../../app/stylesheets/iphone.scss */
@@ -292,8 +317,8 @@ ul li a#nav_selected:hover {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  background-color: #00509e;
-  color: #b7dbff;
+  background-color: #6a6a6a;
+  color: #f6f6f6;
   padding: 1em;
 }
 
@@ -312,8 +337,8 @@ ul li a#nav_selected:hover {
   -khtml-border-radius: 0 0 10px 10px;
   border-radius: 0 0 10px 10px;
   float: right;
-  background-color: #00509e;
-  color: #b7dbff;
+  background-color: #6a6a6a;
+  color: #f6f6f6;
   font-size: 75%;
   padding: .5em;
 }
@@ -414,7 +439,7 @@ div#bio {
 }
 /* line 263, ../../../app/stylesheets/iphone.scss */
 .message:hover, div.urgent1:hover, div.urgent2:hover, div.urgent3:hover {
-  background-color: #b7dbff;
+  background-color: #f6f6f6;
 }
 
 /* line 266, ../../../app/stylesheets/iphone.scss */
@@ -438,17 +463,17 @@ a.recover {
   -webkit-border-radius: 30em;
   border-radius: 30em;
   /* fallback/image non-cover color */
-  background-color: #1e90ff;
+  background-color: #aaaaaa;
   /* Firefox 3.6+ */
-  background-image: -moz-linear-gradient(#1e90ff, #006ad1);
+  background-image: -moz-linear-gradient(#aaaaaa, #848484);
   /* Safari 4+, Chrome 1+ */
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1e90ff), to(#006ad1));
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#aaaaaa), to(#848484));
   /* Safari 5.1+, Chrome 10+ */
-  background-image: -webkit-linear-gradient(#1e90ff, #006ad1);
+  background-image: -webkit-linear-gradient(#aaaaaa, #848484);
   /* Opera 11.10+ */
-  background-image: -o-linear-gradient(#1e90ff, #006ad1);
+  background-image: -o-linear-gradient(#aaaaaa, #848484);
   color: #fff;
-  background-color: #1e90ff;
+  background-color: #aaaaaa;
   padding: .25em;
 }
 /* line 275, ../../../app/stylesheets/iphone.scss */
@@ -478,7 +503,7 @@ a.recover:hover {
 
 /* line 286, ../../../app/stylesheets/iphone.scss */
 a.attention_link {
-  color: #1e90ff;
+  color: #aaaaaa;
 }
 /* line 288, ../../../app/stylesheets/iphone.scss */
 a.attention_link:hover {
@@ -669,7 +694,7 @@ a.busy {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  background-color: #b7dbff;
+  background-color: #f6f6f6;
   color: red;
   padding: 1em;
 }
@@ -685,7 +710,7 @@ a.available {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  background-color: #b7dbff;
+  background-color: #f6f6f6;
   color: lime;
   padding: 1em;
 }
@@ -711,7 +736,7 @@ a.available:hover {
 }
 /* line 446, ../../../app/stylesheets/iphone.scss */
 .current_avatar img {
-  border: 2px solid #b7dbff;
+  border: 2px solid #f6f6f6;
 }
 
 /* line 450, ../../../app/stylesheets/iphone.scss */
@@ -733,7 +758,7 @@ a.available:hover {
 /* line 461, ../../../app/stylesheets/iphone.scss */
 .profile_name {
   font-size: 1.5em;
-  color: #00509e;
+  color: #6a6a6a;
 }
 
 /* line 466, ../../../app/stylesheets/iphone.scss */
@@ -947,9 +972,10 @@ a.signup {
   margin-top: .25em;
   margin-left: .25em;
   margin-right: .25em;
+  position: relative;
   border: 1px solid #803300;
 }
-/* line 568, ../../../app/stylesheets/iphone.scss */
+/* line 571, ../../../app/stylesheets/iphone.scss */
 a.signup:hover {
   /* fallback/image non-cover color */
   background-color: #ff944d;
@@ -963,7 +989,7 @@ a.signup:hover {
   background-image: -o-linear-gradient(#ff944d, #ff6600);
   text-decoration: none;
 }
-/* line 572, ../../../app/stylesheets/iphone.scss */
+/* line 575, ../../../app/stylesheets/iphone.scss */
 a.signup:active {
   /* fallback/image non-cover color */
   background-color: #ff944d;
@@ -979,7 +1005,7 @@ a.signup:active {
   -webkit-box-shadow: inset 0 0 8px 4px #b34700, 0 1px 0 0 #eeeeee;
   box-shadow: inset 0 0 8px 4px #b34700, 0 1px 0 0 #eeeeee;
 }
-/* line 579, ../../../app/stylesheets/iphone.scss */
+/* line 582, ../../../app/stylesheets/iphone.scss */
 a.signup:hover {
   /* fallback/image non-cover color */
   background-color: #ff944d;
@@ -994,46 +1020,27 @@ a.signup:hover {
   text-decoration: none;
 }
 
-/* line 587, ../../../app/stylesheets/iphone.scss */
-.cupid-green {
-  background: #7fbf4d;
-  background: -moz-linear-gradient(top, #7fbf4d 0%, #63a62f 100%);
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7fbf4d), to(#63a62f));
-  border: 1px solid #63a62f;
-  border-bottom: 1px solid #5b992b;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  -moz-box-shadow: inset 0 1px 0 0 #96ca6d;
-  -webkit-box-shadow: inset 0 1px 0 0 #96ca6d;
-  box-shadow: inset 0 1px 0 0 #96ca6d;
-  color: #fff;
-  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 1;
-  padding: 17px 0 18px 0;
-  text-align: center;
-  text-shadow: 0 -1px 0 #4c9021;
-  width: 150px;
+/* line 589, ../../../app/stylesheets/iphone.scss */
+.left, .center, .right {
+  margin-top: 2em;
 }
 
-/* line 610, ../../../app/stylesheets/iphone.scss */
-.cupid-green:hover {
-  background: #76b347;
-  background: -moz-linear-gradient(top, #76b347 0%, #5e9e2e 100%);
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#76b347), to(#5e9e2e));
-  -moz-box-shadow: inset 0 1px 0 0 #8dbf67;
-  -webkit-box-shadow: inset 0 1px 0 0 #8dbf67;
-  box-shadow: inset 0 1px 0 0 #8dbf67;
-  cursor: pointer;
+/* line 596, ../../../app/stylesheets/iphone.scss */
+.title {
+  color: #515151;
+  font-size: 1.6em;
+  margin: 0 0 1em 0;
+  line-height: 100%;
 }
 
-/* line 620, ../../../app/stylesheets/iphone.scss */
-.cupid-green:active {
-  border: 1px solid #5b992b;
-  border-bottom: 1px solid #538c27;
-  -moz-box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eee;
-  -webkit-box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eee;
-  box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eee;
+/* line 603, ../../../app/stylesheets/iphone.scss */
+.description {
+  color: #999999;
+  font-size: 1em;
+  width: 100%;
+  line-height: 120%;
+}
+/* line 609, ../../../app/stylesheets/iphone.scss */
+.description strong {
+  color: #6a6a6a;
 }

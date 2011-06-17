@@ -2,8 +2,8 @@ class PagesController < ApplicationController
 
   def home
     @title = "Home"
-    @slogan = "Ensure only important messages get your attention."
-    @content = "Welcome to Notifier!"
+    @slogan = "Ignore distractions, worry-free."
+    #@content = "Welcome to Notifier!"
     #@toDo = rank_url(:token => "bam!", :host => "dev.vybly.com")
     
   end

@@ -97,7 +97,7 @@ $bad: #f00;
 
 
 //$main: lighten(#00FFFF, 25%); //Aqua
-$main: #1E90FF; //DodgerBlue
+//$main: #1E90FF; //DodgerBlue
 //$main: #FF3333; //Red
 //$main: lighten(#FF7519, 15%); //Orange
 //$main: #F60; //YC Orange
@@ -111,6 +111,7 @@ $main: #1E90FF; //DodgerBlue
 //$main: #FF00FF; //Magenta - nope
 //$main: #87CEFA; //LightSkyBlue
 //$main: #98FB98; //PaleGreen
+$main: #AAA; // Grey
 
 $main-dark: darken($main, 25%);
 //$main-dark: #999;

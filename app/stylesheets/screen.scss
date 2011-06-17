@@ -55,12 +55,14 @@ a:hover {
 }
 
 .marketing {
-	@include gradient($main);
+	@include rgradient($main);
+	text-align: center;
 	padding-top: 1.5em;
 }
 
+
 header { 
-	@include rgradient($main-dark);
+	//@include rgradient($main-dark);
 	border-top: 2px solid $main-very-dark;
 	background-color: $main-dark;
  }
@@ -443,6 +445,7 @@ a.available {
 .unknown { color: $quiet-text-color; }
 
 a.busy_button {
+	background: #f60;
 	@include gradient(#f60);
 	@include round;
 	@include shadow;
@@ -461,6 +464,7 @@ a.busy_button {
 	border: 1px solid darken(#f60, 25%);
 
 	&:hover {
+		background: lighten(#f60, 15%);
 		@include gradient(lighten(#f60, 15%));
 		text-decoration: none;
 	}
@@ -478,6 +482,7 @@ a.busy_button {
 }
 
 a.available_button {
+	background: $good;
 	@include gradient($good);
 	@include round;
 	@include shadow;
@@ -496,6 +501,7 @@ a.available_button {
 	border: 1px solid darken($good, 25%);
 
 	&:hover {
+		background: lighten($good, 15%);
 		@include gradient(lighten($good, 15%));
 		text-decoration: none;
 	}
@@ -513,23 +519,26 @@ a.available_button {
 }
 
 a.signup {
+	background: #f60;
 	@include gradient(#f60);
 	@include round;
 	@include shadow;
 	float: right;
 	position: absolute;
-	top: 192px;
+	top: 150px;
 	//right: 160px;
 	z-index: 50;
-	margin-left: 450px;
+	margin-left: 320px;
 	display: block;
 	text-align: center;
-	width: 280px;
+	width: 300px;
+	//height: 100px;
 	color: #fff;
 	//background: #FF7519;
 	font-size: 250%;
 	font-weight: bold;
 	//padding: 10px 0px 10px 0px;
+	padding-top: 4px;
 	//margin-bottom: .5em;
 	//height: 93px;
 	//margin-top: .25em;
@@ -538,6 +547,7 @@ a.signup {
 	border: 1px solid darken(#f60, 25%);
 
 	&:hover {
+		background: lighten(#f60, 15%);
 		@include gradient(lighten(#f60, 15%));
 		text-decoration: none;
 	}
@@ -551,7 +561,7 @@ a.signup {
 }
 
 .slogan {
-	width: 70%;
+	width: 100%;
 	float: left;
 	//border: 2px solid #000;
 }
@@ -597,6 +607,32 @@ a.signup {
   -moz-box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eee;
   -webkit-box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eee;
   box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eee;
+}
+
+.left, .center, .right { 
+	float: left; 
+	width: 30%; 
+	padding: 0 1em 0 1em; 
+	//margin-left: -1em;
+	margin-top: 3em;
+}
+
+.title, .description { text-align: left;}
+
+.title {
+	color: $main-dark;
+	font-size: 1.6em;
+	margin: 0 0 1em 0;
+	line-height: 100%;
+}
+
+.description {
+	color: $quiet-text-color;
+	font-size: 1em;
+	width: 90%;
+	//margin: auto;
+	line-height: 120%;
+	strong { color: $main; }
 }
 
 
