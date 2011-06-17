@@ -5,10 +5,7 @@
 		.row
 			%span.account_notification_information
 				- unless account.notification_service.nil?
-					= form_for account do |f|
-						= render 'shared/error_messages', :object => f.object
-						.field
-							= f.collection_select( :notification_service_id, account.user.notification_services, :id, :description)
+					= select_box_for account
 				- else
 					= link_to '( Add Notification Service )', edit_account_path(account)
 		.row

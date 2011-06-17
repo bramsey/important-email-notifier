@@ -35,6 +35,7 @@ Notifier::Application.routes.draw do
     member do
       post :toggle_active
       post :toggle_reply
+      post :update_service
     end
   end
   

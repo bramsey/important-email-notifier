@@ -55,6 +55,14 @@ class AccountsController < ApplicationController
     render :nothing => true
   end
   
+  def update_service
+    @account = Account.find(params[:id])
+    service_id = params[:service_id]
+    @account.update_attribute(:notification_service_id, service_id.to_i) unless service_id.nil?
+    
+    render :nothing => true
+  end
+  
   def index
     @user = User.find(params[:user_id])
     @title = "Accounts"
