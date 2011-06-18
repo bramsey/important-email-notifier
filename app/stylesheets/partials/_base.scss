@@ -19,6 +19,7 @@ $marketing-color: $back-color;
 $good: #0f0;
 $caution: #FF7519;
 $bad: #f00;
+$action: #f60;
 
 
 //@mixin shadow { text-shadow: 0px 0px 0px #222222; }
@@ -84,6 +85,33 @@ $bad: #f00;
 	   background-image: -o-linear-gradient(darken($color, 15%), $color);
 }
 
+@mixin button($color) {
+	background: $color;
+	@include gradient($color);
+	@include round;
+	@include shadow;
+	display: block;
+	text-align: center;
+	color: #fff;
+	font-size: 250%;
+	font-weight: bold;
+	text-decoration: none;
+
+	border: 1px solid darken($color, 25%);
+
+	&:hover {
+		background: lighten($color, 15%);
+		@include gradient(lighten($color, 15%));
+		text-decoration: none;
+	}
+	&:active {
+		background: lighten($color, 15%);
+		@include rgradient(lighten($color, 15%));
+		-moz-box-shadow: inset 0 0 8px 4px darken($color, 15%), 0 1px 0 0 #eee;
+		-webkit-box-shadow: inset 0 0 8px 4px darken($color, 15%), 0 1px 0 0 #eee;
+		box-shadow: inset 0 0 8px 4px darken($color, 15%), 0 1px 0 0 #eee;
+	}
+}
 
 //$main: lighten(#00FFFF, 25%); //Aqua
 $main: #1E90FF; //DodgerBlue

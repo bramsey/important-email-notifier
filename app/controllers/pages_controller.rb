@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 
   def home
     @title = "Home"
-    @slogan = "Ignore distractions, worry-free."
+    @slogan = "Safely ignore distractions."
     #@content = "Welcome to Notifier!"
     #@toDo = rank_url(:token => "bam!", :host => "dev.vybly.com")
     
@@ -10,8 +10,8 @@ class PagesController < ApplicationController
 
   def contact
     @title = "Contact"
-    @slogan = "How to reach us."
-    @toDo = "Insert contact form and social networking info."
+    #@slogan = "Have a question or comment?."
+    #@toDo = "Insert contact form and social networking info."
   end
 
   def about

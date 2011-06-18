@@ -445,80 +445,32 @@ a.available {
 .unknown { color: $quiet-text-color; }
 
 a.busy_button {
-	background: #f60;
-	@include gradient(#f60);
-	@include round;
-	@include shadow;
-  	display: block;
-	text-align: center;
+	@include button(#f60);
 	width: 430px;
-	color: #fff;
-	//background: #FF7519;
-	font-size: 250%;
-	font-weight: bold;
 	padding: 20px;
 	margin-bottom: .5em;
 	margin-top: .25em;
-	text-decoration: none;
-	
-	border: 1px solid darken(#f60, 25%);
-
-	&:hover {
-		background: lighten(#f60, 15%);
-		@include gradient(lighten(#f60, 15%));
-		text-decoration: none;
-	}
-	&:active {
-		@include rgradient(lighten(#f60, 15%));
-		-moz-box-shadow: inset 0 0 8px 4px darken(#f60, 15%), 0 1px 0 0 #eee;
-		-webkit-box-shadow: inset 0 0 8px 4px darken(#f60, 15%), 0 1px 0 0 #eee;
-		box-shadow: inset 0 0 8px 4px darken(#f60, 15%), 0 1px 0 0 #eee;
-	}
-
-	&:hover {
-		@include gradient(lighten(#f60, 15%));
-		text-decoration: none;
-	}
 }
 
 a.available_button {
-	background: $good;
-	@include gradient($good);
-	@include round;
-	@include shadow;
-  	display: block;
-	text-align: center;
+	@include button($good);
 	width: 430px;
-	color: #fff;
-	//background: #FF7519;
-	font-size: 250%;
-	font-weight: bold;
 	padding: 20px;
 	margin-bottom: .5em;
 	margin-top: .25em;
-	text-decoration: none;
-	
-	border: 1px solid darken($good, 25%);
-
-	&:hover {
-		background: lighten($good, 15%);
-		@include gradient(lighten($good, 15%));
-		text-decoration: none;
-	}
-	&:active {
-		@include rgradient(lighten($good, 15%));
-		-moz-box-shadow: inset 0 0 8px 4px darken($good, 15%), 0 1px 0 0 #eee;
-		-webkit-box-shadow: inset 0 0 8px 4px darken($good, 15%), 0 1px 0 0 #eee;
-		box-shadow: inset 0 0 8px 4px darken($good, 15%), 0 1px 0 0 #eee;
-	}
-
-	&:hover {
-		@include gradient(lighten($good, 15%));
-		text-decoration: none;
-	}
 }
 
 a.signup {
+	@include button($action);
+	position: absolute;
+	top: 150px;
+	z-index: 50;
+	margin-left: 320px;
+	width: 280px;	
+}
+
+
+a.backup {
 	background: #f60;
 	@include gradient(#f60);
 	@include round;
@@ -538,7 +490,7 @@ a.signup {
 	font-size: 250%;
 	font-weight: bold;
 	//padding: 10px 0px 10px 0px;
-	padding-top: 4px;
+	//padding-top: 4px;
 	//margin-bottom: .5em;
 	//height: 93px;
 	//margin-top: .25em;
