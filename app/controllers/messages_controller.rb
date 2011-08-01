@@ -80,7 +80,6 @@ class MessagesController < ApplicationController
         msg.received_account.notification_service.notify(msg) unless msg == "Ignore" || msg.nil?
         @link = "priority notification sent at #{Time.now}"
         render :text => @link
-        #render :nothing => true #set this to a success response eventually
       else
         @link = Message.initiate( sender, recipient, subject )
         render :text => @link
