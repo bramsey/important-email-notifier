@@ -11,7 +11,7 @@ class NotifoService < NotificationService
     url_path = "http://dev.vybly.com/rank?token=#{token}"
     
     #notifo = Notifo.new("billiamram","notifo_key")
-    notifo = Notifo.new("vybly", "notifo_key")
+    notifo = Notifo.new("vybly", "621f938db528841c27a61f3eeda741de66905e3c")
     notifo.post(username, msg.content, "New message from #{msg.sender.email}!", url_path)
     
     

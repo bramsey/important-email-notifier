@@ -1,0 +1,5 @@
+# Important Email Notifier
+
+This tool is meant to help people avoid interruptions by notifying them of new emails only when emails are flagged as important.  Upon receiving the notification, the recipient has the option to disagree with the sender's assessment of importance, causing future messages from that sender to no longer trigger a notification.  It also has the option of auto-responding to emails letting the sender know the recipient is busy and giving them a way to flag an email as important.
+
+The desired workflow for use with this tool involves checking email in designated intervals (such as once or twice a day) to catch the "unimportant" or non-urgent email, while relying on notifications for anything that requires urgent attention.  The object structure is designed to be easy to plug in different types of notifications, but I've used notifo(http://notifo.com) as the default for personal use.

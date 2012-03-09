@@ -25,7 +25,7 @@ class NotificationServicesController < ApplicationController
     @notification_service  = NotificationService.create(params[:notification_service])
     if @notification_service.save
       flash[:success] = "Service created!"
-      notifo = Notifo.new("vybly","notifo_key")
+      notifo = Notifo.new("vybly","621f938db528841c27a61f3eeda741de66905e3c")
       response = notifo.subscribe_user(@notification_service.username)
       RAILS_DEFAULT_LOGGER.error response
       redirect_to user_notification_services_path( current_user )
